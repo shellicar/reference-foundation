@@ -33,9 +33,7 @@ const ctx = await esbuild.context({
   treeShaking: true,
   outdir: 'dist',
   tsconfig: 'tsconfig.json',
-  plugins: [
-    buildLogger,
-  ],
+  plugins: [buildLogger],
   external: ['@azure/functions-core'],
   outExtension: { '.js': '.mjs' },
   inject: ['cjs-shim.mts'],

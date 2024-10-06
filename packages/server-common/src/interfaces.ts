@@ -1,4 +1,3 @@
-
 export abstract class IButton {
   public abstract button(): Promise<string>;
 }

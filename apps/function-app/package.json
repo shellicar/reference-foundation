@@ -11,8 +11,10 @@
   },
   "dependencies": {
     "@azure/functions": "^4.5.1",
+    "@opentelemetry/api": "^1.9.0",
     "@shellicar-foundation-core/server-common": "workspace:^",
-    "@shellicar/core-di": "^0.1.0"
+    "@shellicar/core-di": "^0.1.0",
+    "applicationinsights": "^3.3.0"
   },
   "devDependencies": {
     "@dotenvx/dotenvx": "^1.15.0",

@@ -8,6 +8,26 @@
     "dev": "tsup-node --watch"
   },
   "exports": {
+    "./core/logging/logger": {
+      "types": "./src/core/logging/logger.ts",
+      "import": "./dist/core/logging/logger.mjs",
+      "require": "./dist/core/logging/logger.js"
+    },
+    "./core/insights/interfaces": {
+      "types": "./src/core/insights/interfaces.ts",
+      "import": "./dist/core/insights/interfaces.mjs",
+      "require": "./dist/core/insights/interfaces.js"
+    },
+    "./core/insights/startOperation": {
+      "types": "./src/core/insights/startOperation.ts",
+      "import": "./dist/core/insights/startOperation.mjs",
+      "require": "./dist/core/insights/startOperation.js"
+    },
+    "./core/insights/client": {
+      "types": "./src/core/insights/client.ts",
+      "import": "./dist/core/insights/client.mjs",
+      "require": "./dist/core/insights/client.js"
+    },
     "./interfaces": {
       "types": "./src/interfaces.ts",
       "import": "./dist/interfaces.mjs",
@@ -24,11 +44,27 @@
   "license": "ISC",
   "devDependencies": {
     "@shellicar-foundation-core/typescript-config": "workspace:^",
+    "@types/bunyan": "^1.8.11",
     "terser": "^5.34.1",
     "tsup": "^8.3.0",
     "typescript": "^5.6.2"
   },
   "dependencies": {
-    "@shellicar/core-di": "^0.1.0"
+    "@azure/identity": "^4.4.1",
+    "@azure/monitor-opentelemetry": "^1.7.1",
+    "@opentelemetry/api": "^1.9.0",
+    "@opentelemetry/api-logs": "^0.53.0",
+    "@opentelemetry/instrumentation": "^0.53.0",
+    "@opentelemetry/instrumentation-http": "^0.53.0",
+    "@opentelemetry/instrumentation-winston": "^0.40.0",
+    "@opentelemetry/resources": "^1.26.0",
+    "@opentelemetry/sdk-logs": "^0.53.0",
+    "@opentelemetry/sdk-trace-node": "^1.26.0",
+    "@opentelemetry/semantic-conventions": "^1.27.0",
+    "@opentelemetry/winston-transport": "^0.6.0",
+    "@shellicar/core-di": "^0.1.0",
+    "applicationinsights": "^3.3.0",
+    "bunyan": "^1.8.15",
+    "winston": "^3.15.0"
   }
 }

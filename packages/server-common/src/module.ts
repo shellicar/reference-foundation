@@ -1,8 +1,8 @@
-import { type IServiceCollection, IServiceModule } from "@shellicar/core-di";
-import { IButton, IInput, IManager } from "./interfaces";
-import { Button } from "./button";
-import { Input } from "./input";
-import { Manager } from "./Manager";
+import { type IServiceCollection, IServiceModule } from '@shellicar/core-di';
+import { Manager } from './Manager';
+import { Button } from './button';
+import { Input } from './input';
+import { IButton, IInput, IManager } from './interfaces';
 
 export class ManagerModule extends IServiceModule {
   registerServices(services: IServiceCollection): void {

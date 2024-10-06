@@ -14,5 +14,8 @@
   ],
   "editor.tabSize": 2,
   "editor.detectIndentation": false,
-  "editor.insertSpaces": true
+  "editor.insertSpaces": true,
+  "[typescript]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  }
 }

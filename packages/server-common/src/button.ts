@@ -1,4 +1,4 @@
-import { IButton } from "./interfaces";
+import { IButton } from './interfaces';
 
 export class Button extends IButton {
   public button(): Promise<string> {
