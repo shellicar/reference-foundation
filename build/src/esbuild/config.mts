@@ -14,7 +14,10 @@ const defaultOptions: BuildOptions = {
   treeShaking: true,
   outdir: 'dist',
   tsconfig: 'tsconfig.json',
-  plugins: [gitVersion, buildLogger],
+  plugins: [
+    gitVersion,
+    buildLogger,
+  ],
   external: ['@azure/functions-core'],
   outExtension: { '.js': '.mjs' },
   inject: ['cjs-shim.mts'],
@@ -29,6 +32,10 @@ export const createBuildContext = async (userOptions: Partial<BuildOptions> = {}
     minify: !watch,
     ...defaultOptions,
     ...userOptions,
+    plugins: [
+      ...(defaultOptions.plugins ?? []),
+      ...(userOptions.plugins ?? []),
+    ],
   };
 
   return context(options);

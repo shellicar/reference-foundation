@@ -6,6 +6,9 @@
     "./esbuild/buildLogger": {
       "default": "./src/esbuild/buildLogger.ts"
     },
+    "./esbuild/graphqlLoader": {
+      "default": "./src/esbuild/graphqlLoader.ts"
+    },
     "./esbuild/gitVersion": {
       "default": "./src/esbuild/gitVersion.ts"
     },
@@ -17,8 +20,10 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@luckycatfactory/esbuild-graphql-loader": "^3.8.1",
     "@shellicar-core-foundation/typescript-config": "workspace:^",
     "@types/node": "^22.7.4",
+    "@types/uuid": "^10.0.0",
     "esbuild": "^0.24.0",
     "glob": "^11.0.0",
     "tsup": "^8.3.0",

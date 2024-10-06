@@ -1,0 +1,12 @@
+type Query {
+  version: Version!  
+}
+
+type Version {
+  buildDate: String
+  branch: String
+  sha: String
+  shortSha: String
+  commitDate: String
+  version: String
+}
