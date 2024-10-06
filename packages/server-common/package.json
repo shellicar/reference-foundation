@@ -1,0 +1,30 @@
+{
+  "name": "@shellicar-foundation-core/server-common",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsup"
+  },
+  "exports": {
+    "./button": {
+      "types": "./src/button.ts",
+      "import": "./dist/button.mjs",
+      "require": "./dist/button.js"
+    },
+    "./input": {
+      "types": "./src/input.ts",
+      "import": "./dist/input.mjs",
+      "require": "./dist/input.js"
+    }
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@shellicar-foundation-core/typescript-config": "workspace:^",
+    "terser": "^5.34.1",
+    "tsup": "^8.3.0",
+    "typescript": "^5.6.2"
+  }
+}

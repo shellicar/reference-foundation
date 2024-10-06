@@ -11,5 +11,8 @@
     "Syncpack",
     "syncpackrc",
     "tsup"
-  ]
+  ],
+  "editor.tabSize": 2,
+  "editor.detectIndentation": false,
+  "editor.insertSpaces": true
 }

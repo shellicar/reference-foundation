@@ -8,7 +8,8 @@
     "start": "func start"
   },
   "dependencies": {
-    "@azure/functions": "^4.5.1"
+    "@azure/functions": "^4.5.1",
+    "@shellicar-foundation-core/server-common": "workspace:^"
   },
   "devDependencies": {
     "@shellicar-foundation-core/typescript-config": "workspace:^",
