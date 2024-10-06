@@ -1,12 +1,16 @@
 {
-  "name": "@shellicar/core-foundation",
+  "name": "@shellicar/foundation-core",
   "version": "0.1.0",
   "description": "@shellicar/core-foundation is a comprehensive starter repository for building modern applications, including monorepo setups, infrastructure, web frameworks, Docker, TypeScript, testing, and more.",
+  "packageManager": "pnpm@9.12.0+sha512.4abf725084d7bcbafbd728bfc7bee61f2f791f977fd87542b3579dcb23504d170d46337945e4c66485cd12d588a0c0e570ed9c477e7ccdd8507cf05f3f92eaca",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "turbo": "^2.1.3"
+  }
 }

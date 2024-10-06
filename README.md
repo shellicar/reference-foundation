@@ -1,5 +1,14 @@
 # @shellicar/core-foundation
 
+[![Node.js](https://img.shields.io/badge/node-20-green)][node]
+[![npm](https://img.shields.io/badge/npm-10.8.2-blue)][npm]
+[![PNPM](https://img.shields.io/badge/pnpm-9.12.0-F69220)][pnpm]
+[![TypeScript](https://img.shields.io/badge/language-TypeScript-blue)][typescript]
+[![Docker](https://img.shields.io/badge/docker-supported-blue)][docker]
+[![Checked with Biome](https://img.shields.io/badge/Checked_with-Biome-60a5fa?style=flat&logo=biome)][biome]
+[![AI Assisted](https://img.shields.io/badge/AI--Assisted-ChatGPT-brightgreen)][chatgpt]
+
+
 `@shellicar/core-foundation` is a comprehensive starter repository created out of practical necessity to provide a solid foundation for building modern applications and services. It includes the tools and configurations I frequently use, helping streamline development and reduce repetitive setup tasks.
 
 This repository brings together a range of technologies, including monorepo setups, linting, infrastructure as code, web frameworks, Docker Compose projects, and dependency injection. By using core-foundation, I aim to improve my own efficiency and share the practices that work well for me, hoping others might find them useful too.
@@ -128,21 +137,109 @@ Azure CLI also includes the [Bicep][bicep] tool, which is used for infrastructur
 
 ## Node Version Management
 
-This section will explain how to use Node Version Manager (NVM) for managing Node.js versions in your development environment.
+This section provides guidance on using **Node Version Manager (NVM)** for managing Node.js versions in your development environment.
+
+Using **NVM** allows for a consistent Node.js version across all contributors' environments, which is especially important when working on projects that have specific version requirements.
+
+### Setting Up NVM
+
+To manage Node.js versions effectively:
+
+1. **Install NVM**: The setup script in this repository will automatically install NVM if it is not already present. You can also follow the official [NVM installation instructions][nvm-install].
+
+1. **Specify Node Version**: The required Node.js version is specified in the `.nvmrc` file. You can install the specified version by running:
+
+   ```sh
+   nvm use
+   ```
+
+   If the specified version is not installed, NVM will download it.
+
+1. **Fallback Version**: If the `.nvmrc` file is missing, the script defaults to using `lts/*` to ensure a stable Node.js version is installed.
+
+For more information on using NVM, visit the official [NVM documentation][nvm-usage].
 
 ## Monorepo Structure
 
+This project utilizes a **monorepo** setup to manage multiple packages and projects in a single repository. The setup is powered by **Turbo** and **PNPM Workspaces** to handle task orchestration and dependency management.
+
 ### Turbo & PNPM Workspaces
 
-Details on how to set up and use Turbo with PNPM workspaces for managing a monorepo efficiently.
+- **PNPM Workspaces** provide a way to manage multiple packages in a single repository, allowing efficient dependency sharing between packages without redundancy.
+
+- **Turbo** is used to speed up and orchestrate tasks, such as builds and tests, across different packages by using intelligent caching and parallel task execution.
+
+### Configuration Files
+
+- **`pnpm-workspace.yaml`**: This file defines which packages are part of the workspace. It allows PNPM to recognize and manage interdependencies between packages.
+
+- **`turbo.json`**: This file is used to configure the Turbo build system, specifying tasks like building, testing, and linting. For more information on configuring Turbo, refer to the [Turbo documentation][turbo].
+
+For more information on using PNPM Workspaces and Turbo, see their respective documentation:
+
+- [PNPM Workspaces][pnpm-workspaces]
+- [Turbo Configuration][turbo-config]
 
 ### Package Management & Syncing
 
-Overview of package management strategies and synchronization practices.
+This repository uses **PNPM** as the preferred package manager, supported by **Corepack** for version management. PNPM is chosen due to its efficiency and compatibility with monorepo structures.
+
+### Using Corepack with PNPM
+
+- **Corepack**: Corepack is included with recent Node.js versions and is used to manage package managers like PNPM. This ensures the correct version of PNPM is used as specified in the repository configuration.
+
+- **Specifying PNPM Version**: The PNPM version used by the repository is specified in the `packageManager` field within `package.json`. To ensure that the correct version is being used, simply run:
+
+  ```sh
+  corepack prepare --activate
+  ```
+
+  This command activates the version specified in `package.json`.
+
+- **Updating PNPM**: If an update is required for PNPM, you can run:
+
+  ```sh
+  corepack up
+  ```
+
+  This command updates the `packageManager` field to the latest version, which can then be activated using Corepack.
+
+For more details, refer to the official [Corepack documentation][corepack].
 
 ### Syncpack
 
-Explanation of using `Syncpack` to manage consistent dependency versions across the monorepo.
+**Syncpack** is used in this repository to manage consistent dependency versions across packages in the monorepo. It ensures that the same versions of shared dependencies are used, avoiding version conflicts and reducing the risk of inconsistencies.
+
+#### Syncpack Features
+
+- **Dependency Alignment**: Ensures dependencies are correctly aligned across different packages.
+- **List and Fix Mismatches**: Syncpack can identify mismatches in version numbers between packages and help in fixing them.
+
+#### Helper Scripts
+
+To simplify the use of Syncpack, there are predefined helper scripts configured in `package.json`:
+
+- **List Mismatches**: Use the following command to check if there are any version mismatches across packages:
+
+  ```sh
+  pnpm list-mismatches
+  ```
+
+  This script runs `syncpack list-mismatches` under the hood to identify version inconsistencies.
+
+- **Fix Mismatches**: To automatically fix any version mismatches, use:
+
+  ```sh
+  pnpm fix-mismatches
+  ```
+
+  This script runs `syncpack fix-mismatches` to align version numbers across all packages.
+
+#### Configuration
+
+Syncpack is configured using the `.syncpackrc` file in the repository. This file controls the rules for version alignment, ensuring consistency for all shared dependencies.
+
+For more information, see the [Syncpack documentation][syncpack].
 
 ### GitVersion
 
@@ -240,3 +337,19 @@ Details on how Structurizr is used to create architectural diagrams for document
 [docker]: https://www.docker.com/
 [azure-cli]: https://learn.microsoft.com/en-us/cli/azure/
 [bicep]: https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/
+
+[nvm-install]: https://github.com/nvm-sh/nvm?tab=readme-ov-file#installing-and-updating
+[nvm-usage]: https://github.com/nvm-sh/nvm?tab=readme-ov-file#usage
+[pnpm-workspaces]: https://pnpm.io/workspaces
+[turbo]: https://turbo.build/
+[turbo-config]: https://turbo.build/repo/docs/reference/configuration
+
+[corepack]: https://nodejs.org/api/corepack.html
+[syncpack]: https://github.com/JamieMason/syncpack?tab=readme-ov-file#commands
+[chatgpt]: https://openai.com/chatgpt
+[biome]: https://biomejs.dev
+[typescript]: https://www.typescriptlang.org/
+[node]: https://nodejs.org/en
+[npm]: https://www.npmjs.com/
+
+*This README was created with the assistance of [ChatGPT][chatgpt] by OpenAI.*

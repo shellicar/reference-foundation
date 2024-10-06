@@ -8,6 +8,7 @@
     "Structurizr",
     "superforms",
     "Syncpack",
+    "syncpackrc",
     "tsup"
   ]
 }
