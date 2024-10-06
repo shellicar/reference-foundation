@@ -9,7 +9,9 @@
     "format": "biome format",
     "ci": "biome ci --diagnostic-level=error",
     "ci:fix": "biome check --diagnostic-level=error --fix",
-    "update-readme": "sh ./update-readme.sh"
+    "update-readme": "sh ./update-readme.sh",
+    "build": "turbo run build",
+    "dev": "turbo run dev"
   },
   "keywords": [],
   "author": "",

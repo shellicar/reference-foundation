@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "tsup"
+    "build": "tsup-node",
+    "dev": "tsup-node --watch"
   },
   "exports": {
     "./button": {
