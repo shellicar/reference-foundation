@@ -354,9 +354,25 @@ For basic setup and usage of `@shellicar/core-di`, refer to the [core-di documen
 
 ## Logging and Monitoring
 
-### App Insights & Winston
+Effective logging and monitoring are crucial for maintaining the health and performance of applications. They provide insights into application behavior, help identify issues, and allow for proactive maintenance. This repository leverages **Application Insights** for telemetry and performance monitoring, along with **Winston** for flexible logging.
 
-Details on integrating Application Insights and Winston logging, and how they are configured for centralized logging and monitoring.
+### Application Insights & Winston
+
+In this setup, I'm using the **@opentelemetry/*** package suite along with **Application Insights 3.x** and **Winston**. Currently, I am migrating from Application Insights 2.x and experimenting with the best configuration for centralized logging and monitoring.
+
+#### Logging Configuration
+
+- **Winston** is used as the logging library, providing a robust and customizable logging solution.
+- The following transports are integrated:
+  - **ApplicationInsightsExceptionTransport**: A custom transport that logs error-like objects at error level or higher as exceptions in Application Insights. This helps capture and categorize errors effectively.
+  - **OpenTelemetryTransportV3**: This transport facilitates sending telemetry data to Application Insights via OpenTelemetry, ensuring comprehensive monitoring across various application layers.
+  - **Console Transport**: This transport outputs logs to the console for local development and debugging.
+
+### Use of OpenTelemetry
+
+The `useAzureMonitor` function from the Azure OpenTelemetry library is utilized for tracking other performance metrics and telemetry data. This integration enables enhanced observability of the application.
+
+For more details on integrating Application Insights and Winston, refer to the official [Application Insights documentation][app-insights-overview] and [Winston documentation][winston].
 
 ## Function Applications
 
@@ -441,5 +457,8 @@ Details on how Structurizr is used to create architectural diagrams for document
 [tsup]: https://github.com/egoist/tsup
 [tsconfig-sharing]: https://turbo.build/repo/docs/guides/tools/typescript#sharing-tsconfigjson
 [esbuild]: https://esbuild.github.io/
+
+[app-insights-overview]: (https://learn.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview)
+[winston]: https://github.com/winstonjs/winston
 
 *This README was created with the assistance of [ChatGPT][chatgpt] by OpenAI.*
