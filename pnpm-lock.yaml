@@ -33,6 +33,9 @@ importers:
       applicationinsights:
         specifier: ^3.3.0
         version: 3.3.0
+      winston:
+        specifier: ^3.15.0
+        version: 3.15.0
     devDependencies:
       '@dotenvx/dotenvx':
         specifier: ^1.15.0
@@ -109,6 +112,12 @@ importers:
       winston:
         specifier: ^3.15.0
         version: 3.15.0
+      winston-transport:
+        specifier: ^4.8.0
+        version: 4.8.0
+      zod:
+        specifier: ^3.23.8
+        version: 3.23.8
     devDependencies:
       '@shellicar-foundation-core/typescript-config':
         specifier: workspace:^
@@ -1928,6 +1937,9 @@ packages:
   yargs@17.7.2:
     resolution: {integrity: sha512-7dSzzRQ++CKnNI/krKnYRV7JKKPUXMEh61soaHKg9mrWEhzFWhFnxPxGl+69cD1Ou63C13NUPCnmIcrvqCuM6w==}
     engines: {node: '>=12'}
+
+  zod@3.23.8:
+    resolution: {integrity: sha512-XBx9AXhXktjUqnepgTiE5flcKIYWi/rme0Eaj+5Y0lftuGBq+jyRu/md4WnuxqgP1ubdpNCsYEYPxrzVHD8d6g==}
 
 snapshots:
 
@@ -3773,3 +3785,5 @@ snapshots:
       string-width: 4.2.3
       y18n: 5.0.8
       yargs-parser: 21.1.1
+
+  zod@3.23.8: {}

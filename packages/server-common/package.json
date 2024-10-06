@@ -13,6 +13,11 @@
       "import": "./dist/core/logging/logger.mjs",
       "require": "./dist/core/logging/logger.js"
     },
+    "./core/logging/testLogging": {
+      "types": "./src/core/logging/testLogging.ts",
+      "import": "./dist/core/logging/testLogging.mjs",
+      "require": "./dist/core/logging/testLogging.js"
+    },
     "./core/insights/interfaces": {
       "types": "./src/core/insights/interfaces.ts",
       "import": "./dist/core/insights/interfaces.mjs",
@@ -65,6 +70,8 @@
     "@shellicar/core-di": "^0.1.0",
     "applicationinsights": "^3.3.0",
     "bunyan": "^1.8.15",
-    "winston": "^3.15.0"
+    "winston": "^3.15.0",
+    "winston-transport": "^4.8.0",
+    "zod": "^3.23.8"
   }
 }
