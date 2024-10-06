@@ -1,14 +1,14 @@
 import { type HttpHandler, app } from '@azure/functions';
-import { button } from '@shellicar-foundation-core/server-common/button';
-import { input } from '@shellicar-foundation-core/server-common/input';
+import { container } from '../core/di/container';
+import { IManager } from '@shellicar-foundation-core/server-common/interfaces';
 
 const handler: HttpHandler = async (context, req) => {
+  const manager = container.resolve(IManager);
   return {
     status: 200,
     body: JSON.stringify({
       message: 'hello world',
-      input: input(),
-      button: button(),
+      manager: await manager.manage(),
     }),
   };
 };

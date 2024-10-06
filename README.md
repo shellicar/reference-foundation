@@ -30,6 +30,7 @@ This repository brings together a range of technologies, including monorepo setu
 - [TypeScript Setup](#typescript-setup)
   - [Shared tsconfig](#shared-tsconfig)
   - [Library Configuration](#library-configuration)
+  - [Building with esbuild](#building-with-esbuild)
 - [Dependency Injection](#dependency-injection)
   - [@shellicar/core-di](#shellicarcore-di)
 - [Logging and Monitoring](#logging-and-monitoring)
@@ -310,11 +311,46 @@ For more details on sharing `tsconfig.json`, refer to the [Turbo documentation o
 
 For more information on configuring `tsup`, check out the official [tsup documentation][tsup].
 
+### Building with esbuild
+
+**esbuild** is a highly performant JavaScript and TypeScript bundler and minifier.
+
+I use **esbuild** because it efficiently handles bundling, minifying, ESM output, and code splitting, making the TypeScript build process easier and faster compared to other tools.
+
+The build process is configured using a `build.mts` file, which leverages **tsx** to execute the build commands. You can build or watch using the following commands:
+
+```json
+"build": "tsx build.mts",
+"watch": "tsx build.mts --watch"
+```
+
+The `build.mts` script supports both production builds and watch mode for development, handling tasks like code splitting, outputting in ESM format, and creating a sourcemap.
+
+For more information, visit [esbuild][esbuild].
+
 ## Dependency Injection
 
-### @shellicar/core-di
+### Introduction to Dependency Injection
 
-An overview of how the custom dependency injection library, `@shellicar/core-di`, is used to manage service dependencies throughout the application.
+**Dependency Injection (DI)** is a design pattern that helps manage dependencies between classes by allowing them to be provided externally rather than having each class create them itself. This results in better separation of concerns, modularity, and makes applications easier to test and maintain.
+
+### Why Use Dependency Injection in JavaScript/TypeScript?
+
+In JavaScript/TypeScript, DI helps reduce manual dependency management, which can become cumbersome in complex applications. By decoupling the instantiation of objects from the application logic, DI promotes modularity and makes testing more straightforward by allowing easy injection of mock services.
+
+### Existing Dependency Injection Solutions
+
+Several DI solutions exist for JavaScript/TypeScript, including: `awilix`, `didi`, `diod`, `InversifyJS`, and `tsyringe`.
+
+Each of these libraries has its own approach and trade-offs.
+
+### Why Write a Custom DI Library?
+
+I decided to write **`@shellicar/core-di`** because my requirements were fairly simple, yet none of the available solutions seemed to fit them perfectly. This library focuses on providing essential features without unnecessary complexity. For more information, visit [@shellicar/core-di on GitHub](https://github.com/shellicar/core-di).
+
+### Basic Setup and Usage
+
+For basic setup and usage of `@shellicar/core-di`, refer to the [core-di documentation](https://github.com/shellicar/core-di). It includes details on creating a container, registering services, and resolving dependencies, covering both fundamental and advanced features.
 
 ## Logging and Monitoring
 
@@ -404,5 +440,6 @@ Details on how Structurizr is used to create architectural diagrams for document
 [gitversion-docs]: https://gitversion.net/docs/
 [tsup]: https://github.com/egoist/tsup
 [tsconfig-sharing]: https://turbo.build/repo/docs/guides/tools/typescript#sharing-tsconfigjson
+[esbuild]: https://esbuild.github.io/
 
 *This README was created with the assistance of [ChatGPT][chatgpt] by OpenAI.*

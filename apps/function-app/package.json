@@ -11,7 +11,8 @@
   },
   "dependencies": {
     "@azure/functions": "^4.5.1",
-    "@shellicar-foundation-core/server-common": "workspace:^"
+    "@shellicar-foundation-core/server-common": "workspace:^",
+    "@shellicar/core-di": "^0.1.0"
   },
   "devDependencies": {
     "@dotenvx/dotenvx": "^1.15.0",

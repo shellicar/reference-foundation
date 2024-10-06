@@ -24,6 +24,9 @@ importers:
       '@shellicar-foundation-core/server-common':
         specifier: workspace:^
         version: link:../../packages/server-common
+      '@shellicar/core-di':
+        specifier: ^0.1.0
+        version: 0.1.0
     devDependencies:
       '@dotenvx/dotenvx':
         specifier: ^1.15.0
@@ -51,6 +54,10 @@ importers:
         version: 5.6.2
 
   packages/server-common:
+    dependencies:
+      '@shellicar/core-di':
+        specifier: ^0.1.0
+        version: 0.1.0
     devDependencies:
       '@shellicar-foundation-core/typescript-config':
         specifier: workspace:^
@@ -68,6 +75,9 @@ importers:
   packages/typescript-config: {}
 
 packages:
+
+  '@abraham/reflection@0.12.0':
+    resolution: {integrity: sha512-OoLlgBE5u18mc61pJNamEh2OtFpHjtvDi1pV4ojnnH77juCvQw/Z3YlHF8TJiorU7/V6UuGApFzsi+bieug7fg==}
 
   '@azure/functions@4.5.1':
     resolution: {integrity: sha512-ikiw1IrM2W9NlQM3XazcX+4Sq3XAjZi4eeG22B5InKC2x5i7MatGF2S/Gn1ACZ+fEInwu+Ru9J8DlnBv1/hIvg==}
@@ -542,6 +552,9 @@ packages:
     resolution: {integrity: sha512-fbMkAF7fufku0N2dE5TBXcNlg0pt0cJue4xBRE2Qc5Vqikxr4VCgKj/ht6SMdFcOacVA9rqF70APJ8RN/4vMJw==}
     cpu: [x64]
     os: [win32]
+
+  '@shellicar/core-di@0.1.0':
+    resolution: {integrity: sha512-St2UmXLAvW+cHEtUEnzVffwc+qpqg3uD2emOyTeGqBjw+XLOR/Y/Fa/EAvCHQ1cvAPqe0pfMcP5CffDKBAKYlw==}
 
   '@types/estree@1.0.6':
     resolution: {integrity: sha512-AYnb1nQyY49te+VRAVgmzfcgjYS91mY5P0TKUDCLEM+gNnA+3T6rWITXRLYCpahpqSQbN5cE+gHpnPyXjHWxcw==}
@@ -1112,6 +1125,8 @@ packages:
 
 snapshots:
 
+  '@abraham/reflection@0.12.0': {}
+
   '@azure/functions@4.5.1':
     dependencies:
       cookie: 0.6.0
@@ -1400,6 +1415,10 @@ snapshots:
 
   '@rollup/rollup-win32-x64-msvc@4.24.0':
     optional: true
+
+  '@shellicar/core-di@0.1.0':
+    dependencies:
+      '@abraham/reflection': 0.12.0
 
   '@types/estree@1.0.6': {}
 
