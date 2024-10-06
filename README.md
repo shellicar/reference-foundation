@@ -270,9 +270,41 @@ For more details, refer to the [GitVersion documentation][gitversion-docs].
 
 ## Linting and Formatting
 
+**Linting** and **formatting** are essential practices in software development. Linting helps identify potential issues in your code, such as syntax errors or stylistic inconsistencies, before they lead to bugs in production. This proactive approach enhances code quality and reduces the likelihood of runtime errors.
+
+**Formatting** ensures that code adheres to a consistent style, making it easier to read and maintain. Consistent code styling promotes collaboration, as team members can quickly understand each other's work, leading to more effective teamwork.
+
 ### Biome
 
-Explanation of how to use Biome for linting and code formatting across the project to ensure consistent coding standards.
+In this repository, I use **Biome** for linting and formatting. Biome offers a streamlined setup and ease of use, reducing the complexity often associated with configuring multiple packages. It integrates linting, formatting, and checking into a single tool, simplifying maintenance and configuration management.
+
+The **`biome.json`** file is used for configuration, where the "recommended" rules are enabled along with some additional rules based on personal preferences. This ensures that the code adheres to best practices while accommodating specific coding styles.
+
+For an enhanced development experience, I recommend using the Biome VS Code extension, which provides real-time feedback and highlights issues directly in your editor.
+
+Key commands for using Biome include:
+
+```sh
+biome lint
+```
+This command runs the linter to check for code issues.
+
+```sh
+biome format
+```
+This command formats the code according to the specified style rules.
+
+```sh
+biome check
+```
+This command runs multiple tools at once, including formatting, linting, and organizing imports.
+
+```sh
+biome ci
+```
+This command is intended for continuous integration pipelines, ensuring code quality before merging changes.
+
+For more information, refer to the official [Biome documentation][biome]
 
 ## TypeScript Setup
 
