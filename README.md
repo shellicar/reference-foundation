@@ -8,7 +8,6 @@
 [![Checked with Biome](https://img.shields.io/badge/Checked_with-Biome-60a5fa?style=flat&logo=biome)][biome]
 [![AI Assisted](https://img.shields.io/badge/AI--Assisted-ChatGPT-brightgreen)][chatgpt]
 
-
 `@shellicar/core-foundation` is a comprehensive starter repository created out of practical necessity to provide a solid foundation for building modern applications and services. It includes the tools and configurations I frequently use, helping streamline development and reduce repetitive setup tasks.
 
 This repository brings together a range of technologies, including monorepo setups, linting, infrastructure as code, web frameworks, Docker Compose projects, and dependency injection. By using core-foundation, I aim to improve my own efficiency and share the practices that work well for me, hoping others might find them useful too.
@@ -241,9 +240,33 @@ Syncpack is configured using the `.syncpackrc` file in the repository. This file
 
 For more information, see the [Syncpack documentation][syncpack].
 
-### GitVersion
+## GitVersion
 
-Usage details and configurations for GitVersion in managing semantic versioning.
+**Semantic Versioning (SemVer)** is a widely adopted versioning scheme that uses the pattern `MAJOR.MINOR.PATCH`, where:
+
+- **MAJOR**: Significant changes that may break backward compatibility.
+- **MINOR**: New features added in a backward-compatible manner.
+- **PATCH**: Bug fixes or small improvements that do not alter functionality.
+
+SemVer is especially crucial for **libraries**, where versioning helps consumers understand compatibility. For **applications**, especially in cloud environments, versioning is often less about compatibility and more about identifying software versions for tracking deployments.
+
+In this repository, versioning is used to **identify software**, rather than for strict version control. Since I follow a **Continuous Development** approach—where software progresses through different environments before being released—every commit to the `main` branch has the potential to be released.
+
+I use **GitVersion** in **MainLine mode** to automatically generate version numbers that reflect the repository's current state. This helps uniquely identify each build or commit without manual intervention, which aligns well with a continuous development workflow.
+
+To use **GitVersion**, you can run:
+
+```sh
+gitversion
+```
+
+This command outputs all version variables. You can also get specific version variables like `semver` by running:
+
+```sh
+gitversion -showvariable SemVer
+```
+
+For more details, refer to the [GitVersion documentation][gitversion-docs].
 
 ## Linting and Formatting
 
@@ -351,5 +374,7 @@ Details on how Structurizr is used to create architectural diagrams for document
 [typescript]: https://www.typescriptlang.org/
 [node]: https://nodejs.org/en
 [npm]: https://www.npmjs.com/
+
+[gitversion-docs]: https://gitversion.net/docs/
 
 *This README was created with the assistance of [ChatGPT][chatgpt] by OpenAI.*
