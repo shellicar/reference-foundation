@@ -1,13 +1,12 @@
-import winston from 'winston';
+import winston, { format } from 'winston';
 import { OpenTelemetryTransportV3 } from '@opentelemetry/winston-transport';
 
 export const logger = winston.createLogger({
-  // format: format.combine(format.errors({ stack: true }), format.splat(), format.json()),
+  format: format.combine(format.errors({ stack: true }), format.splat(), format.json()),
   level: 'debug',
   transports: [
     new winston.transports.Console({
-      // format: formatters,
-      // format: format.combine(format.colorize(), format.simple()),
+      format: format.combine(format.colorize(), format.simple()),
     }),
     new OpenTelemetryTransportV3(),
   ],
@@ -35,7 +34,7 @@ export const testLogging = () => {
   logger.log('info', 'Pass a message and this works', {
     additional: 'properties',
     are: 'passed along',
-    newTest: 'hooray',
+    newTest: 'hooray 3',
   });
 
   logger.info('Use a helper method if you want', {
