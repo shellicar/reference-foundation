@@ -1,0 +1,12 @@
+{
+  "name": "@shellicar/core-foundation",
+  "version": "0.1.0",
+  "description": "@shellicar/core-foundation is a comprehensive starter repository for building modern applications, including monorepo setups, infrastructure, web frameworks, Docker, TypeScript, testing, and more.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
