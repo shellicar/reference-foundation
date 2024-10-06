@@ -1,0 +1,3 @@
+{
+  "extends": "@shellicar-core-foundation/typescript-config/azure-function.json"
+}

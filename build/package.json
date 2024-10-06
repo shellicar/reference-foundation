@@ -1,0 +1,27 @@
+{
+  "name": "@shellicar-core-foundation/build",
+  "version": "1.0.0",
+  "description": "",
+  "exports": {
+    "./esbuild/buildLogger": {
+      "default": "./src/esbuild/buildLogger.ts"
+    },
+    "./esbuild/gitVersion": {
+      "default": "./src/esbuild/gitVersion.ts"
+    },
+    "./esbuild/config": {
+      "default": "./src/esbuild/config.mts"
+    }
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@shellicar-core-foundation/typescript-config": "workspace:^",
+    "@types/node": "^22.7.4",
+    "esbuild": "^0.24.0",
+    "glob": "^11.0.0",
+    "tsup": "^8.3.0",
+    "typescript": "^5.6.2"
+  }
+}
