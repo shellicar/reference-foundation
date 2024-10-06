@@ -11,7 +11,9 @@
     "ci:fix": "biome check --diagnostic-level=error --fix",
     "update-readme": "sh ./update-readme.sh",
     "build": "turbo run build",
-    "dev": "turbo run dev"
+    "dev": "turbo run dev",
+    "list-mismatches": "syncpack list-mismatches",
+    "fix-mismatches": "syncpack fix-mismatches"
   },
   "keywords": [],
   "author": "",
@@ -20,6 +22,7 @@
     "turbo": "^2.1.3"
   },
   "devDependencies": {
-    "@biomejs/biome": "^1.9.3"
+    "@biomejs/biome": "^1.9.3",
+    "syncpack": "^13.0.0"
   }
 }
