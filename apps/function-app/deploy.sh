@@ -1,10 +1,10 @@
 #!/bin/sh
 set -e
+. ./.env
 
 PackagePath="package.zip"
 Name="func3634e7489d4c564bbbcce9eed000"
 Group="sandbox-3634e7489d4c564bbbcce9eed0001c13"
-Subscription=""
 
 zip -FSr "$PackagePath" dist/ package.json host.json
 

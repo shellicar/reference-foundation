@@ -1,10 +1,9 @@
 # @shellicar/core-foundation
 
-[![Node.js](https://img.shields.io/badge/Node.js-20-5FA04E?logo=nodedotjs)][node]
+[![Node.js](https://img.shields.io/badge/Node.js-0-5FA04E?logo=nodedotjs)][node]
 [![npm](https://img.shields.io/badge/npm-10.8.2-CB3837?logo=npm)][npm]
 [![PNPM](https://img.shields.io/badge/pnpm-9.12.0-F69220?logo=pnpm)][pnpm]
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript)][typescript]
-[![nvm](https://img.shields.io/badge/nvm-0.40-F4DD4B?logo=nvm)][typescript]
 [![Docker](https://img.shields.io/badge/Docker-dev-2496ED?logo=docker)][docker]
 [![Checked with Biome](https://img.shields.io/badge/Checked_with-Biome-60A5FA?style=flat&logo=biome)][biome]
 [![AI Assisted](https://img.shields.io/badge/AI--Assisted-ChatGPT-412991?logo=openai)][chatgpt]
@@ -20,7 +19,6 @@ These are the key technologies and tools that this repository is built upon:
 [![Nuxt.js](https://img.shields.io/badge/Nuxt-3-00DC82?logo=nuxt.js)][nuxt]
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-3-06B6D4?logo=tailwindcss)][tailwind]
 [![Vite](https://img.shields.io/badge/Vite-5-646CFF?logo=vite)][vite]
-[![esbuild](https://img.shields.io/badge/esbuild-0.24-FFCF00)][esbuild]
 [![Zod](https://img.shields.io/badge/Zod-3-3E67B1?logo=zod)][zod]
 [![js-joda](https://img.shields.io/badge/js--joda/core-5-2C3E50)][js-joda]
 [![Winston](https://img.shields.io/badge/Winston-3-5B8C5B?logo=winston)][winston]
