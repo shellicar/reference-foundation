@@ -2,11 +2,11 @@
   "name": "@shellicar-foundation-core/function-app",
   "version": "1.0.0",
   "description": "",
-  "main": "dist/functions/*.js",
+  "main": "dist/function-*.mjs",
   "scripts": {
-    "build": "tsc",
-    "watch": "tsc --watch",
-    "start": "func start",
+    "build": "tsx build.mjs",
+    "watch": "tsx build.mjs --watch",
+    "start": "dotenvx run -q -- func start --port 7071 --language-worker -- --inspect=9229",
     "dev": "run-p watch start"
   },
   "dependencies": {
@@ -14,8 +14,13 @@
     "@shellicar-foundation-core/server-common": "workspace:^"
   },
   "devDependencies": {
+    "@dotenvx/dotenvx": "^1.15.0",
     "@shellicar-foundation-core/typescript-config": "workspace:^",
+    "@types/node": "^22.7.4",
+    "esbuild": "^0.24.0",
+    "glob": "^11.0.0",
     "npm-run-all2": "^6.2.3",
+    "tsx": "^4.19.1",
     "typescript": "^5.6.2"
   }
 }
