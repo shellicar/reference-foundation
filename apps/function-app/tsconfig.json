@@ -1,5 +1,5 @@
 {
-  "extends": "@shellicar-foundation-core/typescript-config/azure-function.json",
+  "extends": "@shellicar-core-foundation/typescript-config/azure-function.json",
   "compilerOptions": {
     "outDir": "dist",
     "rootDir": "."

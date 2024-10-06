@@ -1,6 +1,6 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
-  "extends": "@shellicar-foundation-core/typescript-config/library.json",
+  "extends": "@shellicar-core-foundation/typescript-config/library.json",
   "compilerOptions": {},
   "include": ["**/*.ts"]
 }

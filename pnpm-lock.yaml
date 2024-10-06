@@ -24,10 +24,10 @@ importers:
       '@opentelemetry/api':
         specifier: ^1.9.0
         version: 1.9.0
-      '@shellicar-foundation-core/monitor':
+      '@shellicar-core-foundation/monitor':
         specifier: workspace:^
         version: link:../../packages/monitor
-      '@shellicar-foundation-core/server-common':
+      '@shellicar-core-foundation/server-common':
         specifier: workspace:^
         version: link:../../packages/server-common
       '@shellicar/core-di':
@@ -43,7 +43,7 @@ importers:
       '@dotenvx/dotenvx':
         specifier: ^1.15.0
         version: 1.15.0
-      '@shellicar-foundation-core/typescript-config':
+      '@shellicar-core-foundation/typescript-config':
         specifier: workspace:^
         version: link:../../packages/typescript-config
       '@types/node':
@@ -113,7 +113,7 @@ importers:
         specifier: ^3.23.8
         version: 3.23.8
     devDependencies:
-      '@shellicar-foundation-core/typescript-config':
+      '@shellicar-core-foundation/typescript-config':
         specifier: workspace:^
         version: link:../typescript-config
       terser:
@@ -180,7 +180,7 @@ importers:
         specifier: ^3.23.8
         version: 3.23.8
     devDependencies:
-      '@shellicar-foundation-core/typescript-config':
+      '@shellicar-core-foundation/typescript-config':
         specifier: workspace:^
         version: link:../typescript-config
       terser:

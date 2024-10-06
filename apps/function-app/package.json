@@ -1,5 +1,5 @@
 {
-  "name": "@shellicar-foundation-core/function-app",
+  "name": "@shellicar-core-foundation/function-app",
   "version": "1.0.0",
   "description": "",
   "main": "dist/function-*.mjs",
@@ -12,15 +12,15 @@
   "dependencies": {
     "@azure/functions": "^4.5.1",
     "@opentelemetry/api": "^1.9.0",
-    "@shellicar-foundation-core/server-common": "workspace:^",
-    "@shellicar-foundation-core/monitor": "workspace:^",
+    "@shellicar-core-foundation/server-common": "workspace:^",
+    "@shellicar-core-foundation/monitor": "workspace:^",
     "@shellicar/core-di": "^0.1.0",
     "applicationinsights": "^3.3.0",
     "winston": "^3.15.0"
   },
   "devDependencies": {
     "@dotenvx/dotenvx": "^1.15.0",
-    "@shellicar-foundation-core/typescript-config": "workspace:^",
+    "@shellicar-core-foundation/typescript-config": "workspace:^",
     "@types/node": "^22.7.4",
     "esbuild": "^0.24.0",
     "glob": "^11.0.0",

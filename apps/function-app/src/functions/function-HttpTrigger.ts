@@ -1,6 +1,6 @@
 import { type HttpHandler, type HttpResponseInit, app } from '@azure/functions';
-import { logger } from '@shellicar-foundation-core/monitor/logger';
-import { IManager } from '@shellicar-foundation-core/server-common/interfaces';
+import { logger } from '@shellicar-core-foundation/monitor/logger';
+import { IManager } from '@shellicar-core-foundation/server-common/interfaces';
 import versionJson from '../../../../version.json';
 import { container } from '../core/di/container';
 
