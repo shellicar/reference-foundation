@@ -1,9 +1,8 @@
-import winston, { format } from 'winston';
 import { OpenTelemetryTransportV3 } from '@opentelemetry/winston-transport';
-import { ApplicationInsightsExceptionTransport } from '../insights/winston-error-transport';
 import type { TelemetryClient } from 'applicationinsights';
-import { telemetryClient } from '../insights/client';
-import { testLogging } from './testLogging';
+import winston, { format } from 'winston';
+import { telemetryClient } from './telemetryClient';
+import { ApplicationInsightsExceptionTransport } from './winston-error-transport';
 
 const createWinstonLogger = (client: TelemetryClient) => {
   const logger = winston.createLogger({
@@ -20,7 +19,6 @@ const createWinstonLogger = (client: TelemetryClient) => {
     ],
   });
 
-  testLogging(logger);
   return logger;
 };
 export const logger = createWinstonLogger(telemetryClient);

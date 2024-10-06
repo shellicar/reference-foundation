@@ -1,4 +1,4 @@
-import { type AttributeValue, type Span, SpanAttributeValue, SpanKind, type SpanStatus, SpanStatusCode, trace } from '@opentelemetry/api';
+import { type AttributeValue, type Span, SpanKind, SpanStatusCode, trace } from '@opentelemetry/api';
 import { IOperation } from './interfaces';
 
 class SpanOperation extends IOperation {
@@ -35,19 +35,17 @@ class SpanOperation extends IOperation {
 }
 
 export const startOperation = (name: string) => {
-  console.log('startOperation');
   return new SpanOperation(name, SpanKind.SERVER) as IOperation;
 };
 
 export const startHttpDependency = (url: string, method: string) => {
-  console.log('startDependency');
   const span = new SpanOperation(`${method} ${url}`, SpanKind.CLIENT) as IOperation;
-  span.setAttribute('http.method', method);
+  span.setAttribute('http.request.method', method);
   span.setAttribute('http.url', url);
+  span.setAttribute('http.request.body.size', 1024);
   return span;
 };
 
 export const startInProc = (name: string) => {
-  console.log('startInProc');
   return new SpanOperation(name, SpanKind.INTERNAL) as IOperation;
 };

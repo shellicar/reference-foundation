@@ -1,4 +1,4 @@
-import type { AttributeValue, SpanStatus } from '@opentelemetry/api';
+import type { AttributeValue } from '@opentelemetry/api';
 
 export abstract class IDisposable {
   private disposed = false;

@@ -23,6 +23,11 @@
   "linter": {
     "enabled": true,
     "rules": {
+      "correctness": {
+        "noUnusedVariables": "error",
+        "noUnusedImports": "error",
+        "noUnsafeFinally": "error"
+      },
       "recommended": true,
       "suspicious": {
         "noExplicitAny": "info"

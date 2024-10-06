@@ -6,13 +6,14 @@
   "scripts": {
     "build": "tsx build.mjs",
     "watch": "tsx build.mjs --watch",
-    "start": "dotenvx run -q -- func start --port 7071 --language-worker -- --inspect=9229",
+    "start": "dotenvx run -q -- func start --port 7071 --language-worker -- --inspect=9231",
     "dev": "run-p watch start"
   },
   "dependencies": {
     "@azure/functions": "^4.5.1",
     "@opentelemetry/api": "^1.9.0",
     "@shellicar-foundation-core/server-common": "workspace:^",
+    "@shellicar-foundation-core/monitor": "workspace:^",
     "@shellicar/core-di": "^0.1.0",
     "applicationinsights": "^3.3.0",
     "winston": "^3.15.0"

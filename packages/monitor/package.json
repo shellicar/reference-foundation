@@ -1,22 +1,31 @@
 {
-  "name": "@shellicar-foundation-core/server-common",
+  "name": "@shellicar-foundation-core/monitor",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
     "build": "tsup-node",
     "dev": "tsup-node --watch"
   },
   "exports": {
+    "./logger": {
+      "types": "./src/logger.ts",
+      "import": "./dist/logger.mjs",
+      "require": "./dist/logger.js"
+    },
+    "./startOperation": {
+      "types": "./src/startOperation.ts",
+      "import": "./dist/startOperation.mjs",
+      "require": "./dist/startOperation.js"
+    },
+    "./telemetryClient": {
+      "types": "./src/telemetryClient.ts",
+      "import": "./dist/telemetryClient.mjs",
+      "require": "./dist/telemetryClient.js"
+    },
     "./interfaces": {
       "types": "./src/interfaces.ts",
       "import": "./dist/interfaces.mjs",
       "require": "./dist/interfaces.js"
-    },
-    "./module": {
-      "types": "./src/module.ts",
-      "import": "./dist/module.mjs",
-      "require": "./dist/module.js"
     }
   },
   "keywords": [],
@@ -29,7 +38,6 @@
     "typescript": "^5.6.2"
   },
   "dependencies": {
-    "@azure/identity": "^4.4.1",
     "@azure/monitor-opentelemetry": "^1.7.1",
     "@opentelemetry/api": "^1.9.0",
     "@opentelemetry/api-logs": "^0.53.0",
@@ -41,7 +49,6 @@
     "@opentelemetry/sdk-trace-node": "^1.26.0",
     "@opentelemetry/semantic-conventions": "^1.27.0",
     "@opentelemetry/winston-transport": "^0.6.0",
-    "@shellicar/core-di": "^0.1.0",
     "applicationinsights": "^3.3.0",
     "winston": "^3.15.0",
     "winston-transport": "^4.8.0",
