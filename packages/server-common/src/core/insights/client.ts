@@ -1,20 +1,25 @@
 import { getMonitor } from './monitor';
 
-export const client = getMonitor();
+let client: ReturnType<typeof getMonitor> | null = null;
 
-// let client: ReturnType<typeof getMonitor> | null = null;
+type BaseSettings = {
+  name?: string;
+  samplingRatio?: number;
+  enableLiveMetrics?: boolean;
+}
 
-// const createClient = (name: string) => {
-//   if (!client) {
-//     client = getMonitor({
-//       enableLiveMetrics: true,
-//       service: {
-//         name,
-//         namespace: '@shellicar-foundation-core',
-//       },
-//     });
-//   }
-//   return client;
-// };
+const createClient = (settings?: BaseSettings) => {
+  if (!client) {
+    client = getMonitor({
+      enableLiveMetrics: settings?.enableLiveMetrics,
+      samplingRatio: settings?.samplingRatio,
+      service: {
+        name: settings?.name,
+        namespace: '@shellicar-foundation-core',
+      },
+    });
+  }
+  return client;
+};
 
-// export { createClient };
+export { createClient };

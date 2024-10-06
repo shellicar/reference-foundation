@@ -10,6 +10,7 @@ const handler: HttpHandler = async (context, req) => {
   using op = startOperation('test-func 2');
   logger.warn('Hello World 1', {
     hello: 'world 1',
+    myVersion: '51',
   });
   using dep = startHttpDependency('https://api.github.com/test123', 'GET');
   telemetryClient.trackTrace({ message: 'HttpTrigger - Start' });

@@ -34,7 +34,8 @@ export const getMonitor = (config: AzureMonitorConfig = {}) => {
 
   const options: AzureMonitorOpenTelemetryOptions = {
     instrumentationOptions: {
-      http: httpInstrumentationConfig,
+      winston: { enabled: true, },
+      http: { enabled: true },
       azureSdk: { enabled: true },
       mongoDb: { enabled: true },
       mySql: { enabled: false },

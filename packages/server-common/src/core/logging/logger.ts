@@ -1,17 +1,5 @@
-import { logs } from '@opentelemetry/api-logs';
-import { ConsoleLogRecordExporter, LoggerProvider, SimpleLogRecordProcessor } from '@opentelemetry/sdk-logs';
-import winston, { format } from 'winston';
-import { registerInstrumentations } from '@opentelemetry/instrumentation';
-// import { WinstonInstrumentation } from '@opentelemetry/instrumentation-winston';
+import winston from 'winston';
 import { OpenTelemetryTransportV3 } from '@opentelemetry/winston-transport';
-import { NodeTracerProvider } from '@opentelemetry/sdk-trace-node';
-
-// const loggerProvider = new LoggerProvider();
-// // Add a processor to export log record
-// loggerProvider.addLogRecordProcessor(
-//     new SimpleLogRecordProcessor(new ConsoleLogRecordExporter())
-// );
-// logs.setGlobalLoggerProvider(loggerProvider);
 
 export const logger = winston.createLogger({
   // format: format.combine(format.errors({ stack: true }), format.splat(), format.json()),
@@ -47,6 +35,7 @@ export const testLogging = () => {
   logger.log('info', 'Pass a message and this works', {
     additional: 'properties',
     are: 'passed along',
+    newTest: 'hooray',
   });
 
   logger.info('Use a helper method if you want', {
