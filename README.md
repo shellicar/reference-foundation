@@ -285,36 +285,30 @@ For an enhanced development experience, I recommend using the Biome VS Code exte
 Key commands for using Biome include:
 
 ```sh
-biome lint
+biome lint # linting
+biome format # formatting
+biome check # linting, formatting, and order imports
+biome ci # https://biomejs.dev/recipes/continuous-integration/
+biome check --fix # fix issues
 ```
-This command runs the linter to check for code issues.
-
-```sh
-biome format
-```
-This command formats the code according to the specified style rules.
-
-```sh
-biome check
-```
-This command runs multiple tools at once, including formatting, linting, and organizing imports.
-
-```sh
-biome ci
-```
-This command is intended for continuous integration pipelines, ensuring code quality before merging changes.
 
 For more information, refer to the official [Biome documentation][biome]
 
 ## TypeScript Setup
 
+This section covers the setup of TypeScript in the repository, including configuration and library compilation. It’s essential to use the correct targets, such as **ESM** (ECMAScript Module) and **CommonJS**, to ensure compatibility across different environments, whether for modern JavaScript runtime or Node.js applications.
+
 ### Shared tsconfig
 
-Details on configuring and using a shared `tsconfig.json` to maintain consistent TypeScript settings across projects.
+A shared `tsconfig.json` file is used to maintain consistent TypeScript settings across projects. These shared configurations will be located in the `packages/typescript-config` package. This standardization helps avoid discrepancies between different parts of the codebase.
+
+For more details on sharing `tsconfig.json`, refer to the [Turbo documentation on TypeScript][tsconfig-sharing].
 
 ### Library Configuration
 
-Overview of using `tsup` for library configuration and TypeScript build setups.
+**Tsup** is utilized in this repository for library configuration and TypeScript build setups. The configuration for `tsup` is defined in `tsup.config.ts`, allowing for fast and easy production of both ESM and CJS outputs, streamlining the build process for libraries.
+
+For more information on configuring `tsup`, check out the official [tsup documentation][tsup].
 
 ## Dependency Injection
 
@@ -408,5 +402,7 @@ Details on how Structurizr is used to create architectural diagrams for document
 [npm]: https://www.npmjs.com/
 
 [gitversion-docs]: https://gitversion.net/docs/
+[tsup]: https://github.com/egoist/tsup
+[tsconfig-sharing]: https://turbo.build/repo/docs/guides/tools/typescript#sharing-tsconfigjson
 
 *This README was created with the assistance of [ChatGPT][chatgpt] by OpenAI.*

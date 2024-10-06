@@ -2,11 +2,16 @@
   "name": "@shellicar-foundation-core/function-app",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/functions/*.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc",
+    "start": "func start"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "dependencies": {
+    "@azure/functions": "^4.5.1"
+  },
+  "devDependencies": {
+    "@shellicar-foundation-core/typescript-config": "workspace:^",
+    "typescript": "^5.6.2"
+  }
 }
