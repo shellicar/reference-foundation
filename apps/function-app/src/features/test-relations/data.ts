@@ -1,6 +1,5 @@
 import type { Entity1Document, Entity2Document } from './types';
 
-
 export const entity1Data: Entity1Document[] = [
   { id: '1', name: 'Entity1 A', entity2Ids: ['2', '3'] },
   { id: '2', name: 'Entity1 B', entity2Ids: ['4'] },

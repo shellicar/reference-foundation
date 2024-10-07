@@ -12,13 +12,5 @@ export type Entity2Document = {
   entity1Id: string;
 };
 
-export class Entity1Loader extends DataLoader<string, Entity1Document | undefined> {
-  
-};
-export class Entity2Loader extends DataLoader<string, Entity2Document | undefined> {
-  
-};
-
-
-// export type Entity1Loader = DataLoader<string, Entity1Document | undefined>;
-// export type Entity2Loader = DataLoader<string, Entity1Document | undefined>;
+export class Entity1Loader extends DataLoader<string, Entity1Document | undefined> {}
+export class Entity2Loader extends DataLoader<string, Entity2Document | undefined> {}
