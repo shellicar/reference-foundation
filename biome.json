@@ -7,13 +7,13 @@
   },
   "files": {
     "ignoreUnknown": false,
-    "ignore": []
+    "ignore": ["apps/function-app/src/generated/graphql-types.ts"]
   },
   "formatter": {
     "enabled": true,
     "indentStyle": "space",
     "indentWidth": 2,
-    "lineWidth": 150,
+    "lineWidth": 120,
     "lineEnding": "lf",
     "attributePosition": "auto"
   },
@@ -72,9 +72,13 @@
   },
   "overrides": [
     {
-      "include": ["*.svelte"],
+      "include": ["*.svelte", "*.vue"],
       "linter": {
         "rules": {
+          "correctness": {
+            "noUnusedVariables": "off",
+            "noUnusedImports": "off"
+          },
           "style": {
             "useConst": "off",
             "useImportType": "off"

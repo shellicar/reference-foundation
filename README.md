@@ -491,5 +491,4 @@ Details on how Structurizr is used to create architectural diagrams for document
 [js-joda]: https://js-joda.github.io/js-joda/
 [vscode]: https://code.visualstudio.com/
 
-
 *This README was created with the assistance of [ChatGPT][chatgpt] by OpenAI.*

@@ -1,0 +1,39 @@
+extend type Query {
+  entity1(id: ID!): Entity1
+  entity2(id: ID!): Entity2
+}
+
+# The connection type for Entity2 nodes that are connected to Entity1
+type Entity2Connection {
+  edges: [Entity2Edge!]!
+  nodes: [Entity2!]!
+  totalCount: Int!
+}
+
+# The edge type that links Entity1 to Entity2 nodes
+type Entity2Edge {
+  cursor: String!
+  node: Entity2!
+}
+
+# The Node type for Entity2
+type Entity2 {
+  id: ID!
+  description: String
+  entity1: Entity1Edge!
+}
+
+# The Edge type from Entity2 back to Entity1
+type Entity1Edge {
+  cursor: String!
+  node: Entity1!
+}
+
+# The Node type for Entity1
+type Entity1 {
+  id: ID!
+  name: String!
+  entities2: Entity2Connection! # Using the connection type for related Entity2 instances
+}
+
+# Queries to retrieve nodes

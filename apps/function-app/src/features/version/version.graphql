@@ -1,0 +1,24 @@
+extend type Query {
+  version: Version!
+  validate(input: ValidateInput!): Validate!
+}
+
+type Version {
+  buildDate: String
+  branch: String
+  sha: String
+  shortSha: String
+  commitDate: String
+  version: String
+}
+
+type Validate {
+  field1: UUID!
+  emailAddress: EmailAddress
+  # field2: UUID!
+}
+
+input ValidateInput {
+  emailAddress: EmailAddress
+  uuid: UUID
+}

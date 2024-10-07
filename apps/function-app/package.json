@@ -7,7 +7,8 @@
     "build": "tsx build.mjs",
     "watch": "tsx build.mjs --watch",
     "start": "dotenvx run -q -- func start --port 7071 --language-worker -- --inspect=9231",
-    "dev": "run-p watch start"
+    "dev": "run-p watch start",
+    "codegen": "graphql-codegen"
   },
   "dependencies": {
     "@apollo/server": "^4.11.0",
@@ -19,11 +20,17 @@
     "@shellicar-core-foundation/server-common": "workspace:^",
     "@shellicar/core-di": "^0.1.0",
     "applicationinsights": "^3.3.0",
+    "dataloader": "^2.2.2",
     "graphql": "^16.9.0",
+    "graphql-scalars": "^1.23.0",
     "winston": "^3.15.0"
   },
   "devDependencies": {
     "@dotenvx/dotenvx": "^1.15.0",
+    "@graphql-codegen/cli": "^5.0.2",
+    "@graphql-codegen/introspection": "^4.0.3",
+    "@graphql-codegen/typescript": "^4.0.9",
+    "@graphql-codegen/typescript-resolvers": "^4.2.1",
     "@shellicar-core-foundation/build": "workspace:^",
     "@shellicar-core-foundation/typescript-config": "workspace:^",
     "@types/node": "^22.7.4",

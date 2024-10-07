@@ -1,6 +1,6 @@
 import { execSync } from 'node:child_process';
-import type { Plugin } from 'esbuild';
 import { resolve } from 'node:path';
+import type { Plugin } from 'esbuild';
 
 const execCommand = (command: string): string => {
   return execSync(command, { encoding: 'utf8' }).trim();
@@ -19,7 +19,7 @@ const generateVersionInfo = () => {
     sha,
     shortSha,
     commitDate: execCommand('git log -1 --format=%cI'),
-    version: execCommand('gitversion -showvariable SemVer')
+    version: execCommand('gitversion -showvariable SemVer'),
   };
 };
 
