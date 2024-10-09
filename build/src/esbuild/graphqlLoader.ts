@@ -1,14 +1,9 @@
 import fs from 'node:fs/promises';
-import path from 'node:path';
+import path, { resolve } from 'node:path';
 import graphqlLoaderPlugin from '@luckycatfactory/esbuild-graphql-loader';
 import type { Plugin } from 'esbuild';
 import { glob } from 'glob';
 import { v3 } from 'uuid';
-
-const escapeString = (str: string): RegExp => {
-  const escaped = str.replace(/[|\\{}()[\]^$+*?.]/g, '\\$&').replace(/-/g, '\\x2d');
-  return RegExp(escaped);
-};
 
 const generateNamespace = () => {
   const currentDir = process.cwd();
@@ -31,17 +26,17 @@ const findGraphQLFiles = async (globPattern: string, typedefsFile: string) => {
 };
 
 export const createPlugins = (globPattern: string, typedefsFile: string, ignoreErrors = false): Plugin[] => {
-  const filter = escapeString(typedefsFile);
+  const path = resolve(process.cwd(), typedefsFile);
+  const filter = new RegExp(path);
 
   const typedefLoader: Plugin = {
     name: 'typedefs-loader',
     setup(build) {
-      // Store plugin state
       let graphqlFiles: string[] = [];
       let typedefExists = false;
+      let importedTypedefs = false;
 
       build.onStart(async () => {
-        // Collect information at the start of the build
         graphqlFiles = await glob(globPattern);
         try {
           await fs.access(typedefsFile);
@@ -51,7 +46,8 @@ export const createPlugins = (globPattern: string, typedefsFile: string, ignoreE
         }
       });
 
-      build.onLoad({ filter }, async () => {
+      build.onLoad({ filter: /.*/ }, async () => {
+        importedTypedefs = true;
         const files = await findGraphQLFiles(globPattern, typedefsFile);
         const imports = files.join('\n');
 
@@ -70,6 +66,9 @@ export const createPlugins = (globPattern: string, typedefsFile: string, ignoreE
 
           if (!typedefExists) {
             throw new Error(`Typedefs file not found: ${typedefsFile}`);
+          }
+          if (!importedTypedefs) {
+            throw new Error(`Typedefs file not imported: ${filter}`);
           }
         });
       }
