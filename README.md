@@ -14,16 +14,16 @@
 
 These are the key technologies and tools that this repository is built upon:
 
-[![@azure/functions](https://img.shields.io/badge/Azure%20Functions-4-0082FC)][azure-functions]
+[![@azure/functions](https://img.shields.io/badge/Azure%20Functions-4-0082FC?logo=github)][azure-functions]
 [![GraphQL](https://img.shields.io/badge/GraphQL-16-E10098?logo=graphql)][graphql]
 [![Svelte](https://img.shields.io/badge/Svelte-4-FF3E00?logo=svelte)][svelte]
 [![Nuxt.js](https://img.shields.io/badge/Nuxt-3-00DC82?logo=nuxt.js)][nuxt]
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-3-06B6D4?logo=tailwindcss)][tailwind]
 [![Vite](https://img.shields.io/badge/Vite-5-646CFF?logo=vite)][vite]
-[![esbuild](https://img.shields.io/badge/esbuild-0.24-FFCF00)][esbuild]
-[![Zod](https://img.shields.io/badge/Zod-3-3E67B1?logo=zod)][zod]
-[![js-joda](https://img.shields.io/badge/js--joda/core-5-2C3E50)][js-joda]
-[![Winston](https://img.shields.io/badge/Winston-3-5B8C5B?logo=winston)][winston]
+[![esbuild](https://img.shields.io/badge/esbuild-0.24-FFCF00?logo=esbuild)][esbuild]
+[![Zod](https://img.shields.io/badge/Zod-3-3E67B1?logo=zod&logoColor=3E67B1)][zod]
+[![js-joda](https://img.shields.io/badge/js--joda/core-5-2C3E50?logo=github)][js-joda]
+[![Winston](https://img.shields.io/badge/Winston-3-5B8C5B?logo=github)][winston]
 [![OpenTelemetry](https://img.shields.io/badge/OpenTelemetry-1-000000?logo=opentelemetry&logoColor=white)][opentelemetry]
 
 ---
