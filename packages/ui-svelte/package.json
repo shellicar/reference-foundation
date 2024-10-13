@@ -18,7 +18,7 @@
   },
   "files": ["dist", "!dist/**/*.test.*", "!dist/**/*.spec.*"],
   "peerDependencies": {
-    "svelte": "^4.0.0"
+    "svelte": "^4.2.7"
   },
   "devDependencies": {
     "@sveltejs/adapter-auto": "^3.0.0",
@@ -28,7 +28,7 @@
     "publint": "^0.2.0",
     "svelte": "^4.2.7",
     "svelte-check": "^4.0.0",
-    "typescript": "^5.0.0",
+    "typescript": "^5.6.2",
     "vite": "^5.0.11"
   },
   "svelte": "./dist/index.js",

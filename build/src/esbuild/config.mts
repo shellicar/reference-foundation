@@ -3,7 +3,7 @@ import { glob } from 'glob';
 import { buildLogger } from './buildLogger.js';
 import { gitVersion } from './gitVersion.js';
 
-const defaultOptions: BuildOptions = {
+const defaultOptions = {
   format: 'esm',
   splitting: true,
   bundle: true,
@@ -18,19 +18,23 @@ const defaultOptions: BuildOptions = {
   external: ['@azure/functions-core'],
   outExtension: { '.js': '.mjs' },
   inject: ['cjs-shim.mts'],
+  entryPoints: ['./src/functions/function-*.ts'],
+} satisfies BuildOptions;
+export type ExtendOptions = Omit<BuildOptions, 'entryPoints'> & (typeof defaultOptions);
+
+export const defineConfig = (configModifier: (options: ExtendOptions) => ExtendOptions): ExtendOptions => {
+  const modifiedOptions = { ...defaultOptions };
+  return configModifier(modifiedOptions);
 };
 
-export const createBuildContext = async (userOptions: Partial<BuildOptions> = {}, watch = false) => {
-  const entryPoints = await glob('./src/functions/function-*.ts');
-  console.log('entryPoints', entryPoints);
+export const createBuildContext = async (userOptions: ExtendOptions) => {
+  const entryPoints: string[] = [];
 
-  const options = {
-    entryPoints,
-    minify: !watch,
-    ...defaultOptions,
-    ...userOptions,
-    plugins: [...(defaultOptions.plugins ?? []), ...(userOptions.plugins ?? [])],
-  };
-
-  return context(options);
+  for (const e of userOptions.entryPoints) {
+    const result = await glob(e as string);
+    entryPoints.push(...result);
+  }
+  userOptions.entryPoints = entryPoints;
+  console.log('entryPoints', userOptions.entryPoints);
+  return context(userOptions);
 };

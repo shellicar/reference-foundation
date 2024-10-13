@@ -1,14 +1,16 @@
-import { createBuildContext } from '@shellicar-core-foundation/build/esbuild/config';
+import { createBuildContext, defineConfig } from '@shellicar-core-foundation/build/esbuild/config';
 import { createPlugins } from '@shellicar-core-foundation/build/esbuild/graphqlLoader';
 
 const watch = process.argv.includes('--watch');
-const grpahqlPlugins = createPlugins('src/**/*.graphql', 'src/core/graphql/typedefs.ts');
-const ctx = await createBuildContext(
-  {
-    plugins: grpahqlPlugins,
-  },
-  watch,
-);
+const graphqlPlugins = createPlugins('src/**/*.graphql', 'src/core/graphql/typedefs.ts');
+
+const configuration = defineConfig((x) => {
+  x.plugins.push(...graphqlPlugins);
+  x.minify = watch;
+  return x;
+});
+
+const ctx = await createBuildContext(configuration);
 
 if (watch) {
   await ctx.watch();
