@@ -16,7 +16,7 @@ These are some of the key tools and technologies used to build and develop this 
 
 [![Vite](https://img.shields.io/badge/Vite-5-646CFF?logo=vite)][vite]
 [![esbuild](https://img.shields.io/badge/esbuild-0.24-FFCF00?logo=esbuild)][esbuild]
-[![TSX](https://img.shields.io/badge/TSX-4-3178C6?logo=typescript)][tsx]
+[![TSX](https://img.shields.io/badge/TSX-4-3178C6)][tsx]
 [![Cucumber](https://img.shields.io/badge/Cucumber-11-23D96C?logo=cucumber)][cucumber]
 [![Mocha](https://img.shields.io/badge/Mocha-10-8D6748?logo=mocha)][mocha]
 [![Chai](https://img.shields.io/badge/Chai-5-A30701?logo=chai)][chai]

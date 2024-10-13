@@ -1,0 +1,11 @@
+services:
+  azurite:
+    pull_policy: always
+    image: mcr.microsoft.com/azure-storage/azurite:latest
+    restart: unless-stopped
+    ports:
+    - "10000-10002:10000-10002"
+    volumes:
+    - azurite-data:/data:rw
+volumes:
+  azurite-data:
