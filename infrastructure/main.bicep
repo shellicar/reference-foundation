@@ -1,26 +1,21 @@
+param workspaceId string
 
 @maxLength(32)
-param uuid string
+@minLength(32)
+param sandboxId string
 param location string
 
 @maxLength(32)
-param funcName string = 'func${substring(uuid, 0, 28)}'
+param funcName string = substring('func${sandboxId}', 0, 32)
 @maxLength(32)
-param planName string = 'plan${substring(uuid, 0, 28)}'
+param planName string = substring('plan${sandboxId}', 0, 32)
 @maxLength(24)
-param storageName string = 'st${substring(uuid, 0, 22)}'
+param storageName string = substring('st${sandboxId}', 0, 24)
 @maxLength(32)
-param insightsName string = 'appi${substring(uuid, 0, 28)}'
+param insightsName string = substring('appi${sandboxId}', 0, 32)
 
 var functionId = resourceId('Microsoft.Web/sites', funcName)
 var containerName = 'app-package-${funcName}-${substring(uniqueString(functionId, storageName), 0, 7)}'
-
-resource logs 'Microsoft.OperationalInsights/workspaces@2023-09-01' existing = {
-  name: 'DefaultWorkspace--EAU'
-  scope: resourceGroup('', 'DefaultResourceGroup-EAU')
-}
-
-var workspaceId = logs.id
 
 module storage 'br/public:avm/res/storage/storage-account:0.14.1' = {
   name: '${deployment().name}-storage-api'
@@ -81,7 +76,6 @@ resource func 'Microsoft.Web/sites@2023-12-01' = {
           value: 'https://${storage.outputs.name}.blob.${environment().suffixes.storage}/${containerName}'
           authentication: {
             type: 'SystemAssignedIdentity'
-            // storageAccountConnectionStringName: 'DEPLOYMENT_STORAGE_CONNECTION_STRING'
           }
         }
       }
@@ -105,7 +99,6 @@ resource func 'Microsoft.Web/sites@2023-12-01' = {
       use32BitWorkerProcess: false
       scmType: 'None'
       scmMinTlsVersion: '1.2'
-      // linuxFxVersion: useFlex ? '' : 'Node|20'
       defaultDocuments: []
       numberOfWorkers: 1
       netFrameworkVersion: 'v4.0'
@@ -113,7 +106,7 @@ resource func 'Microsoft.Web/sites@2023-12-01' = {
       ipSecurityRestrictionsDefaultAction: 'Allow'
       ipSecurityRestrictions: []
       cors: {
-        allowedOrigins: [ 'https://portal.azure.com' ]
+        allowedOrigins: ['https://portal.azure.com']
         supportCredentials: true
       }
       minTlsVersion: '1.2'
@@ -128,7 +121,7 @@ resource func 'Microsoft.Web/sites@2023-12-01' = {
 module assignment 'func-storage-assignment.bicep' = {
   name: '${deployment().name}-assignment'
   params: {
-    principalIds: [ func.identity.principalId ]
+    principalIds: [func.identity.principalId]
     storageName: storage.outputs.name
   }
 }
@@ -156,7 +149,6 @@ resource insights 'Microsoft.Insights/components@2020-02-02' = {
     }
   }
 }
-
 
 resource flexAppSettings 'Microsoft.Web/sites/config@2023-12-01' = {
   name: 'appsettings'

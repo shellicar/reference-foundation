@@ -46,7 +46,7 @@ export const createPlugins = (globPattern: string, typedefsFile: string, ignoreE
         }
       });
 
-      build.onLoad({ filter: /.*/ }, async () => {
+      build.onLoad({ filter }, async () => {
         importedTypedefs = true;
         const files = await findGraphQLFiles(globPattern, typedefsFile);
         const imports = files.join('\n');
@@ -59,7 +59,11 @@ export const createPlugins = (globPattern: string, typedefsFile: string, ignoreE
 
       if (!ignoreErrors) {
         build.onEnd(() => {
-          // Post-build check using the collected information
+          console.log({
+            graphqlFiles: graphqlFiles.length,
+            typedefExists,
+            importedTypedefs,
+          });
           if (graphqlFiles.length === 0) {
             throw new Error(`No GraphQL files found for the pattern: ${globPattern}`);
           }

@@ -12,6 +12,7 @@
     "pkief.material-icon-theme",
     "svelte.svelte-vscode",
     "bradlc.vscode-tailwindcss",
-    "ms-vscode-remote.remote-wsl"
+    "ms-vscode-remote.remote-wsl",
+    "ms-vscode.azure-account"
   ]
 }

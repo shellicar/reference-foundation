@@ -4,8 +4,9 @@
   "description": "",
   "main": "dist/function-*.mjs",
   "scripts": {
-    "build": "tsx build.mjs",
-    "watch": "tsx build.mjs --watch",
+    "deploy:dev": "dotenvx run -f ../../.env -- ./deploy.sh",
+    "build": "tsx build.mts",
+    "watch": "tsx build.mts --watch",
     "start": "dotenvx run -q -- func start --port 7071 --language-worker -- --inspect=9231",
     "dev": "run-p watch start",
     "codegen": "graphql-codegen"
