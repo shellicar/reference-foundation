@@ -17,5 +17,8 @@
   "editor.insertSpaces": true,
   "[typescript]": {
     "editor.defaultFormatter": "biomejs.biome"
-  }
+  },
+  "cucumberautocomplete.steps": ["packages/atdd-tests/test/**/*.steps.ts"],
+  "cucumberautocomplete.strictGherkinCompletion": true,
+  "cucumberautocomplete.syncfeatures": "packages/atdd-tests/test/**/*.feature"
 }

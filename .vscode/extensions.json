@@ -1,3 +1,17 @@
 {
-  "recommendations": ["davidanson.vscode-markdownlint", "biomejs.biome"]
+  "recommendations": [
+    "davidanson.vscode-markdownlint",
+    "biomejs.biome",
+    "usernamehw.errorlens",
+    "ms-azuretools.vscode-bicep",
+    "alexkrechik.cucumberautocomplete",
+    "ms-azuretools.vscode-docker",
+    "dbaeumer.vscode-eslint",
+    "mhutchie.git-graph",
+    "eamodio.gitlens",
+    "pkief.material-icon-theme",
+    "svelte.svelte-vscode",
+    "bradlc.vscode-tailwindcss",
+    "ms-vscode-remote.remote-wsl"
+  ]
 }
