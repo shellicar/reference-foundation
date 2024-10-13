@@ -2,7 +2,7 @@
 
 [![Node.js](https://img.shields.io/badge/Node.js-20-5FA04E?logo=nodedotjs)][node]
 [![npm](https://img.shields.io/badge/npm-10.8.2-CB3837?logo=npm)][npm]
-[![PNPM](https://img.shields.io/badge/pnpm-9.12.0-F69220?logo=pnpm)][pnpm]
+[![PNPM](https://img.shields.io/badge/pnpm-9.12.1-F69220?logo=pnpm)][pnpm]
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript)][typescript]
 [![nvm](https://img.shields.io/badge/nvm-0.40-F4DD4B?logo=nvm)][typescript]
 [![Docker](https://img.shields.io/badge/Docker-dev-2496ED?logo=docker)][docker]
@@ -12,15 +12,24 @@
 
 ## Built Using
 
-These are the key technologies and tools that this repository is built upon:
+These are some of the key tools and technologies used to build and develop this project:
+
+[![Vite](https://img.shields.io/badge/Vite-5-646CFF?logo=vite)][vite]
+[![esbuild](https://img.shields.io/badge/esbuild-0.24-FFCF00?logo=esbuild)][esbuild]
+[![TSX](https://img.shields.io/badge/TSX-4-3178C6?logo=typescript)][tsx]
+[![Cucumber](https://img.shields.io/badge/Cucumber-11-23D96C?logo=cucumber)][cucumber]
+[![Mocha](https://img.shields.io/badge/Mocha-10-8D6748?logo=mocha)][mocha]
+[![Chai](https://img.shields.io/badge/Chai-5-A30701?logo=chai)][chai]
+
+## Runs On
+
+These are some of the key dependencies required to run the applications:
 
 [![@azure/functions](https://img.shields.io/badge/Azure%20Functions-4-0082FC?logo=github)][azure-functions]
 [![GraphQL](https://img.shields.io/badge/GraphQL-16-E10098?logo=graphql)][graphql]
 [![Svelte](https://img.shields.io/badge/Svelte-4-FF3E00?logo=svelte)][svelte]
 [![Nuxt.js](https://img.shields.io/badge/Nuxt-3-00DC82?logo=nuxt.js)][nuxt]
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-3-06B6D4?logo=tailwindcss)][tailwind]
-[![Vite](https://img.shields.io/badge/Vite-5-646CFF?logo=vite)][vite]
-[![esbuild](https://img.shields.io/badge/esbuild-0.24-FFCF00?logo=esbuild)][esbuild]
 [![Zod](https://img.shields.io/badge/Zod-3-3E67B1?logo=zod&logoColor=3E67B1)][zod]
 [![js-joda](https://img.shields.io/badge/js--joda/core-5-2C3E50?logo=github)][js-joda]
 [![Winston](https://img.shields.io/badge/Winston-3-5B8C5B?logo=github)][winston]
@@ -65,7 +74,8 @@ This repository brings together a range of technologies, including monorepo setu
   - [UI Libraries with ShadCN](#ui-libraries-with-shadcn)
   - [Form Handling](#form-handling)
 - [Testing](#testing)
-  - [Mocha & TSX](#mocha--tsx)
+  - [Unit Testing](#unit-testing)
+  - [Acceptance Testing](#acceptance-testing)
 - [Docker Compose Projects](#docker-compose-projects)
 - [Infrastructure as Code](#infrastructure-as-code)
   - [Bicep](#bicep)
@@ -309,7 +319,7 @@ Key commands for using Biome include:
 biome lint # linting
 biome format # formatting
 biome check # linting, formatting, and order imports
-biome ci # https://biomejs.dev/recipes/continuous-integration/
+biome ci # https://biomejs.dev/recipes/continuous-integration
 biome check --fix # fix issues
 ```
 
@@ -428,9 +438,25 @@ Overview of setting up simple form handling using `sveltekit-superforms`.
 
 ## Testing
 
-### Mocha & TSX
+### Unit Testing
 
 How Mocha and TSX are used to run tests and ensure application stability.
+
+### Acceptance Testing
+
+Acceptance testing ensures that software behaves as expected from a business perspective by validating workflows and enforcing rules. Unlike unit tests, which focus on individual components, acceptance tests ensure that business processes and rules are correctly implemented and followed.
+
+Cucumber is used for writing acceptance tests, utilizing the `Given-When-Then` format defined by Gherkin. This structure provides a clear, human-readable way to describe features, ensuring that both technical and non-technical stakeholders can collaborate effectively.
+
+For more details, visit the [Gherkin Reference][gherkin].
+
+### Demo: EmployeeAggregate
+
+The `EmployeeAggregate` represents the root of a domain model related to employee changes, enforcing important business rules such as "The CEO must be located in America." This pattern comes from Domain-Driven Design (DDD), where an aggregate root manages business logic and consistency within a defined boundary.
+
+For more information on aggregate roots, refer to [Domain-Driven Design][ddd-fowler].
+
+Find the complete demo and the `.feature` file in the [`packages/atdd-tests`](./packages/atdd-tests) directory.
 
 ## Docker Compose Projects
 
@@ -452,43 +478,51 @@ Details on how Structurizr is used to create architectural diagrams for document
 
 [github-token]: https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens
 [nvm]: https://github.com/nvm-sh/nvm
-[pnpm]: https://pnpm.io/
-[gitversion]: https://gitversion.net/docs/
+[pnpm]: https://pnpm.io
+[gitversion]: https://gitversion.net/docs
 [azure-functions-core-tools]: https://learn.microsoft.com/en-us/azure/azure-functions/functions-run-local
-[docker]: https://www.docker.com/
-[azure-cli]: https://learn.microsoft.com/en-us/cli/azure/
-[bicep]: https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/
+[docker]: https://www.docker.com
+[azure-cli]: https://learn.microsoft.com/en-us/cli/azure
+[bicep]: https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep
 
 [nvm-install]: https://github.com/nvm-sh/nvm?tab=readme-ov-file#installing-and-updating
 [nvm-usage]: https://github.com/nvm-sh/nvm?tab=readme-ov-file#usage
 [pnpm-workspaces]: https://pnpm.io/workspaces
-[turbo]: https://turbo.build/
+[turbo]: https://turbo.build
 [turbo-config]: https://turbo.build/repo/docs/reference/configuration
 
 [corepack]: https://nodejs.org/api/corepack.html
 [syncpack]: https://github.com/JamieMason/syncpack?tab=readme-ov-file#commands
 [chatgpt]: https://openai.com/chatgpt
 [biome]: https://biomejs.dev
-[typescript]: https://www.typescriptlang.org/
+[typescript]: https://www.typescriptlang.org
 [node]: https://nodejs.org/en
-[npm]: https://www.npmjs.com/
+[npm]: https://www.npmjs.com
 
-[gitversion-docs]: https://gitversion.net/docs/
+[gitversion-docs]: https://gitversion.net/docs
 [tsup]: https://github.com/egoist/tsup
-[tsconfig-sharing]: https://turbo.build/repo/docs/guides/tools/typescript#sharing-tsconfigjson
-[esbuild]: https://esbuild.github.io/
+[tsconfig-sharing]: https://turbo.build/repo/docs/guides/toolstypescript#sharing-tsconfigjson
+[esbuild]: https://esbuild.github.io
 
-[app-insights-overview]: (https://learn.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview)
+[app-insights-overview]: https://learn.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview
 [winston]: https://github.com/winstonjs/winston
-[tailwind]: https://tailwindcss.com/
-[vite]: https://vitejs.dev/
+[tailwind]: https://tailwindcss.com
+[vite]: https://vitejs.dev
 [azure-functions]: https://www.npmjs.com/package/@azure/functions
 [graphql]: https://www.npmjs.com/package/graphql
-[svelte]: https://svelte.dev/
-[nuxt]: https://nuxtjs.org/
-[opentelemetry]: https://opentelemetry.io/
+[svelte]: https://svelte.dev
+[nuxt]: https://nuxtjs.org
+[opentelemetry]: https://opentelemetry.io
 [zod]: https://github.com/colinhacks/zod
-[js-joda]: https://js-joda.github.io/js-joda/
-[vscode]: https://code.visualstudio.com/
+[js-joda]: https://js-joda.github.io/js-joda
+[vscode]: https://code.visualstudio.com
+
+[cucumber]: https://cucumber.io/docs
+[mocha]: https://mochajs.org
+[chai]: https://www.chaijs.com
+[tsx]: https://github.com/privatenumber/tsx
+
+[gherkin]: https://cucumber.io/docs/gherkin/reference
+[ddd-fowler]: https://martinfowler.com/bliki/DomainDrivenDesign.html
 
 *This README was created with the assistance of [ChatGPT][chatgpt] by OpenAI.*
