@@ -18,9 +18,9 @@ const defaultOptions = {
   external: ['@azure/functions-core'],
   outExtension: { '.js': '.mjs' },
   inject: ['cjs-shim.mts'],
-  entryPoints: ['./src/functions/function-*.ts'],
+  entryPoints: ['./src/functions/function-*.mts'],
 } satisfies BuildOptions;
-export type ExtendOptions = Omit<BuildOptions, 'entryPoints'> & (typeof defaultOptions);
+export type ExtendOptions = Omit<BuildOptions, 'entryPoints'> & typeof defaultOptions;
 
 export const defineConfig = (configModifier: (options: ExtendOptions) => ExtendOptions): ExtendOptions => {
   const modifiedOptions = { ...defaultOptions };

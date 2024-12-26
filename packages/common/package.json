@@ -1,0 +1,27 @@
+{
+  "name": "@shellicar-core-foundation/common",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "build": "tsup-node",
+    "check": "tsc --noEmit --composite false --skipLibCheck",
+    "dev": "tsup-node --watch"
+  },
+  "exports": {
+    "./Deferred": {
+      "types": "./src/Deferred.ts",
+      "import": "./dist/Deferred.mjs",
+      "require": "./dist/Deferred.js"
+    }
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@shellicar-core-foundation/typescript-config": "workspace:^",
+    "terser": "^5.37.0",
+    "tsup": "^8.3.5",
+    "typescript": "^5.7.2"
+  },
+  "dependencies": {}
+}

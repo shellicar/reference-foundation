@@ -1,6 +1,7 @@
-<script>
-import welcome_fallback from '$lib/images/svelte-welcome.png';
+<script lang="ts">
+import welcomeFallback from '$lib/images/svelte-welcome.png';
 import welcome from '$lib/images/svelte-welcome.webp';
+import { TestComponent } from '@shellicar-core-foundation/ui-svelte';
 import Counter from './Counter.svelte';
 </script>
 
@@ -14,7 +15,7 @@ import Counter from './Counter.svelte';
 		<span class="welcome">
 			<picture>
 				<source srcset={welcome} type="image/webp" />
-				<img src={welcome_fallback} alt="Welcome" />
+				<img src={welcomeFallback} alt="Welcome" />
 			</picture>
 		</span>
 
@@ -24,6 +25,11 @@ import Counter from './Counter.svelte';
 	<h2>
 		try editing <strong>src/routes/+page.svelte</strong>
 	</h2>
+
+  <div class="p-4 bg-white border-2 rounded-lg w-80 flex flex-col items-center gap-4">
+    <h3 class="text-xl font-bold">Hello World Card</h3>
+    <TestComponent />
+  </div>
 
 	<Counter />
 </section>
