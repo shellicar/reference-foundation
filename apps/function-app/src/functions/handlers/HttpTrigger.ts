@@ -1,10 +1,10 @@
-import { type HttpHandler, type HttpResponseInit, app } from '@azure/functions';
+import type { HttpHandler, HttpResponseInit } from '@azure/functions';
 import { logger } from '@shellicar-core-foundation/monitor/logger';
 import { IManager } from '@shellicar-core-foundation/server-common/interfaces';
-import versionJson from '../../../../version.json';
-import { container } from '../core/di/container';
+import versionJson from '../../../../../version.json';
+import { container } from '../../core/di/container';
 
-const handler: HttpHandler = async () => {
+export const handler: HttpHandler = async () => {
   const manager = container.resolve(IManager);
   const response: HttpResponseInit = {
     status: 200,
@@ -20,9 +20,3 @@ const handler: HttpHandler = async () => {
   logger.info('Returning response', response);
   return response;
 };
-
-app.http('HttpTrigger', {
-  handler,
-  methods: ['GET'],
-  authLevel: 'anonymous',
-});

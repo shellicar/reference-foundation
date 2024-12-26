@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "tsup-node",
+    "check": "tsc --noEmit --composite false --skipLibCheck",
     "dev": "tsup-node --watch"
   },
   "exports": {
@@ -17,6 +18,11 @@
       "types": "./src/module.ts",
       "import": "./dist/module.mjs",
       "require": "./dist/module.js"
+    },
+    "./function-handler": {
+      "types": "./src/function-handler.ts",
+      "import": "./dist/function-handler.mjs",
+      "require": "./dist/function-handler.js"
     }
   },
   "keywords": [],
@@ -41,6 +47,8 @@
     "@opentelemetry/sdk-trace-node": "^1.26.0",
     "@opentelemetry/semantic-conventions": "^1.27.0",
     "@opentelemetry/winston-transport": "^0.6.0",
+    "@shellicar-core-foundation/common": "workspace:^",
+    "@shellicar-core-foundation/monitor": "workspace:^",
     "@shellicar/core-di": "^0.1.0",
     "applicationinsights": "^3.3.0",
     "winston": "^3.15.0",
