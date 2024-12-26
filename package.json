@@ -11,6 +11,7 @@
     "ci:fix": "biome check --diagnostic-level=error --fix",
     "update-readme": "sh ./update-readme.sh",
     "build": "turbo run build",
+    "check": "turbo run check",
     "dev": "turbo run dev",
     "list-mismatches": "syncpack list-mismatches",
     "fix-mismatches": "syncpack fix-mismatches"

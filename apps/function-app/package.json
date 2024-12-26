@@ -6,6 +6,7 @@
   "scripts": {
     "deploy:dev": "dotenvx run -f ../../.env -- ./deploy.sh",
     "build": "tsx build.mts",
+    "check": "tsc --noEmit --composite false --skipLibCheck",
     "watch": "tsx build.mts --watch",
     "start": "dotenvx run -q -- func start --port 7071 --language-worker -- --inspect=9231",
     "dev": "run-p watch start",

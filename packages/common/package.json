@@ -4,6 +4,7 @@
   "description": "",
   "scripts": {
     "build": "tsup-node",
+    "check": "tsc --noEmit --composite false --skipLibCheck",
     "dev": "tsup-node --watch"
   },
   "exports": {
