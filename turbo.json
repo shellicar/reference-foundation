@@ -12,8 +12,10 @@
     "clean": {
       "cache": false
     },
+    "test": {},
     "dev": {
-      "cache": false
+      "cache": false,
+      "persistent": true
     }
   }
 }

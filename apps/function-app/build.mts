@@ -6,7 +6,7 @@ const graphqlPlugins = createPlugins('src/**/*.graphql', 'src/core/graphql/typed
 
 const configuration = defineConfig((x) => {
   x.plugins.push(...graphqlPlugins);
-  x.minify = watch;
+  x.minify = !watch;
   return x;
 });
 
