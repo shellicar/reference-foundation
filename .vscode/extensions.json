@@ -13,6 +13,7 @@
     "svelte.svelte-vscode",
     "bradlc.vscode-tailwindcss",
     "ms-vscode-remote.remote-wsl",
-    "ms-vscode.azure-account"
+    "ms-vscode.azure-account",
+    "vue.volar"
   ]
 }

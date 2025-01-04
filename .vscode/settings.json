@@ -1,17 +1,4 @@
 {
-  "cSpell.words": [
-    "codegen",
-    "corepack",
-    "gitversion",
-    "Nuxt",
-    "shellicar",
-    "showvariable",
-    "Structurizr",
-    "superforms",
-    "Syncpack",
-    "syncpackrc",
-    "tsup"
-  ],
   "editor.tabSize": 2,
   "editor.detectIndentation": false,
   "editor.insertSpaces": true,
@@ -20,5 +7,6 @@
   },
   "cucumberautocomplete.steps": ["packages/atdd-tests/test/**/*.steps.ts"],
   "cucumberautocomplete.strictGherkinCompletion": true,
-  "cucumberautocomplete.syncfeatures": "packages/atdd-tests/test/**/*.feature"
+  "cucumberautocomplete.syncfeatures": "packages/atdd-tests/test/**/*.feature",
+  "vue.server.hybridMode": true
 }

@@ -16,6 +16,7 @@
     "vue-router": "latest"
   },
   "devDependencies": {
+    "@shellicar-core-foundation/build": "workspace:^",
     "vue-tsc": "^2.2.0"
   }
 }

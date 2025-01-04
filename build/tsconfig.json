@@ -1,3 +1,4 @@
 {
-  "extends": "@shellicar-core-foundation/typescript-config/azure-function.json"
+  "extends": "@shellicar-core-foundation/typescript-config/azure-function.json",
+  "exclude": ["dist", "node_modules"]
 }

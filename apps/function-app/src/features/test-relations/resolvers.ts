@@ -25,10 +25,7 @@ export const testEntityResolvers = {
         } satisfies Entity2Connection;
       }
 
-      const relatedEntities = (await loaders.entity2Loader.loadMany(entity1Document.entity2Ids)) as (
-        | Error
-        | Entity2Document
-      )[];
+      const relatedEntities = (await loaders.entity2Loader.loadMany(entity1Document.entity2Ids)) as (Error | Entity2Document)[];
 
       return {
         __typename: 'Entity2Connection',
