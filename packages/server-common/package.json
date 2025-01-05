@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "tsup-node",
-    "check": "tsc --noEmit --composite false --skipLibCheck",
+    "type-check": "tsc -p tsconfig.check.json",
     "dev": "tsup-node --watch"
   },
   "exports": {

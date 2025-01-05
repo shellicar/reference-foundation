@@ -1,0 +1,9 @@
+pre-commit:
+  commands:
+    check:
+      run: pnpm biome check --diagnostic-level=error --fix --no-errors-on-unmatched --colors=off {staged_files}
+      stage_fixed: true
+pre-push:
+  commands:
+    check:
+      run: pnpm biome ci --diagnostic-level=error --no-errors-on-unmatched --colors=off {push_files}

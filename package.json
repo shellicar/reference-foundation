@@ -1,5 +1,5 @@
 {
-  "name": "@shellicar/core-foundation",
+  "name": "@shellicar-core-foundation/root",
   "version": "0.1.0",
   "description": "@shellicar/core-foundation is a comprehensive starter repository for building modern applications, including monorepo setups, infrastructure, web frameworks, Docker, TypeScript, testing, and more.",
   "packageManager": "pnpm@9.15.2+sha512.93e57b0126f0df74ce6bff29680394c0ba54ec47246b9cf321f0121d8d9bb03f750a705f24edc3c1180853afd7c2c3b94196d0a3d53d3e069d9e2793ef11f321",
@@ -9,6 +9,7 @@
     "format": "biome format",
     "ci": "biome ci --diagnostic-level=error",
     "ci:fix": "biome check --diagnostic-level=error --fix",
+    "type-check": "turbo run type-check",
     "update-readme": "sh ./update-readme.sh",
     "build": "turbo run build",
     "check": "turbo run check",
@@ -17,7 +18,8 @@
     "dev": "turbo run dev",
     "list-mismatches": "syncpack list-mismatches",
     "fix-mismatches": "syncpack fix-mismatches",
-    "updates": "npm-check-updates --workspaces"
+    "updates": "npm-check-updates --workspaces",
+    "postinstall": "lefthook install"
   },
   "keywords": [],
   "author": "",
@@ -27,10 +29,13 @@
   },
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
+    "lefthook": "^1.10.1",
     "npm-check-updates": "^17.1.13",
     "syncpack": "^13.0.0"
   },
   "pnpm": {
-    "overrides": {}
+    "overrides": {
+      "vite": "^6.0.7"
+    }
   }
 }

@@ -1,8 +1,8 @@
 import { join } from 'node:path';
+import VersionPlugin from '@shellicar/build-version/esbuild';
 import { type BuildOptions, context } from 'esbuild';
 import { glob } from 'glob';
 import { esbuild as LoggingPlugin } from '../logging/plugin.js';
-import VersionPlugin from '@shellicar/build-version/esbuild';
 
 const tsconfig = join(process.cwd(), 'tsconfig.json');
 

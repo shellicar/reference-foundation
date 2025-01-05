@@ -2,11 +2,9 @@
 import '@shellicar-core-foundation/ui-config/app.css';
 import '../app.css';
 import version from '@shellicar/build-version/version';
-console.log('version', version);
 import Header from './Header.svelte';
 
 const versionPaths = [version.version, version.commitDate, version.shortSha];
-const versionText = versionPaths.filter(Boolean).join(' - ');
 
 let { children } = $props();
 </script>

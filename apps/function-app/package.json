@@ -6,11 +6,11 @@
   "scripts": {
     "deploy:dev": "dotenvx run -f ../../.env -- ./deploy.sh",
     "build": "tsx build.mts",
-    "check": "tsc --noEmit --composite false --skipLibCheck",
     "watch": "tsx build.mts --watch",
     "start": "dotenvx run -q -- func start --port 7071 --language-worker -- --inspect=9231",
     "dev": "run-p watch start",
-    "codegen": "graphql-codegen"
+    "codegen": "graphql-codegen",
+    "type-check": "tsc -p tsconfig.check.json"
   },
   "dependencies": {
     "@apollo/server": "^4.11.3",
@@ -38,7 +38,7 @@
     "@shellicar-core-foundation/build": "workspace:^",
     "@shellicar-core-foundation/typescript-config": "workspace:^",
     "@shellicar/build-graphql": "^0.1.1",
-    "@shellicar/build-version": "^0.1.1",
+    "@shellicar/build-version": "^0.2.1",
     "@types/node": "^22.10.5",
     "esbuild": "^0.24.2",
     "glob": "^11.0.0",

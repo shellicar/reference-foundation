@@ -1,8 +1,8 @@
 import { makeExecutableSchema } from '@graphql-tools/schema';
 import { printSchemaWithDirectives } from '@graphql-tools/utils';
+import typeDefs from '@shellicar/build-graphql/typedefs';
 import { lexicographicSortSchema } from 'graphql';
 import { resolvers } from './resolvers';
-import typeDefs from '@shellicar/build-graphql/typedefs';
 
 export const schema = makeExecutableSchema({
   typeDefs,

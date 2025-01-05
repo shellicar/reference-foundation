@@ -1,7 +1,7 @@
 import type { HttpHandler, HttpResponseInit } from '@azure/functions';
-import versionJson from '@shellicar/build-version/version';
 import { logger } from '@shellicar-core-foundation/monitor/logger';
 import { IManager } from '@shellicar-core-foundation/server-common/interfaces';
+import versionJson from '@shellicar/build-version/version';
 import { container } from '../../core/di/container';
 
 export const handler: HttpHandler = async () => {

@@ -183,3 +183,5 @@ package
 .turbo
 
 # End of https://www.toptal.com/developers/gitignore/api/node,azurite,azurefunctions,turbo,nuxtjs,svelte
+
+apps/*/build/
