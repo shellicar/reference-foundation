@@ -44,6 +44,7 @@ This repository brings together a range of technologies, including monorepo setu
 ## Table of Contents
 
 - [Overview](#overview)
+- [@shellicar Ecosystem](#shellicar-ecosystem)
 - [Getting Started](#getting-started)
   - [Setup Script](#setup-script)
 - [Cloud Platform Focus](#cloud-platform-focus)
@@ -81,6 +82,28 @@ This repository brings together a range of technologies, including monorepo setu
   - [Bicep](#bicep)
 - [Documentation and Diagrams](#documentation-and-diagrams)
   - [Structurizr](#structurizr)
+
+<!-- BEGIN_ECOSYSTEM -->
+
+## @shellicar Ecosystem
+
+### Core Libraries
+- [`@shellicar/core-di`](https://github.com/shellicar/core-di) - A lightweight dependency injection library for TypeScript
+- [`@shellicar/core-foundation`](https://github.com/shellicar/core-foundation) - Comprehensive starter repository with examples and best practices
+
+### Build Tools
+- [`@shellicar/build-version`](https://github.com/shellicar/build-version) - An unplugin plugin for dynamic version calculation and virtual imports
+- [`@shellicar/build-graphql`](https://github.com/shellicar/build-graphql) - An unplugin plugin for GraphQL file loading with TypeScript types
+
+### Framework Adapters
+- [`@shellicar/svelte-adapter-azure-functions`](https://github.com/shellicar/svelte-adapter-azure-functions) - SvelteKit adapter for Azure Functions
+
+### Logging & Monitoring
+- [`@shellicar/winston-azure-application-insights`](https://github.com/shellicar/winston-azure-application-insights) - Winston transport for Azure Application Insights
+- [`@shellicar/pino-applicationinsights-transport`](https://github.com/shellicar/pino-applicationinsights-transport) - Pino transport for Azure Application Insights
+
+<!-- END_ECOSYSTEM -->
+
 
 ## Overview
 
