@@ -21,6 +21,7 @@ const defaultOptions = {
     LoggingPlugin(),
     VersionPlugin({
       versionCalculator: process.env.CI ? 'git' : undefined,
+      debug: true,
     }),
   ],
   external: ['@azure/functions-core'],

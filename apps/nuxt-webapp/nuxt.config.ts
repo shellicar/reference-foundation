@@ -7,6 +7,7 @@ export default defineNuxtConfig({
   modules: ['@shellicar/build-version/nuxt'],
   buildVersion: {
     versionCalculator: process.env.CI ? 'git' : undefined,
+    debug: true,
   },
   devtools: { enabled: true },
   nitro: {

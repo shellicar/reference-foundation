@@ -7,6 +7,7 @@ export default defineConfig({
     sveltekit(),
     plugin({
       versionCalculator: process.env.CI ? 'git' : undefined,
+      debug: true,
     }),
   ],
   clearScreen: false,
