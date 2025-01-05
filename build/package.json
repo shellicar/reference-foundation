@@ -30,12 +30,11 @@
       }
     }
   },
-  "files": ["dist", "types"],
+  "files": ["dist"],
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@luckycatfactory/esbuild-graphql-loader": "^3.8.1",
     "@shellicar-core-foundation/typescript-config": "workspace:^",
     "@shellicar/build-version": "^0.2.1",
     "@tsconfig/node20": "^20.1.4",
@@ -46,10 +45,5 @@
     "typescript": "^5.7.2",
     "unplugin": "^2.1.2",
     "vite": "^6.0.6"
-  },
-  "dependencies": {
-    "@types/graphql": "^14.5.0",
-    "graphql": "^16.10.0",
-    "graphql-tag": "^2.12.6"
   }
 }
