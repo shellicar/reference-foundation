@@ -3,7 +3,12 @@ import { sveltekit } from '@sveltejs/kit/vite';
 import { defineConfig } from 'vite';
 
 export default defineConfig({
-  plugins: [sveltekit(), plugin({})],
+  plugins: [
+    sveltekit(),
+    plugin({
+      versionCalculator: process.env.CI ? 'git' : undefined,
+    }),
+  ],
   clearScreen: false,
   server: {
     port: 4000,

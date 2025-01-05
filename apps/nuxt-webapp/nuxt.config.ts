@@ -5,6 +5,9 @@ export default defineNuxtConfig({
   telemetry: false,
   compatibilityDate: '2024-04-03',
   modules: ['@shellicar/build-version/nuxt'],
+  buildVersion: {
+    versionCalculator: process.env.CI ? 'git' : undefined,
+  },
   devtools: { enabled: true },
   nitro: {
     preset: 'azure-functions',

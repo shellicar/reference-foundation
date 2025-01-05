@@ -17,7 +17,12 @@ const defaultOptions = {
   treeShaking: true,
   outdir: 'dist',
   tsconfig,
-  plugins: [LoggingPlugin(), VersionPlugin({})],
+  plugins: [
+    LoggingPlugin(),
+    VersionPlugin({
+      versionCalculator: process.env.CI ? 'git' : undefined,
+    }),
+  ],
   external: ['@azure/functions-core'],
   outExtension: { '.js': '.mjs' },
   inject: ['cjs-shim.mts'],
