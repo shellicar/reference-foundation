@@ -85,22 +85,22 @@ This repository brings together a range of technologies, including monorepo setu
 
 <!-- BEGIN_ECOSYSTEM -->
 
-## @shellicar Ecosystem
+## @shellicar TypeScript Ecosystem
 
 ### Core Libraries
-- [`@shellicar/core-di`](https://github.com/shellicar/core-di) - A lightweight dependency injection library for TypeScript
-- [`@shellicar/core-foundation`](https://github.com/shellicar/core-foundation) - Comprehensive starter repository with examples and best practices
+- [`@shellicar/core-di`](https://github.com/shellicar/core-di) - A basic dependency injection library.
+- [`@shellicar/core-foundation`](https://github.com/shellicar/core-foundation) - A comprehensive starter repository.
 
 ### Build Tools
-- [`@shellicar/build-version`](https://github.com/shellicar/build-version) - An unplugin plugin for dynamic version calculation and virtual imports
-- [`@shellicar/build-graphql`](https://github.com/shellicar/build-graphql) - An unplugin plugin for GraphQL file loading with TypeScript types
+- [`@shellicar/build-version`](https://github.com/shellicar/build-version) - Build plugin that calculates and exposes version information through a virtual module import.
+- [`@shellicar/build-graphql`](https://github.com/shellicar/build-graphql) - Build plugin that loads GraphQL files and makes them available through a virtual module import.
 
 ### Framework Adapters
-- [`@shellicar/svelte-adapter-azure-functions`](https://github.com/shellicar/svelte-adapter-azure-functions) - SvelteKit adapter for Azure Functions
+- [`@shellicar/svelte-adapter-azure-functions`](https://github.com/shellicar/svelte-adapter-azure-functions) - A [SvelteKit adapter](https://kit.svelte.dev/docs/adapters) that builds your app into an Azure Function.
 
 ### Logging & Monitoring
-- [`@shellicar/winston-azure-application-insights`](https://github.com/shellicar/winston-azure-application-insights) - Winston transport for Azure Application Insights
-- [`@shellicar/pino-applicationinsights-transport`](https://github.com/shellicar/pino-applicationinsights-transport) - Pino transport for Azure Application Insights
+- [`@shellicar/winston-azure-application-insights`](https://github.com/shellicar/winston-azure-application-insights) - An [Azure Application Insights](https://azure.microsoft.com/en-us/services/application-insights/) transport for [Winston](https://github.com/winstonjs/winston) logging library.
+- [`@shellicar/pino-applicationinsights-transport`](https://github.com/shellicar/pino-applicationinsights-transport) - [Azure Application Insights](https://azure.microsoft.com/en-us/services/application-insights) transport for [pino](https://github.com/pinojs/pino)
 
 <!-- END_ECOSYSTEM -->
 
