@@ -1,7 +1,10 @@
+import { join } from 'node:path';
+import VersionPlugin from '@shellicar/build-version/esbuild';
 import { type BuildOptions, context } from 'esbuild';
 import { glob } from 'glob';
-import { buildLogger } from './buildLogger.js';
-import { gitVersion } from './gitVersion.js';
+import { esbuild as LoggingPlugin } from '../logging/plugin.js';
+
+const tsconfig = join(process.cwd(), 'tsconfig.json');
 
 const defaultOptions = {
   format: 'esm',
@@ -13,8 +16,14 @@ const defaultOptions = {
   sourcemap: true,
   treeShaking: true,
   outdir: 'dist',
-  tsconfig: 'tsconfig.json',
-  plugins: [gitVersion, buildLogger],
+  tsconfig,
+  plugins: [
+    LoggingPlugin(),
+    VersionPlugin({
+      versionCalculator: process.env.CI ? 'git' : undefined,
+      debug: true,
+    }),
+  ],
   external: ['@azure/functions-core'],
   outExtension: { '.js': '.mjs' },
   inject: ['cjs-shim.mts'],

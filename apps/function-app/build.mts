@@ -1,11 +1,13 @@
-import { createBuildContext, defineConfig } from '@shellicar-core-foundation/build/esbuild/config';
-import { createPlugins } from '@shellicar-core-foundation/build/esbuild/graphqlLoader';
+import { createBuildContext, defineConfig } from '@shellicar-core-foundation/build/esbuild';
+import GraphQLPlugin from '@shellicar/build-graphql/esbuild';
 
 const watch = process.argv.includes('--watch');
-const graphqlPlugins = createPlugins('src/**/*.graphql', 'src/core/graphql/typedefs.ts');
+const graphqlPlugins = GraphQLPlugin({
+  globPattern: 'src/**/*.graphql',
+});
 
 const configuration = defineConfig((x) => {
-  x.plugins.push(...graphqlPlugins);
+  x.plugins.push(graphqlPlugins);
   x.minify = !watch;
   return x;
 });

@@ -1,8 +1,10 @@
 <script lang="ts">
 import '@shellicar-core-foundation/ui-config/app.css';
 import '../app.css';
-
+import version from '@shellicar/build-version/version';
 import Header from './Header.svelte';
+
+const versionPaths = [version.version, version.commitDate, version.shortSha];
 
 let { children } = $props();
 </script>
@@ -16,7 +18,7 @@ let { children } = $props();
 
 	<footer>
 		<p>
-			visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to learn about SvelteKit
+      {JSON.stringify(version)}
 		</p>
 	</footer>  
 </div>

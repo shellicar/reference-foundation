@@ -2,31 +2,48 @@
   "name": "@shellicar-core-foundation/build",
   "version": "1.0.0",
   "description": "",
+  "type": "module",
+  "scripts": {
+    "build": "tsup-node",
+    "type-check": "tsc -p tsconfig.check.json",
+    "dev": "tsup-node --watch"
+  },
   "exports": {
-    "./esbuild/buildLogger": {
-      "default": "./src/esbuild/buildLogger.ts"
+    "./esbuild": {
+      "require": {
+        "types": "./dist/esbuild/context.d.cts",
+        "default": "./dist/esbuild/context.cjs"
+      },
+      "import": {
+        "types": "./dist/esbuild/context.d.ts",
+        "default": "./dist/esbuild/context.js"
+      }
     },
-    "./esbuild/graphqlLoader": {
-      "default": "./src/esbuild/graphqlLoader.ts"
-    },
-    "./esbuild/gitVersion": {
-      "default": "./src/esbuild/gitVersion.ts"
-    },
-    "./esbuild/config": {
-      "default": "./src/esbuild/config.mts"
+    "./logging": {
+      "require": {
+        "types": "./dist/logging/plugin.d.cts",
+        "default": "./dist/logging/plugin.cjs"
+      },
+      "import": {
+        "types": "./dist/logging/plugin.d.ts",
+        "default": "./dist/logging/plugin.js"
+      }
     }
   },
+  "files": ["dist"],
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@luckycatfactory/esbuild-graphql-loader": "^3.8.1",
     "@shellicar-core-foundation/typescript-config": "workspace:^",
-    "@types/node": "^22.10.2",
-    "@types/uuid": "^10.0.0",
+    "@shellicar/build-version": "^0.2.1",
+    "@tsconfig/node20": "^20.1.4",
+    "@types/node": "^22.10.5",
     "esbuild": "^0.24.2",
     "glob": "^11.0.0",
     "tsup": "^8.3.5",
-    "typescript": "^5.7.2"
+    "typescript": "^5.7.2",
+    "unplugin": "^2.1.2",
+    "vite": "^6.0.7"
   }
 }

@@ -7,11 +7,7 @@ const boolSchema = z.enum(['1', '0', 'true', 'false']).transform((value) => {
 
 const schema = z.object({
   LOGGING__LIVE_METRICS: boolSchema.optional(),
-  LOGGING__SAMPLING_RATIO: z.coerce
-    .number()
-    .min(0, { message: 'Value must be at least 0' })
-    .max(1, { message: 'Value must be at most 1' })
-    .optional(),
+  LOGGING__SAMPLING_RATIO: z.coerce.number().min(0, { message: 'Value must be at least 0' }).max(1, { message: 'Value must be at most 1' }).optional(),
   LOGGING__NAME: z.string().optional(),
   LOGGING__NAMESPACE: z.string().optional(),
   LOGGING__INSTANCE_ID: z.string().optional(),

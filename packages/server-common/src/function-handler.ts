@@ -29,10 +29,7 @@ const createLogger = async (): Promise<LoggerType> => {
 
 type BaseHandler = (...args: any[]) => any;
 
-export const createAsyncHandler = <THandler extends BaseHandler>(
-  name: string,
-  importHandler: () => Promise<{ handler: THandler }>,
-): THandler => {
+export const createAsyncHandler = <THandler extends BaseHandler>(name: string, importHandler: () => Promise<{ handler: THandler }>): THandler => {
   const handlerDeferred = new Deferred<THandler>();
 
   const initialize = async () => {

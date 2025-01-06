@@ -16,6 +16,10 @@
     "dev": {
       "cache": false,
       "persistent": true
+    },
+    "type-check": {
+      "dependsOn": ["^build"],
+      "outputs": ["**/node_modules/.cache/tsbuildinfo.json"]
     }
   }
 }

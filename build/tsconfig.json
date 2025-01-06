@@ -1,3 +1,9 @@
 {
-  "extends": "@shellicar-core-foundation/typescript-config/azure-function.json"
+  "extends": "@tsconfig/node20/tsconfig.json",
+  "compilerOptions": {
+    "moduleResolution": "bundler",
+    "module": "ES2022"
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["dist", "node_modules"]
 }

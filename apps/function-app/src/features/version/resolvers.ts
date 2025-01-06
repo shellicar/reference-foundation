@@ -1,4 +1,4 @@
-import versionJson from '../../../../../version.json';
+import versionJson from '@shellicar/build-version/version';
 import type { AppContext } from '../../core/graphql/types';
 import type { Resolvers } from '../../generated/graphql-types';
 
