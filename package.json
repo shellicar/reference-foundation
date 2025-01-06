@@ -31,7 +31,8 @@
     "@biomejs/biome": "^1.9.4",
     "lefthook": "^1.10.1",
     "npm-check-updates": "^17.1.13",
-    "syncpack": "^13.0.0"
+    "syncpack": "^13.0.0",
+    "typescript": "^5.7.2"
   },
   "pnpm": {
     "overrides": {

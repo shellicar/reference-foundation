@@ -2,7 +2,7 @@
 
 [![Node.js](https://img.shields.io/badge/Node.js-20-5FA04E?logo=nodedotjs)][node]
 [![npm](https://img.shields.io/badge/npm-10.8.2-CB3837?logo=npm)][npm]
-[![PNPM](https://img.shields.io/badge/pnpm-9.12.1-F69220?logo=pnpm)][pnpm]
+[![PNPM](https://img.shields.io/badge/pnpm-9.15.3-F69220?logo=pnpm)][pnpm]
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript)][typescript]
 [![nvm](https://img.shields.io/badge/nvm-0.40-F4DD4B?logo=nvm)][typescript]
 [![Docker](https://img.shields.io/badge/Docker-dev-2496ED?logo=docker)][docker]
@@ -27,7 +27,7 @@ These are some of the key dependencies required to run the applications:
 
 [![@azure/functions](https://img.shields.io/badge/Azure%20Functions-4-0082FC?logo=github)][azure-functions]
 [![GraphQL](https://img.shields.io/badge/GraphQL-16-E10098?logo=graphql)][graphql]
-[![Svelte](https://img.shields.io/badge/Svelte-4-FF3E00?logo=svelte)][svelte]
+[![Svelte](https://img.shields.io/badge/Svelte-5-FF3E00?logo=svelte)][svelte]
 [![Nuxt.js](https://img.shields.io/badge/Nuxt-3-00DC82?logo=nuxt.js)][nuxt]
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-3-06B6D4?logo=tailwindcss)][tailwind]
 [![Zod](https://img.shields.io/badge/Zod-3-3E67B1?logo=zod&logoColor=3E67B1)][zod]

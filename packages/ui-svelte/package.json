@@ -23,7 +23,7 @@
     }
   },
   "peerDependencies": {
-    "svelte": "^5.16.1"
+    "svelte": "^5.16.2"
   },
   "devDependencies": {
     "@shellicar-core-foundation/ui-config": "workspace:^",
