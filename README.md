@@ -88,6 +88,7 @@ This repository brings together a range of technologies, including monorepo setu
 
 ### Core Libraries
 
+- [`@shellicar/core-config`](https://github.com/shellicar/core-config) - A library for securely handling sensitive configuration values like connection strings, URLs, and secrets.
 - [`@shellicar/core-di`](https://github.com/shellicar/core-di) - A basic dependency injection library.
 - [`@shellicar/core-foundation`](https://github.com/shellicar/core-foundation) - A comprehensive starter repository.
 
