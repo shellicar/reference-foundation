@@ -1,5 +1,4 @@
-import { equal } from 'node:assert/strict';
-import { describe, it } from 'mocha';
+import { describe, expect, it } from 'vitest';
 import { EmployeeAggregate } from '../../../src/features/employee/EmployeeAggregate.js';
 
 describe('EmployeeAggregate', () => {
@@ -12,6 +11,6 @@ describe('EmployeeAggregate', () => {
     });
     e.changePosition('Senior Developer');
 
-    equal(e.position, 'Senior Developer');
+    expect(e.position).toBe('Senior Developer');
   });
 });

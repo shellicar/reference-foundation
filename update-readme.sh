@@ -1,5 +1,5 @@
 #!/bin/bash
-set -e
+set -euo pipefail
 
 NODE_VERSION=$(node -v | sed -E 's/v([0-9]+)\..*/\1/')
 NPM_VERSION=$(npm -v)

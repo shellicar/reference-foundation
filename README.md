@@ -2,7 +2,7 @@
 
 [![Node.js](https://img.shields.io/badge/Node.js-20-5FA04E?logo=nodedotjs)][node]
 [![npm](https://img.shields.io/badge/npm-10.8.2-CB3837?logo=npm)][npm]
-[![PNPM](https://img.shields.io/badge/pnpm-9.12.1-F69220?logo=pnpm)][pnpm]
+[![PNPM](https://img.shields.io/badge/pnpm-9.15.3-F69220?logo=pnpm)][pnpm]
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript)][typescript]
 [![nvm](https://img.shields.io/badge/nvm-0.40-F4DD4B?logo=nvm)][typescript]
 [![Docker](https://img.shields.io/badge/Docker-dev-2496ED?logo=docker)][docker]
@@ -18,6 +18,7 @@ These are some of the key tools and technologies used to build and develop this 
 [![esbuild](https://img.shields.io/badge/esbuild-0.24-FFCF00?logo=esbuild)][esbuild]
 [![TSX](https://img.shields.io/badge/TSX-4-3178C6)][tsx]
 [![Cucumber](https://img.shields.io/badge/Cucumber-11-23D96C?logo=cucumber)][cucumber]
+[![Vitest](https://img.shields.io/badge/Vitest-2-729B1B?logo=vitest)][Vitest]
 [![Mocha](https://img.shields.io/badge/Mocha-10-8D6748?logo=mocha)][mocha]
 [![Chai](https://img.shields.io/badge/Chai-5-A30701?logo=chai)][chai]
 
@@ -27,7 +28,7 @@ These are some of the key dependencies required to run the applications:
 
 [![@azure/functions](https://img.shields.io/badge/Azure%20Functions-4-0082FC?logo=github)][azure-functions]
 [![GraphQL](https://img.shields.io/badge/GraphQL-16-E10098?logo=graphql)][graphql]
-[![Svelte](https://img.shields.io/badge/Svelte-4-FF3E00?logo=svelte)][svelte]
+[![Svelte](https://img.shields.io/badge/Svelte-5-FF3E00?logo=svelte)][svelte]
 [![Nuxt.js](https://img.shields.io/badge/Nuxt-3-00DC82?logo=nuxt.js)][nuxt]
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-3-06B6D4?logo=tailwindcss)][tailwind]
 [![Zod](https://img.shields.io/badge/Zod-3-3E67B1?logo=zod&logoColor=3E67B1)][zod]
@@ -88,6 +89,7 @@ This repository brings together a range of technologies, including monorepo setu
 
 ### Core Libraries
 
+- [`@shellicar/core-config`](https://github.com/shellicar/core-config) - A library for securely handling sensitive configuration values like connection strings, URLs, and secrets.
 - [`@shellicar/core-di`](https://github.com/shellicar/core-di) - A basic dependency injection library.
 - [`@shellicar/core-foundation`](https://github.com/shellicar/core-foundation) - A comprehensive starter repository.
 
@@ -543,6 +545,7 @@ Details on how Structurizr is used to create architectural diagrams for document
 [vscode]: https://code.visualstudio.com
 
 [cucumber]: https://cucumber.io/docs
+[Vitest]: https://github.com/vitest-dev/vitest
 [mocha]: https://mochajs.org
 [chai]: https://www.chaijs.com
 [tsx]: https://github.com/privatenumber/tsx
