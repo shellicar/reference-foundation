@@ -18,6 +18,7 @@ These are some of the key tools and technologies used to build and develop this 
 [![esbuild](https://img.shields.io/badge/esbuild-0.24-FFCF00?logo=esbuild)][esbuild]
 [![TSX](https://img.shields.io/badge/TSX-4-3178C6)][tsx]
 [![Cucumber](https://img.shields.io/badge/Cucumber-11-23D96C?logo=cucumber)][cucumber]
+[![Vitest](https://img.shields.io/badge/Vitest-2-729B1B?logo=vitest)][Vitest]
 [![Mocha](https://img.shields.io/badge/Mocha-10-8D6748?logo=mocha)][mocha]
 [![Chai](https://img.shields.io/badge/Chai-5-A30701?logo=chai)][chai]
 
@@ -544,6 +545,7 @@ Details on how Structurizr is used to create architectural diagrams for document
 [vscode]: https://code.visualstudio.com
 
 [cucumber]: https://cucumber.io/docs
+[Vitest]: https://github.com/vitest-dev/vitest
 [mocha]: https://mochajs.org
 [chai]: https://www.chaijs.com
 [tsx]: https://github.com/privatenumber/tsx
