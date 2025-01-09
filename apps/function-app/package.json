@@ -21,7 +21,7 @@
     "@opentelemetry/api": "^1.9.0",
     "@shellicar-core-foundation/monitor": "workspace:^",
     "@shellicar-core-foundation/server-common": "workspace:^",
-    "@shellicar/core-di": "^2.1.0",
+    "@shellicar/core-di": "^2.2.0",
     "applicationinsights": "^3.4.0",
     "dataloader": "^2.2.3",
     "graphql": "^16.10.0",
