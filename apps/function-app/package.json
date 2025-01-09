@@ -21,7 +21,7 @@
     "@opentelemetry/api": "^1.9.0",
     "@shellicar-core-foundation/monitor": "workspace:^",
     "@shellicar-core-foundation/server-common": "workspace:^",
-    "@shellicar/core-di": "^2.0.0",
+    "@shellicar/core-di": "^2.1.0",
     "applicationinsights": "^3.4.0",
     "dataloader": "^2.2.3",
     "graphql": "^16.10.0",
@@ -30,20 +30,20 @@
     "zod": "^3.24.1"
   },
   "devDependencies": {
-    "@dotenvx/dotenvx": "^1.32.0",
+    "@dotenvx/dotenvx": "^1.32.1",
     "@graphql-codegen/cli": "^5.0.3",
     "@graphql-codegen/introspection": "^4.0.3",
     "@graphql-codegen/typescript": "^4.1.2",
     "@graphql-codegen/typescript-resolvers": "^4.4.1",
     "@shellicar-core-foundation/build": "workspace:^",
     "@shellicar-core-foundation/typescript-config": "workspace:^",
-    "@shellicar/build-graphql": "^0.1.1",
+    "@shellicar/build-graphql": "^1.0.0",
     "@shellicar/build-version": "^0.2.1",
     "@types/node": "^22.10.5",
     "esbuild": "^0.24.2",
     "glob": "^11.0.0",
     "npm-run-all2": "^7.0.2",
     "tsx": "^4.19.2",
-    "typescript": "^5.7.2"
+    "typescript": "^5.7.3"
   }
 }
