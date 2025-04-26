@@ -33,10 +33,5 @@
     "npm-check-updates": "^18.0.1",
     "syncpack": "^13.0.3",
     "typescript": "^5.8.3"
-  },
-  "pnpm": {
-    "overrides": {
-      "vite": "^6.0.7"
-    }
   }
 }
