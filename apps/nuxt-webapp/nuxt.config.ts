@@ -3,7 +3,7 @@ import { defineNuxtConfig } from 'nuxt/config';
 
 export default defineNuxtConfig({
   telemetry: false,
-  compatibilityDate: '2024-04-03',
+  compatibilityDate: '2024-04-26',
   modules: ['@shellicar/build-version/nuxt'],
   buildVersion: {
     versionCalculator: process.env.CI ? 'git' : undefined,
