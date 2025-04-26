@@ -19,7 +19,7 @@
     "@shellicar/build-version": "^0.2.1",
     "@shellicar/svelte-adapter-azure-functions": "^0.2.2",
     "@sveltejs/adapter-auto": "^3.3.1",
-    "@sveltejs/kit": "^2.15.2",
+    "@sveltejs/kit": "^2.20.6",
     "@sveltejs/vite-plugin-svelte": "^5.0.3",
     "autoprefixer": "^10.4.20",
     "svelte": "^5.17.3",
