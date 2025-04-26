@@ -102,16 +102,16 @@ importers:
         version: link:../../packages/typescript-config
       '@shellicar/build-graphql':
         specifier: ^1.0.0
-        version: 1.0.0(@nuxt/kit@3.16.1(magicast@0.3.5))(@nuxt/schema@3.16.1)(esbuild@0.24.2)(vite@6.2.2(@types/node@22.10.5)(jiti@2.4.2)(terser@5.39.0)(tsx@4.19.2)(yaml@2.7.0))
+        version: 1.0.0(@nuxt/kit@3.16.1(magicast@0.3.5))(@nuxt/schema@3.16.1)(esbuild@0.25.1)(vite@6.2.2(@types/node@22.10.5)(jiti@2.4.2)(terser@5.39.0)(tsx@4.19.2)(yaml@2.7.0))
       '@shellicar/build-version':
         specifier: ^0.2.1
-        version: 0.2.1(@nuxt/kit@3.16.1(magicast@0.3.5))(@nuxt/schema@3.16.1)(esbuild@0.24.2)(vite@6.2.2(@types/node@22.10.5)(jiti@2.4.2)(terser@5.39.0)(tsx@4.19.2)(yaml@2.7.0))
+        version: 0.2.1(@nuxt/kit@3.16.1(magicast@0.3.5))(@nuxt/schema@3.16.1)(esbuild@0.25.1)(rollup@4.36.0)(vite@6.2.2(@types/node@22.10.5)(jiti@2.4.2)(terser@5.39.0)(tsx@4.19.2)(yaml@2.7.0))
       '@types/node':
         specifier: ^22.10.5
         version: 22.10.5
       esbuild:
-        specifier: ^0.24.2
-        version: 0.24.2
+        specifier: ^0.25.0
+        version: 0.25.1
       glob:
         specifier: ^11.0.0
         version: 11.0.0
@@ -200,7 +200,7 @@ importers:
         version: link:../packages/typescript-config
       '@shellicar/build-version':
         specifier: ^0.2.1
-        version: 0.2.1(@nuxt/kit@3.16.1(magicast@0.3.5))(@nuxt/schema@3.16.1)(esbuild@0.24.2)(vite@6.0.7(@types/node@22.10.5)(jiti@2.4.2)(terser@5.39.0)(tsx@4.19.2)(yaml@2.7.0))
+        version: 0.2.1(@nuxt/kit@3.16.1(magicast@0.3.5))(@nuxt/schema@3.16.1)(esbuild@0.25.1)(vite@6.0.7(@types/node@22.10.5)(jiti@2.4.2)(terser@5.39.0)(tsx@4.19.2)(yaml@2.7.0))
       '@tsconfig/node20':
         specifier: ^20.1.4
         version: 20.1.4
@@ -208,8 +208,8 @@ importers:
         specifier: ^22.10.5
         version: 22.10.5
       esbuild:
-        specifier: ^0.24.2
-        version: 0.24.2
+        specifier: ^0.25.0
+        version: 0.25.1
       glob:
         specifier: ^11.0.0
         version: 11.0.0
@@ -11405,7 +11405,7 @@ snapshots:
 
   '@sec-ant/readable-stream@0.4.1': {}
 
-  '@shellicar/build-graphql@1.0.0(@nuxt/kit@3.16.1(magicast@0.3.5))(@nuxt/schema@3.16.1)(esbuild@0.24.2)(vite@6.2.2(@types/node@22.10.5)(jiti@2.4.2)(terser@5.39.0)(tsx@4.19.2)(yaml@2.7.0))':
+  '@shellicar/build-graphql@1.0.0(@nuxt/kit@3.16.1(magicast@0.3.5))(@nuxt/schema@3.16.1)(esbuild@0.25.1)(vite@6.2.2(@types/node@22.10.5)(jiti@2.4.2)(terser@5.39.0)(tsx@4.19.2)(yaml@2.7.0))':
     dependencies:
       glob: 11.0.0
       graphql: 16.10.0
@@ -11414,25 +11414,7 @@ snapshots:
     optionalDependencies:
       '@nuxt/kit': 3.16.1(magicast@0.3.5)
       '@nuxt/schema': 3.16.1
-      esbuild: 0.24.2
-      vite: 6.2.2(@types/node@22.10.5)(jiti@2.4.2)(terser@5.39.0)(tsx@4.19.2)(yaml@2.7.0)
-
-  '@shellicar/build-version@0.2.1(@nuxt/kit@3.16.1(magicast@0.3.5))(@nuxt/schema@3.16.1)(esbuild@0.24.2)(vite@6.0.7(@types/node@22.10.5)(jiti@2.4.2)(terser@5.39.0)(tsx@4.19.2)(yaml@2.7.0))':
-    dependencies:
-      unplugin: 2.1.2
-    optionalDependencies:
-      '@nuxt/kit': 3.16.1(magicast@0.3.5)
-      '@nuxt/schema': 3.16.1
-      esbuild: 0.24.2
-      vite: 6.0.7(@types/node@22.10.5)(jiti@2.4.2)(terser@5.39.0)(tsx@4.19.2)(yaml@2.7.0)
-
-  '@shellicar/build-version@0.2.1(@nuxt/kit@3.16.1(magicast@0.3.5))(@nuxt/schema@3.16.1)(esbuild@0.24.2)(vite@6.2.2(@types/node@22.10.5)(jiti@2.4.2)(terser@5.39.0)(tsx@4.19.2)(yaml@2.7.0))':
-    dependencies:
-      unplugin: 2.1.2
-    optionalDependencies:
-      '@nuxt/kit': 3.16.1(magicast@0.3.5)
-      '@nuxt/schema': 3.16.1
-      esbuild: 0.24.2
+      esbuild: 0.25.1
       vite: 6.2.2(@types/node@22.10.5)(jiti@2.4.2)(terser@5.39.0)(tsx@4.19.2)(yaml@2.7.0)
 
   '@shellicar/build-version@0.2.1(@nuxt/kit@3.16.1(magicast@0.3.5))(@nuxt/schema@3.16.1)(esbuild@0.25.1)(rollup@4.36.0)(vite@6.2.2(@types/node@22.10.5)(jiti@2.4.2)(terser@5.39.0)(tsx@4.19.2)(yaml@2.7.0))':
