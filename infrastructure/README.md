@@ -2,7 +2,8 @@
 
 ## deployment
 
-Ensure you have set the relevant environment variables in the root `.env` file located [here](../.env).
+Ensure you have set the relevant environment variables in the root `.env` file (located in the parent directory `../.env`).
+There is a `.env.example` available to rename and get started [here](../.env.example).
 
 |Name|Description|
 |-|-|
