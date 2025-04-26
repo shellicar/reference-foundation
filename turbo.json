@@ -17,8 +17,11 @@
       "cache": false,
       "persistent": true
     },
+    "transit": {
+      "dependsOn": ["^transit"]
+    },
     "type-check": {
-      "dependsOn": ["^build"],
+      "dependsOn": ["^build", "transit"],
       "outputs": ["**/node_modules/.cache/tsbuildinfo.json"]
     }
   }

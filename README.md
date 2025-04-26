@@ -226,6 +226,14 @@ This project utilizes a **monorepo** setup to manage multiple packages and proje
 
 - **Turbo** is used to speed up and orchestrate tasks, such as builds and tests, across different packages by using intelligent caching and parallel task execution.
 
+#### Common Turbo Configuration
+
+- [Dependent tasks that can be run in parallel](https://turborepo.com/docs/crafting-your-repository/configuring-tasks#dependent-tasks-that-can-be-run-in-parallel)
+
+- [Making type checking faster across your workspace](https://turborepo.com/docs/guides/tools/typescript#linting-your-codebase)
+
+- [Sharing TypeScript configuration](https://turborepo.com/docs/guides/tools/typescript#sharing-tsconfigjson)
+
 ### Configuration Files
 
 - **`pnpm-workspace.yaml`**: This file defines which packages are part of the workspace. It allows PNPM to recognize and manage interdependencies between packages.
