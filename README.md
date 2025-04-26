@@ -368,13 +368,15 @@ For more details on sharing `tsconfig.json`, refer to the [Turbo documentation o
 
 For more information on configuring `tsup`, check out the official [tsup documentation][tsup].
 
-### Building with esbuild
+### Building applications with esbuild
 
 **esbuild** is a highly performant JavaScript and TypeScript bundler and minifier.
 
-I use **esbuild** because it efficiently handles bundling, minifying, ESM output, and code splitting, making the TypeScript build process easier and faster compared to other tools.
+Note that tsup uses esbuild under the hood.
 
-The build process is configured using a `build.mts` file, which leverages **tsx** to execute the build commands. You can build or watch using the following commands:
+I use **esbuild** to build the applicatio npackages, because it efficiently handles bundling, minifying, ESM output, and code splitting, making the TypeScript build process easier and faster compared to other tools.
+
+The application build process is configured using a `build.mts` file, which leverages **tsx** to execute the build commands. I then use plugins to perform common logic, such as loading GraphQL files, or adding version information. You can build or watch using the following commands:
 
 ```json
 "build": "tsx build.mts",
@@ -449,25 +451,29 @@ Overview of using GraphQL code generation to create TypeScript types and hooks f
 
 ### Svelte Web App
 
-Details on the Svelte setup for building modern web applications, along with usage of the static adapter.
+> TODO: Details on the Svelte setup for building modern web applications, along with usage of the static adapter.
 
 ### Nuxt Web App
 
-Details on setting up a Nuxt web application without server-side rendering (SSR).
+> TODO: Details on setting up a Nuxt web application without server-side rendering (SSR).
 
 ### UI Libraries with ShadCN
 
-Explanation of using ShadCN to create reusable UI components across the Svelte and Nuxt applications.
+> TODO: Explanation of using ShadCN to create reusable UI components across the Svelte and Nuxt applications.
 
 ### Form Handling
 
-Overview of setting up simple form handling using `sveltekit-superforms`.
+> TODO: Overview of setting up simple form handling using `sveltekit-superforms`.
+
+> TODO: Examples using `shadcn-vue` and `vee-validate`, including creating form components.
 
 ## Testing
 
 ### Unit Testing
 
-How Mocha and TSX are used to run tests and ensure application stability.
+> TODO: How Mocha and TSX are used to run tests and ensure application stability.
+
+> TODO: Use `vitest`.
 
 ### Acceptance Testing
 
@@ -487,19 +493,19 @@ Find the complete demo and the `.feature` file in the [`packages/atdd-tests`](./
 
 ## Docker Compose Projects
 
-Details on Docker Compose projects that are included for development purposes, such as databases, codegen tools, and other supporting services.
+> TODO: Details on Docker Compose projects that are included for development purposes, such as databases, codegen tools, and other supporting services.
 
 ## Infrastructure as Code
 
 ### Bicep
 
-How Bicep is used for managing infrastructure as code in Azure, with examples and best practices.
+> TODO: How `Bicep` is used for managing infrastructure as code in Azure, with examples and best practices.
 
 ## Documentation and Diagrams
 
 ### Structurizr
 
-Details on how Structurizr is used to create architectural diagrams for documentation purposes.
+> TODO: Details on how `Structurizr` is used to create architectural diagrams for documentation purposes.
 
 ---
 
@@ -515,8 +521,8 @@ Details on how Structurizr is used to create architectural diagrams for document
 [nvm-install]: https://github.com/nvm-sh/nvm?tab=readme-ov-file#installing-and-updating
 [nvm-usage]: https://github.com/nvm-sh/nvm?tab=readme-ov-file#usage
 [pnpm-workspaces]: https://pnpm.io/workspaces
-[turbo]: https://turbo.build
-[turbo-config]: https://turbo.build/repo/docs/reference/configuration
+[turbo]: https://turborepo.com/
+[turbo-config]: https://turborepo.com/repo/docs/reference/configuration
 
 [corepack]: https://nodejs.org/api/corepack.html
 [syncpack]: https://github.com/JamieMason/syncpack?tab=readme-ov-file#commands
@@ -528,7 +534,7 @@ Details on how Structurizr is used to create architectural diagrams for document
 
 [gitversion-docs]: https://gitversion.net/docs
 [tsup]: https://github.com/egoist/tsup
-[tsconfig-sharing]: https://turbo.build/repo/docs/guides/toolstypescript#sharing-tsconfigjson
+[tsconfig-sharing]: https://turborepo.com/docs/guides/tools/typescript#sharing-tsconfigjson
 [esbuild]: https://esbuild.github.io
 
 [app-insights-overview]: https://learn.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview
