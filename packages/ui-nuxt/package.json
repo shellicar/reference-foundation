@@ -17,7 +17,7 @@
     "eslint": "^9.25.1",
     "nuxt": "3.15.4",
     "typescript": "^5.8.3",
-    "vite": "^6.3.3",
+    "vite": "^6.3.4",
     "vue-tsc": "^2.2.10"
   },
   "dependencies": {
