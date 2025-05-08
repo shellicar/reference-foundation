@@ -13,6 +13,9 @@ export default defineNuxtConfig({
   nitro: {
     preset: 'azure-functions',
   },
+  vite: {
+    clearScreen: false,
+  },
   devServer: {
     port: 3000,
   },

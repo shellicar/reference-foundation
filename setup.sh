@@ -184,7 +184,7 @@ install_pnpm() {
 }
 
 install_gitversion() {
-  SETUP_GITVERSION_FILE=gitversion-linux-x64-${SETUP_GITVERSION_VERSION}.tar.gz
+  SETUP_GITVERSION_FILE=gitversion-${SETUP_ARCHITECTURE}-${SETUP_GITVERSION_VERSION}.tar.gz
   SETUP_GITVERSION_SRC=https://github.com/GitTools/GitVersion/releases/download/${SETUP_GITVERSION_VERSION}/${SETUP_GITVERSION_FILE}
   echo "❔ Checking gitversion"
   download_gitversion() {
@@ -194,9 +194,9 @@ install_gitversion() {
 
     echo "TEMP_FILE=$SETUP_TEMP_FILE"
     mkdir -p $SETUP_TEMP_DIR
-    curl -LJ -o ${SETUP_TEMP_FILE} ${SETUP_GITVERSION_SRC} || return 1
-    tar -xvf ${SETUP_TEMP_FILE} -C /usr/local/bin/ || return 2
-    chmod 755 /usr/local/bin/gitversion || return 3
+    curl -LJ -o ${SETUP_TEMP_FILE} ${SETUP_GITVERSION_SRC} || (echo "Error downloading file. Please try again" && return 1)
+    sudo tar -xvf ${SETUP_TEMP_FILE} -C /usr/local/bin/ || (echo "Ensure that /usr/local/bin exists and you have access" && return 2)
+    sudo chmod 755 /usr/local/bin/gitversion || (echo "Error changing permissions for gitversion file" && return 3)
     rm -rf ${SETUP_TEMP_DIR} || return 3
     echo "✅ Installed gitversion ${SETUP_GITVERSION_VERSION}"
   }
