@@ -3,4 +3,7 @@ export default defineNuxtConfig({
   telemetry: false,
   devtools: { enabled: true },
   compatibilityDate: '2025-04-26',
+  devServer: {
+    port: 3001,
+  },
 });
