@@ -7,7 +7,7 @@
     "deploy:dev": "dotenvx run -f ../../.env -- ./deploy.sh",
     "build": "tsx build.mts",
     "watch": "tsx build.mts --watch",
-    "start": "dotenvx run -q -- func start --port 7071 --language-worker -- --inspect=9231",
+    "start": "dotenvx run -f ../../.env -q -- func start --port 7071 --language-worker -- --inspect=9231",
     "dev": "run-p watch start",
     "codegen": "graphql-codegen",
     "type-check": "tsc -p tsconfig.check.json"
@@ -24,26 +24,26 @@
     "@shellicar/core-di": "^2.3.0",
     "applicationinsights": "^3.7.0",
     "dataloader": "^2.2.3",
-    "graphql": "^16.10.0",
+    "graphql": "^16.11.0",
     "graphql-scalars": "^1.24.2",
     "winston": "^3.17.0",
-    "zod": "^3.24.3"
+    "zod": "^3.24.4"
   },
   "devDependencies": {
-    "@dotenvx/dotenvx": "^1.41.0",
-    "@graphql-codegen/cli": "^5.0.5",
+    "@dotenvx/dotenvx": "^1.43.0",
+    "@graphql-codegen/cli": "^5.0.6",
     "@graphql-codegen/introspection": "^4.0.3",
     "@graphql-codegen/typescript": "^4.1.6",
-    "@graphql-codegen/typescript-resolvers": "^4.5.0",
+    "@graphql-codegen/typescript-resolvers": "^4.5.1",
     "@shellicar-core-foundation/build": "workspace:^",
     "@shellicar-core-foundation/typescript-config": "workspace:^",
     "@shellicar/build-graphql": "^1.0.1",
-    "@shellicar/build-version": "^1.0.1",
-    "@types/node": "^22.15.2",
-    "esbuild": "^0.25.3",
+    "@shellicar/build-version": "^1.1.0",
+    "@types/node": "^22.15.16",
+    "esbuild": "^0.25.4",
     "glob": "^11.0.2",
-    "npm-run-all2": "^7.0.2",
-    "tsx": "^4.19.3",
+    "npm-run-all2": "^8.0.1",
+    "tsx": "^4.19.4",
     "typescript": "^5.8.3"
   }
 }

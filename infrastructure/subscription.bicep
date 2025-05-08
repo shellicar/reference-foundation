@@ -1,10 +1,12 @@
 targetScope = 'subscription'
 
+@minLength(1)
 param workspaceId string
 
 @maxLength(36)
 @minLength(36)
 param uuid string
+@minLength(1)
 param location string
 
 var sandboxId = replace(uuid, '-', '')
