@@ -1,8 +1,8 @@
 # @shellicar/core-foundation
 
-[![Node.js](https://img.shields.io/badge/Node.js-20-5FA04E?logo=nodedotjs)][node]
-[![npm](https://img.shields.io/badge/npm-10.8.2-CB3837?logo=npm)][npm]
-[![PNPM](https://img.shields.io/badge/pnpm-9.15.3-F69220?logo=pnpm)][pnpm]
+[![Node.js](https://img.shields.io/badge/Node.js-22-5FA04E?logo=nodedotjs)][node]
+[![npm](https://img.shields.io/badge/npm-10.9.2-CB3837?logo=npm)][npm]
+[![PNPM](https://img.shields.io/badge/pnpm-10.10.0-F69220?logo=pnpm)][pnpm]
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript)][typescript]
 [![nvm](https://img.shields.io/badge/nvm-0.40-F4DD4B?logo=nvm)][typescript]
 [![Docker](https://img.shields.io/badge/Docker-dev-2496ED?logo=docker)][docker]
@@ -61,7 +61,7 @@ This repository brings together a range of technologies, including monorepo setu
 - [TypeScript Setup](#typescript-setup)
   - [Shared tsconfig](#shared-tsconfig)
   - [Library Configuration](#library-configuration)
-  - [Building with esbuild](#building-with-esbuild)
+  - [Building applications with esbuild](#building-applications-with-esbuild)
 - [Dependency Injection](#dependency-injection)
 - [Logging and Monitoring](#logging-and-monitoring)
   - [Application Insights & Winston](#application-insights--winston)
@@ -82,6 +82,10 @@ This repository brings together a range of technologies, including monorepo setu
   - [Bicep](#bicep)
 - [Documentation and Diagrams](#documentation-and-diagrams)
   - [Structurizr](#structurizr)
+- [Azure DevOps Pipelines](#azure-devops-pipelines)
+  - [Multi-stage pipelines](#multi-stage-pipelines)
+  - [Build Templates](#build-templates)
+  - [Deployment Templates](#deployment-templates)
 
 <!-- BEGIN_ECOSYSTEM -->
 
@@ -320,16 +324,35 @@ In this repository, versioning is used to **identify software**, rather than for
 
 I use **GitVersion** in **MainLine mode** to automatically generate version numbers that reflect the repository's current state. This helps uniquely identify each build or commit without manual intervention, which aligns well with a continuous development workflow.
 
+Example MainLine config:
+
+```yaml
+mode: MainLine
+branches: {}
+ignore:
+  sha: []
+merge-message-formats: {}
+```
+
 To use **GitVersion**, you can run:
 
 ```sh
-gitversion
+$ gitversion -version
+5.12.0+Branch.support-5.x.Sha.3f75764963eb3d7956dcd5a40488c074dd9faf9e
+```
+
+or on windows
+
+```sh
+> dotnet-gitversion -version
+5.12.0+Branch.support-5.x.Sha.3f75764963eb3d7956dcd5a40488c074dd9faf9e
 ```
 
 This command outputs all version variables. You can also get specific version variables like `semver` by running:
 
 ```sh
-gitversion -showvariable SemVer
+$ gitversion -showvariable SemVer
+0.1.45
 ```
 
 For more details, refer to the [GitVersion documentation][gitversion-docs].
@@ -505,6 +528,8 @@ Find the complete demo and the `.feature` file in the [`packages/atdd-tests`](./
 
 ## Infrastructure as Code
 
+See the infrastructure as code [README.md](./infrastructure/README.md)
+
 ### Bicep
 
 > TODO: How `Bicep` is used for managing infrastructure as code in Azure, with examples and best practices.
@@ -514,6 +539,43 @@ Find the complete demo and the `.feature` file in the [`packages/atdd-tests`](./
 ### Structurizr
 
 > TODO: Details on how `Structurizr` is used to create architectural diagrams for documentation purposes.
+
+## Azure DevOps Pipelines
+
+### Multi-stage pipelines
+
+> TODO: Considerations of Pipelines vs Releases (Classic release pipelines)
+
+- [https://learn.microsoft.com/en-us/azure/devops/pipelines/release/?view=azure-devops][devops-pipelines-release]
+
+### Build Templates
+
+#### NodeJS
+
+A template that builds any NodeJS application, including webapps and function apps
+
+> TODO: Template
+
+### Deployment Templates
+
+#### NodeJS Azure Functions
+
+A template that deploys to Azure Function Apps
+
+> TODO: Template for dedicated Function Apps - [Kudu VFS][kudu-vfs]
+
+> TODO: Template for Flex Apps and Consumption apps
+
+#### Docker Azure App Service
+
+Using docker to optimise nodejs apps (including temporal)
+
+> TODO: Template for docker build & deploy
+
+> TODO: TemporalIO NodeJS worker
+
+- [https://temporal.io/][temporal]
+- [https://docs.temporal.io/develop/typescript/][temporal-typescript]
 
 ---
 
@@ -540,7 +602,7 @@ Find the complete demo and the `.feature` file in the [`packages/atdd-tests`](./
 [node]: https://nodejs.org/en
 [npm]: https://www.npmjs.com
 
-[gitversion-docs]: https://gitversion.net/docs
+[gitversion-docs]: https://gitversion.net/5.12.0/docs/
 [tsup]: https://github.com/egoist/tsup
 [tsconfig-sharing]: https://turborepo.com/docs/guides/tools/typescript#sharing-tsconfigjson
 [esbuild]: https://esbuild.github.io
@@ -566,5 +628,12 @@ Find the complete demo and the `.feature` file in the [`packages/atdd-tests`](./
 
 [gherkin]: https://cucumber.io/docs/gherkin/reference
 [ddd-fowler]: https://martinfowler.com/bliki/DomainDrivenDesign.html
+
+[kudu-vfs]: https://github.com/projectkudu/kudu/wiki/REST-API#vfs
+
+[devops-pipelines-release]: https://learn.microsoft.com/en-us/azure/devops/pipelines/release/?view=azure-devops
+
+[temporal]: https://temporal.io/
+[temporal-typescript]: https://docs.temporal.io/develop/typescript/
 
 *This README was created with the assistance of [ChatGPT][chatgpt] by OpenAI.*

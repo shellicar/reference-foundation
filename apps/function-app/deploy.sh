@@ -1,6 +1,6 @@
 #!/bin/sh
 set -e
-. ./.env
+. ../../.env
 
 PackagePath="package.zip"
 zip -FSr "$PackagePath" dist/ package.json host.json
