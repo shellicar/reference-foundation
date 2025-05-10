@@ -645,6 +645,14 @@ This same principle also applies to other configuration elements like service en
 - You avoid going through the entire development process (code changes, PR reviews, merges) for what are essentially operational changes
 - Security is improved as sensitive values remain in the protected variable groups rather than in code
 
+### Configuration with Bicep Parameters
+
+The deployment process uses Bicep parameter files (`.bicepparam`) which automatically pick up environment variables during deployment. This provides a clean way to pass configuration without hardcoding values:
+
+- Most parameters are automatically set from environment variables that come from variable groups
+- Secrets are handled differently for security reasons, being explicitly passed through the `env:` object in the deployment task
+- This approach maintains separation between infrastructure definition and configuration values
+
 For more information on configuring agent pools, see the [Azure Pipelines agent pools documentation][devops-agent-pools].
 
 ### Build Templates

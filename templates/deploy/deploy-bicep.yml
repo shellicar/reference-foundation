@@ -1,0 +1,68 @@
+parameters:
+- name: environment
+  type: string
+- name: project
+  type: string
+- name: workload
+  type: string
+- name: secretNames
+  type: object
+  default: {}
+
+jobs:
+- deployment: Deploy
+  workspace:
+    clean: all
+  displayName: Deploy to ${{parameters.environment}}
+  environment: '${{ parameters.environment }}'
+  variables:
+    - group: '${{parameters.workload}}-${{parameters.environment}}'
+    - template: '../../templates/variables/${{parameters.environment}}.yml'
+    - template: '../variables/main.yml'
+      parameters:
+        environment: ${{ parameters.environment }}
+        sandboxId: $(SandboxId)
+  strategy:
+    runOnce:
+      deploy:
+        steps:
+        # AzCli and bicep is currently broken
+        # See: https://github.com/Azure/azure-cli/issues/31189#issuecomment-2790370116
+        - script: |
+            az bicep uninstall
+            az config set bicep.use_binary_from_path=false
+            az bicep install
+
+            # Find where bicep is actually installed
+            BICEP_PATH=$(which bicep || echo "")
+            echo "Bicep installed at: $BICEP_PATH"
+
+            # Create directory if it doesn't exist
+            mkdir -p /home/vsts/work/_temp/.azclitask/bin/
+
+            # Copy bicep to where AzureCLI task expects it
+            if [ -n "$BICEP_PATH" ]; then
+              cp $BICEP_PATH /home/vsts/work/_temp/.azclitask/bin/
+              chmod +x /home/vsts/work/_temp/.azclitask/bin/bicep
+              echo "Copied bicep to /home/vsts/work/_temp/.azclitask/bin/"
+            else
+              echo "##vso[task.logissue type=error]Bicep not found"
+              exit 1
+            fi
+          displayName: Fix bicep setup
+
+        - task: AzureCLI@2
+          displayName: 'Deploy main.bicep'
+          ${{ if ne(length(parameters.secretNames), 0) }}:
+            env: ${{ parameters.secretNames }}
+          inputs:
+            azureSubscription: '${{ variables.ServiceConnection }}'
+            scriptType: pscore
+            scriptLocation: inlineScript
+            workingDirectory: '$(Pipeline.Workspace)/drop'
+            inlineScript: |
+              $ErrorActionPreference = "Stop"
+              Set-PSDebug -Trace 1
+              $suffix = (Get-Date -AsUTC).ToString('yyyyMMdd-HHmmss')
+              $prefix = "${{parameters.workload}}"
+              az deployment group create --resource-group "${{ variables.ResourceGroup }}" --template-file main.bicep --parameters main.bicepparam --name "${prefix}-${suffix}"
