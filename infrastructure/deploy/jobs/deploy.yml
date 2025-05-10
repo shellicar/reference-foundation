@@ -6,6 +6,12 @@ parameters:
 - name: workload
   type: string
 
+variables:
+- template: '../variables/main.yml'
+  parameters:
+    environment: ${{ parameters.environment }}
+    sandboxId: $(SandboxId)
+
 jobs:
 - template: ../../../templates/deploy/deploy-bicep.yml
   parameters:

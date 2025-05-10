@@ -18,10 +18,6 @@ jobs:
   variables:
     - group: '${{parameters.workload}}-${{parameters.environment}}'
     - template: '../../templates/variables/${{parameters.environment}}.yml'
-    - template: '../variables/main.yml'
-      parameters:
-        environment: ${{ parameters.environment }}
-        sandboxId: $(SandboxId)
   strategy:
     runOnce:
       deploy:
