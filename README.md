@@ -451,9 +451,9 @@ In this setup, I'm using the **@opentelemetry/*** package suite along with **App
 
 #### Logging Configuration
 
-- **Winston** is used as the logging library, providing a robust and customizable logging solution.
+- **Winston** is used as the logging library, providing a robust and customisable logging solution.
 - The following transports are integrated:
-  - **ApplicationInsightsExceptionTransport**: A custom transport that logs error-like objects at error level or higher as exceptions in Application Insights. This helps capture and categorize errors effectively.
+  - **ApplicationInsightsExceptionTransport**: A custom transport that logs error-like objects at error level or higher as exceptions in Application Insights. This helps capture and categorise errors effectively.
   - **OpenTelemetryTransportV3**: This transport facilitates sending telemetry data to Application Insights via OpenTelemetry, ensuring comprehensive monitoring across various application layers.
   - **Console Transport**: This transport outputs logs to the console for local development and debugging.
 
