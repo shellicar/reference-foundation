@@ -28,26 +28,18 @@ jobs:
         # AzCli and bicep is currently broken
         # See: https://github.com/Azure/azure-cli/issues/31189#issuecomment-2790370116
         - script: |
+            set -e
             az bicep uninstall
             az config set bicep.use_binary_from_path=false
             az bicep install
 
-            # Find where bicep is actually installed
-            BICEP_PATH=$(which bicep || echo "")
+            BICEP_PATH=$(which bicep)
             echo "Bicep installed at: $BICEP_PATH"
-
-            # Create directory if it doesn't exist
             mkdir -p /home/vsts/work/_temp/.azclitask/bin/
 
-            # Copy bicep to where AzureCLI task expects it
-            if [ -n "$BICEP_PATH" ]; then
-              cp $BICEP_PATH /home/vsts/work/_temp/.azclitask/bin/
-              chmod +x /home/vsts/work/_temp/.azclitask/bin/bicep
-              echo "Copied bicep to /home/vsts/work/_temp/.azclitask/bin/"
-            else
-              echo "##vso[task.logissue type=error]Bicep not found"
-              exit 1
-            fi
+            cp $BICEP_PATH /home/vsts/work/_temp/.azclitask/bin/
+            chmod +x /home/vsts/work/_temp/.azclitask/bin/bicep
+            echo "Copied bicep to /home/vsts/work/_temp/.azclitask/bin/"
           displayName: Fix bicep setup
 
         - task: AzureCLI@2
