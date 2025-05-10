@@ -621,6 +621,32 @@ To use these pipeline examples in your own projects:
 
 For more details on Azure DevOps Pipelines, see the [official documentation][devops-pipelines-release].
 
+### Agent Pool Configuration
+
+When setting up CI/CD pipelines, you'll need to configure the agent pools that run your builds and deployments. While you can specify this directly in your YAML file using the `pool` property, I recommend configuring agent pools in the Azure DevOps UI rather than hardcoding them:
+
+```yaml
+# Example from infrastructure/azure-pipelines.yml
+pool:
+  vmImage: 'ubuntu-latest'
+```
+
+#### Benefits of UI-Based Agent Pool Configuration
+
+- **Flexibility**: When agent pools need to change (e.g., when a self-hosted agent is unavailable or you need to switch to Microsoft-hosted agents), you can make changes without code modifications
+- **Consistency**: Pool configurations can be updated across multiple pipelines from a central location
+- **Quick response to issues**: If an agent is causing problems, you can immediately redirect the pipeline to use a different pool without waiting for code changes and approval
+
+In my experience, the flexibility of changing this independently of the code is more valuable than having "everything-as-code". While "everything-as-code" is a valuable approach for some configurations, agent pool settings benefit from the operational flexibility that UI-based configuration provides, without providing any real value when stored in the code itself.
+
+This same principle also applies to other configuration elements like service endpoints, connection strings, and keys. By using Azure DevOps library variables instead of hardcoding these values in YAML files, you gain significant operational advantages:
+
+- When a vendor requires endpoint or key updates, you can simply update the values in the Azure DevOps library and redeploy the pipeline
+- You avoid going through the entire development process (code changes, PR reviews, merges) for what are essentially operational changes
+- Security is improved as sensitive values remain in the protected variable groups rather than in code
+
+For more information on configuring agent pools, see the [Azure Pipelines agent pools documentation][devops-agent-pools].
+
 ### Build Templates
 
 #### NodeJS
@@ -708,5 +734,6 @@ Using docker to optimise nodejs apps (including temporal)
 
 [temporal]: https://temporal.io/
 [temporal-typescript]: https://docs.temporal.io/develop/typescript/
+[devops-agent-pools]: https://learn.microsoft.com/en-us/azure/devops/pipelines/agents/pools?view=azure-devops
 
 *This README was created with the assistance of [ChatGPT][chatgpt] by OpenAI.*
