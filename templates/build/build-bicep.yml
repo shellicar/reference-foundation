@@ -37,6 +37,13 @@ jobs:
       displayName: 'Version App'
 
     - script: |
+        set -e
+
+        VERSION=$(az version --query '"azure-cli"' -o tsv)
+        if [ "$VERSION" != "2.71.0" ]; then
+          exit 0
+        fi
+
         az bicep uninstall
         az config set bicep.use_binary_from_path=false
         az bicep install
