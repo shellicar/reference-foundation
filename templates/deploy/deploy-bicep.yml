@@ -18,6 +18,9 @@ jobs:
   variables:
     - group: '${{parameters.workload}}-${{parameters.environment}}'
     - template: '../../templates/variables/${{parameters.environment}}.yml'
+    - template: '../../${{ parameters.project }}/deploy/variables/main.yml'
+      parameters:
+        environment: ${{ parameters.environment }}
   strategy:
     runOnce:
       deploy:

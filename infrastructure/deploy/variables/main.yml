@@ -1,8 +1,6 @@
 parameters:
 - name: environment
   type: string
-- name: sandboxId
-  type: string
 
 variables:
 - name: LocationCode
@@ -12,4 +10,4 @@ variables:
 - name: Location
   value: australiaeast
 - name: ResourceGroup
-  value: sandbox-${{ parameters.sandboxId }}
+  value: sandbox-$(SandboxId)
