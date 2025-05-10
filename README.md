@@ -167,7 +167,7 @@ The version of Node.js can be specified in the `.nvmrc` file. To use a different
 
 [PNPM][pnpm] is a fast, disk space-efficient package manager for Node.js. It uses symlinks to avoid unnecessary duplication of dependencies and supports monorepos well.
 
-PNPM is stricter than other package managers about using packages that are not explicitly referenced in the `package.json`. This helps ensure that only the required dependencies are being used and no undeclared dependencies are utilized.
+PNPM is stricter than other package managers about using packages that are not explicitly referenced in the `package.json`. This helps ensure that only the required dependencies are being used and no undeclared dependencies are utilised.
 
 ### GitVersion
 
@@ -388,13 +388,13 @@ This section covers the setup of TypeScript in the repository, including configu
 
 ### Shared tsconfig
 
-A shared `tsconfig.json` file is used to maintain consistent TypeScript settings across projects. These shared configurations will be located in the `packages/typescript-config` package. This standardization helps avoid discrepancies between different parts of the codebase.
+A shared `tsconfig.json` file is used to maintain consistent TypeScript settings across projects. These shared configurations will be located in the `packages/typescript-config` package. This standardisation helps avoid discrepancies between different parts of the codebase.
 
 For more details on sharing `tsconfig.json`, refer to the [Turbo documentation on TypeScript][tsconfig-sharing].
 
 ### Library Configuration
 
-**Tsup** is utilized in this repository for library configuration and TypeScript build setups. The configuration for `tsup` is defined in `tsup.config.ts`, allowing for fast and easy production of both ESM and CJS outputs, streamlining the build process for libraries.
+**Tsup** is utilised in this repository for library configuration and TypeScript build setups. The configuration for `tsup` is defined in `tsup.config.ts`, allowing for fast and easy production of both ESM and CJS outputs, streamlining the build process for libraries.
 
 For more information on configuring `tsup`, check out the official [tsup documentation][tsup].
 
@@ -447,7 +447,7 @@ Effective logging and monitoring are crucial for maintaining the health and perf
 
 ### Application Insights & Winston
 
-In this setup, I'm using the **@opentelemetry/*** package suite along with **Application Insights 3.x** and **Winston**. Currently, I am migrating from Application Insights 2.x and experimenting with the best configuration for centralized logging and monitoring.
+In this setup, I'm using the **@opentelemetry/*** package suite along with **Application Insights 3.x** and **Winston**. Currently, I am migrating from Application Insights 2.x and experimenting with the best configuration for centralised logging and monitoring.
 
 #### Logging Configuration
 
@@ -459,7 +459,7 @@ In this setup, I'm using the **@opentelemetry/*** package suite along with **App
 
 ### Use of OpenTelemetry
 
-The `useAzureMonitor` function from the Azure OpenTelemetry library is utilized for tracking other performance metrics and telemetry data. This integration enables enhanced observability of the application.
+The `useAzureMonitor` function from the Azure OpenTelemetry library is utilised for tracking other performance metrics and telemetry data. This integration enables enhanced observability of the application.
 
 For more details on integrating Application Insights and Winston, refer to the official [Application Insights documentation][app-insights-overview] and [Winston documentation][winston].
 
@@ -549,7 +549,7 @@ The repository demonstrates multi-stage YAML pipeline patterns as an alternative
 
 - **Source-controlled pipeline definitions**: Pipeline configurations stored alongside code
 - **Template-based approach**: Reusable components for different types of deployments
-- **Environment standardization**: Common environment progression (dev/tst/uat/prd) defined once and reused
+- **Environment standardisation**: Common environment progression (dev/tst/uat/prd) defined once and reused
 
 ### Pipeline Structure Examples
 
@@ -558,10 +558,10 @@ The example pipeline structure follows these patterns:
 1. **Main Pipeline Entry Point**: `azure-pipelines.yml` demonstrates:
    - Build agent configuration
    - Trigger conditions
-   - Template references with parameterization
+   - Template references with parameterisation
 
 2. **Template Structure**: `templates/pipeline.yml` shows:
-   - Multi-stage pipeline organization with standardized environments
+   - Multi-stage pipeline organisation with standardised environments
    - Build and deployment stage separation
    - Environment progression flow (dev → tst → uat → prd)
    - Pull Request validation with automatic deployment to development environment
@@ -575,22 +575,25 @@ The example pipeline structure follows these patterns:
    - Parameter passing between templates
    - Integration with Azure DevOps variable groups
 
-### Environment Standardization
+### Environment standardisation
 
-A key feature of the pipeline template approach is environment standardization:
+A key feature of the pipeline template approach is environment standardisation:
 
 - Environment stages (dev, tst, uat, prd) are defined once in `templates/pipeline.yml`
 - All projects in the same workload inherit the same environment progression
 - Environment-specific configuration is stored in separate variable files (e.g., `dev.yml`, `prd.yml`)
 - This ensures consistent deployment patterns across all projects
 
-### PR Validation
+### PR Validation and Integration Testing
 
 The template includes automatic deployment for Pull Request validation:
 
 - When a PR is submitted, the build stage runs automatically
 - For specified branches, the first environment (typically dev) is deployed to validate changes
-- This ensures that infrastructure changes are validated before merging
+- This enables full integration testing of infrastructure changes in a real environment
+- Stakeholders can verify both deployment success and functional behavior before merging
+- Issues with configuration, resource dependencies, or unexpected side effects are caught early
+- Changes can be tested in isolation without affecting the main branch deployments
 
 ### Bicep Build Examples
 
@@ -622,13 +625,7 @@ For more details on Azure DevOps Pipelines, see the [official documentation][dev
 
 ### Agent Pool Configuration
 
-When setting up CI/CD pipelines, you'll need to configure the agent pools that run your builds and deployments. While you can specify this directly in your YAML file using the `pool` property, I recommend configuring agent pools in the Azure DevOps UI rather than hardcoding them:
-
-```yaml
-# Example from infrastructure/azure-pipelines.yml
-pool:
-  vmImage: 'ubuntu-latest'
-```
+When setting up CI/CD pipelines, you'll need to configure the agent pools that run your builds and deployments. I recommend configuring agent pools in the Azure DevOps UI rather than hardcoding them in YAML files.
 
 #### Benefits of UI-Based Agent Pool Configuration
 
@@ -704,7 +701,7 @@ This repository includes templates for building and deploying different types of
    - Deploys static websites to Azure Storage - Static website
 
 3. **Docker Apps**: `templates/deploy/deploy-docker.yml` *(TODO)*
-   - Deploys containerized NodeJS applications to Azure App Services
+   - Deploys containerised NodeJS applications to Azure App Services
    - Optimizes Docker container settings for NodeJS
    - Includes support for TemporalIO workers ([Temporal][temporal]/[TypeScript SDK][temporal-typescript])
 
