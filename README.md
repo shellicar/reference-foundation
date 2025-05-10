@@ -584,6 +584,29 @@ A key feature of the pipeline template approach is environment standardisation:
 - Environment-specific configuration is stored in separate variable files (e.g., `dev.yml`, `prd.yml`)
 - This ensures consistent deployment patterns across all projects
 
+#### Configuration Management Strategy
+
+The decision regarding placement of configuration variables presents two primary options:
+
+1. **YAML Configuration Files (`{environment}.yml`)**
+   - Suitable for configuration-as-code adherents
+   - Provides version-controlled configuration history
+   - Maintains configuration alongside deployment definitions
+   - Note: Sensitive values should never be stored in these files
+
+2. **Azure DevOps Library (Variable Groups)**
+   - Recommended for dynamic or sensitive configuration
+   - Provides centralised management of environment-specific values
+   - Facilitates operational changes without code modification
+   - Integrates with Azure Key Vault for secret management
+
+The recommended approach is a balanced strategy:
+
+- Use Bicep files for static infrastructure-specific values
+- Leverage Azure DevOps Variable Groups for environment-specific configuration
+- Minimise YAML-stored configuration to reduce complexity and maintain clarity
+- Always store secrets in Azure Key Vault with appropriate access controls
+
 ### PR Validation and Integration Testing
 
 The template includes automatic deployment for Pull Request validation:
