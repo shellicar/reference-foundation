@@ -742,6 +742,6 @@ Using docker to optimise nodejs apps (including temporal)
 
 [temporal]: https://temporal.io/
 [temporal-typescript]: https://docs.temporal.io/develop/typescript/
-[devops-agent-pools]: https://learn.microsoft.com/en-us/azure/devops/pipelines/agents/pools?view=azure-devops
+[devops-agent-pools]: https://learn.microsoft.com/en-us/azure/devops/pipelines/agents/agents?view=azure-devops&tabs=yaml%2Cbrowser
 
 *This README was created with the assistance of [ChatGPT][chatgpt] by OpenAI.*

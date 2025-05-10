@@ -6,8 +6,8 @@ parameters:
 - name: workload
   type: string
 
-extends:
-  template: ../../../templates/deploy/deploy-bicep.yml
+jobs:
+- template: ../../../templates/deploy/deploy-bicep.yml
   parameters:
     environment: ${{ parameters.environment }}
     project: ${{ parameters.project }}
