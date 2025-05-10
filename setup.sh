@@ -296,11 +296,12 @@ install_function_core_tools
 install_docker
 install_azcli
 
+echo ""
 echo "Checking versions"
-nvm --version
-node --version
-pnpm --version
-gitversion -version
-func --version
+echo "nvm: $(nvm --version)"
+echo "node: $(node --version)"
+echo "pnpm: $(pnpm --version)"
+echo "gitversion: $(gitversion -version)"
+echo "func: $(func --version)"
 docker --version
-az --version
+az version -o table

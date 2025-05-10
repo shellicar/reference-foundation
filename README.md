@@ -542,11 +542,84 @@ See the infrastructure as code [README.md](./infrastructure/README.md)
 
 ## Azure DevOps Pipelines
 
-### Multi-stage pipelines
+This repository includes demonstration examples of Azure DevOps Pipelines, showing patterns and templates that can be used as starting points for CI/CD workflows.
 
-> TODO: Considerations of Pipelines vs Releases (Classic release pipelines)
+### Multi-stage Pipelines
 
-- [https://learn.microsoft.com/en-us/azure/devops/pipelines/release/?view=azure-devops][devops-pipelines-release]
+The repository demonstrates multi-stage YAML pipeline patterns as an alternative to classic release pipelines:
+
+- **Source-controlled pipeline definitions**: Pipeline configurations stored alongside code
+- **Template-based approach**: Reusable components for different types of deployments
+- **Environment standardization**: Common environment progression (dev/tst/uat/prd) defined once and reused
+
+### Pipeline Structure Examples
+
+The example pipeline structure follows these patterns:
+
+1. **Main Pipeline Entry Point**: `azure-pipelines.yml` demonstrates:
+   - Build agent configuration
+   - Trigger conditions
+   - Template references with parameterization
+
+2. **Template Structure**: `templates/pipeline.yml` shows:
+   - Multi-stage pipeline organization with standardized environments
+   - Build and deployment stage separation
+   - Environment progression flow (dev → tst → uat → prd)
+   - Pull Request validation with automatic deployment to development environment
+
+3. **Job Templates**:
+   - `build.yml`: Example build job with Bicep validation
+   - `deploy.yml`: Example deployment job with Azure CLI
+
+4. **Variable Management**:
+   - Variable templates for different environments
+   - Parameter passing between templates
+   - Integration with Azure DevOps variable groups
+
+### Environment Standardization
+
+A key feature of the pipeline template approach is environment standardization:
+
+- Environment stages (dev, tst, uat, prd) are defined once in `templates/pipeline.yml`
+- All projects in the same workload inherit the same environment progression
+- Environment-specific configuration is stored in separate variable files (e.g., `dev.yml`, `prd.yml`)
+- This ensures consistent deployment patterns across all projects
+
+### PR Validation
+
+The template includes automatic deployment for Pull Request validation:
+
+- When a PR is submitted, the build stage runs automatically
+- For specified branches, the first environment (typically dev) is deployed to validate changes
+- This ensures that infrastructure changes are validated before merging
+
+### Bicep Build Examples
+
+The infrastructure build examples show:
+
+- Installing and validating Bicep CLI
+- Running validation on Bicep templates
+- Publishing artifacts for deployment stages
+
+### Deployment Examples
+
+The deployment examples demonstrate:
+
+- Environment-specific configuration
+- Variable group integration
+- Resource group targeting with dynamic naming
+- Parameter passing from variables to deployment commands
+
+### Getting Started with These Templates
+
+To use these pipeline examples in your own projects:
+
+1. Copy the relevant template files to your repository
+2. Update the service connection IDs and other environment-specific values
+3. Configure variable groups in your Azure DevOps project
+4. Create an initial pipeline pointing to your main YAML file
+
+For more details on Azure DevOps Pipelines, see the [official documentation][devops-pipelines-release].
 
 ### Build Templates
 

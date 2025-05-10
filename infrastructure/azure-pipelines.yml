@@ -1,0 +1,23 @@
+# See: https://learn.microsoft.com/en-us/azure/devops/pipelines/yaml-schema/pool?view=azure-pipelines
+#
+# If you are using a self-hosted agent, you can specify the name of the agent here,
+# or in the pipeline settings in Azure DevOps.
+#
+# If you are using a Microsoft-hosted agent, you can specify the image here.
+pool:
+  vmImage: 'ubuntu-latest'
+
+trigger:
+  branches:
+    include:
+    - main
+  paths:
+    include:
+    - infrastructure
+    - templates
+
+stages:
+- template: ../templates/pipeline.yml
+  parameters:
+    project: infrastructure
+    workload: core-foundation
