@@ -84,8 +84,7 @@ This repository brings together a range of technologies, including monorepo setu
   - [Structurizr](#structurizr)
 - [Azure DevOps Pipelines](#azure-devops-pipelines)
   - [Multi-stage pipelines](#multi-stage-pipelines)
-  - [Build Templates](#build-templates)
-  - [Deployment Templates](#deployment-templates)
+  - [Pipeline Templates](#pipeline-templates)
 
 <!-- BEGIN_ECOSYSTEM -->
 
@@ -655,34 +654,59 @@ The deployment process uses Bicep parameter files (`.bicepparam`) which automati
 
 For more information on configuring agent pools, see the [Azure Pipelines agent pools documentation][devops-agent-pools].
 
-### Build Templates
+### Pipeline Templates
 
-#### NodeJS
+This repository includes templates for building and deploying different types of projects. The following table shows how project types map to their corresponding build and deployment templates:
 
-A template that builds any NodeJS application, including webapps and function apps
+#### Project Type to Template Mapping
 
-> TODO: Template
+| Project Type     | Build Template                                                   | Deployment Template Options                                      |
+|------------------|------------------------------------------------------------------|------------------------------------------------------------------|
+| Bicep IaC        | [`build-bicep.yml`](./templates/build/build-bicep.yml)           | [`deploy-bicep.yml`](./templates/deploy/deploy-bicep.yml)        |
+| Web Applications | `build-nodejs.yml` *(TODO)*                                      | `deploy-static-webapp.yml` *(TODO)* or `deploy-function.yml` *(TODO)* |
+| Azure Functions  | `build-nodejs.yml` *(TODO)*                                      | `deploy-function.yml` *(TODO)*                                   |
+| Docker Apps      | `build-nodejs.yml` *(TODO)*                                      | `deploy-docker.yml` *(TODO)*                                     |
 
-### Deployment Templates
+#### Bicep Templates
 
-#### NodeJS Azure Functions
+**Build**: [`templates/build/build-bicep.yml`](./templates/build/build-bicep.yml)
 
-A template that deploys to Azure Function Apps
+- Validates Bicep templates using the Azure CLI
+- Runs `az bicep lint` to check for issues
+- Publishes Bicep files and related assets as build artifacts
+- Integrates with GitVersion for automated version numbering
+- Copies all necessary files for deployment (bicep, bicepparam, swagger, etc.)
 
-> TODO: Template for dedicated Function Apps - [Kudu VFS][kudu-vfs]
+**Deploy**: [`templates/deploy/deploy-bicep.yml`](./templates/deploy/deploy-bicep.yml)
 
-> TODO: Template for Flex Apps and Consumption apps
+- Configures deployment environments with variable templates
+- Handles parameter passing to Bicep deployments
+- Supports secret injection via environment variables
+- Creates timestamped deployment names for tracking in Azure
+- Uses Azure CLI to execute resource group deployments
 
-#### Docker Azure App Service
+#### NodeJS Templates
 
-Using docker to optimise nodejs apps (including temporal)
+**Build**: `templates/build/build-nodejs.yml` *(TODO)*
 
-> TODO: Template for docker build & deploy
+- Template for building NodeJS applications
+- Supports both web applications and Azure Functions
+- Single template used for multiple project types
 
-> TODO: TemporalIO NodeJS worker
+**Deploy Options**:
 
-- [https://temporal.io/][temporal]
-- [https://docs.temporal.io/develop/typescript/][temporal-typescript]
+1. **Azure Functions**: `templates/deploy/deploy-function.yml` *(TODO)*
+   - Deploys NodeJS applications to Azure Functions
+   - Supports dedicated Function Apps using [Kudu VFS][kudu-vfs]
+   - Supports Flex Apps and Consumption hosting plans
+
+2. **Static Websites**: `templates/deploy/deploy-static-webapp.yml` *(TODO)*
+   - Deploys static websites to Azure Storage - Static website
+
+3. **Docker Apps**: `templates/deploy/deploy-docker.yml` *(TODO)*
+   - Deploys containerized NodeJS applications to Azure App Services
+   - Optimizes Docker container settings for NodeJS
+   - Includes support for TemporalIO workers ([Temporal][temporal]/[TypeScript SDK][temporal-typescript])
 
 ---
 
