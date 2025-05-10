@@ -1,13 +1,4 @@
 jobs:
-- job: 'validate'
-  workspace:
-    clean: all
-  displayName: 'Validate bicep'
-  variables:
-  - name: ProjectDir
-    value: infrastructure
-  steps:
-  - template: ../../../templates/build/build-bicep.yml
-    parameters:
-      projectDir: '$(ProjectDir)'
-
+- template: ../../../templates/build/build-bicep.yml
+  parameters:
+    projectDir: infrastruture
