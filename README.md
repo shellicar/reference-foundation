@@ -171,7 +171,7 @@ PNPM is stricter than other package managers about using packages that are not e
 
 ### GitVersion
 
-[GitVersion][gitversion] is a tool that provides semantic versioning based on your Git repository history. It helps standardize version numbers across different projects.
+[GitVersion][gitversion] is a tool that provides semantic versioning based on your Git repository history. It helps standardise version numbers across different projects.
 
 In this repository, GitVersion is used solely for generating a version number. Other versioning tools often attempt to include deployment tasks, which is unnecessary here.
 
@@ -509,7 +509,7 @@ Overview of using GraphQL code generation to create TypeScript types and hooks f
 
 Acceptance testing ensures that software behaves as expected from a business perspective by validating workflows and enforcing rules. Unlike unit tests, which focus on individual components, acceptance tests ensure that business processes and rules are correctly implemented and followed.
 
-Cucumber is used for writing acceptance tests, utilizing the `Given-When-Then` format defined by Gherkin. This structure provides a clear, human-readable way to describe features, ensuring that both technical and non-technical stakeholders can collaborate effectively.
+Cucumber is used for writing acceptance tests, utilising the `Given-When-Then` format defined by Gherkin. This structure provides a clear, human-readable way to describe features, ensuring that both technical and non-technical stakeholders can collaborate effectively.
 
 For more details, visit the [Gherkin Reference][gherkin].
 
@@ -702,7 +702,7 @@ This repository includes templates for building and deploying different types of
 
 3. **Docker Apps**: `templates/deploy/deploy-docker.yml` *(TODO)*
    - Deploys containerised NodeJS applications to Azure App Services
-   - Optimizes Docker container settings for NodeJS
+   - Optimises Docker container settings for NodeJS
    - Includes support for TemporalIO workers ([Temporal][temporal]/[TypeScript SDK][temporal-typescript])
 
 ---
