@@ -3,6 +3,9 @@ targetScope = 'subscription'
 @minLength(1)
 param workspaceId string
 
+@secure()
+param mySecret string
+
 @maxLength(36)
 @minLength(36)
 param uuid string
@@ -25,3 +28,6 @@ module main 'main.bicep' = {
     location: location
   }
 }
+
+#disable-next-line outputs-should-not-contain-secrets demonstrative purposes only
+output mySecret string = mySecret

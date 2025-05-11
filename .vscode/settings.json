@@ -8,5 +8,9 @@
   "cucumberautocomplete.steps": ["packages/atdd-tests/test/**/*.steps.ts"],
   "cucumberautocomplete.strictGherkinCompletion": true,
   "cucumberautocomplete.syncfeatures": "packages/atdd-tests/test/**/*.feature",
-  "vue.server.hybridMode": true
+  "vue.server.hybridMode": true,
+  "files.associations": {
+    "**/deploy/**/*.yml": "azure-pipelines",
+    "**/templates/**/*.yml": "azure-pipelines"
+  }
 }

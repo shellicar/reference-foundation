@@ -1,7 +1,7 @@
 {
   "$schema": "https://turbo.build/schema.json",
   "globalDependencies": ["**/.env.*local"],
-  "ui": "tui",
+  "ui": "stream",
   "globalEnv": ["NODE_ENV", "DEV", "TF_BUILD"],
   "daemon": false,
   "tasks": {

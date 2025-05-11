@@ -1,0 +1,4 @@
+jobs:
+- template: ../../../templates/build/build-bicep.yml
+  parameters:
+    projectDir: infrastructure

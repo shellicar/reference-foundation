@@ -84,8 +84,7 @@ This repository brings together a range of technologies, including monorepo setu
   - [Structurizr](#structurizr)
 - [Azure DevOps Pipelines](#azure-devops-pipelines)
   - [Multi-stage pipelines](#multi-stage-pipelines)
-  - [Build Templates](#build-templates)
-  - [Deployment Templates](#deployment-templates)
+  - [Pipeline Templates](#pipeline-templates)
 
 <!-- BEGIN_ECOSYSTEM -->
 
@@ -168,11 +167,11 @@ The version of Node.js can be specified in the `.nvmrc` file. To use a different
 
 [PNPM][pnpm] is a fast, disk space-efficient package manager for Node.js. It uses symlinks to avoid unnecessary duplication of dependencies and supports monorepos well.
 
-PNPM is stricter than other package managers about using packages that are not explicitly referenced in the `package.json`. This helps ensure that only the required dependencies are being used and no undeclared dependencies are utilized.
+PNPM is stricter than other package managers about using packages that are not explicitly referenced in the `package.json`. This helps ensure that only the required dependencies are being used and no undeclared dependencies are utilised.
 
 ### GitVersion
 
-[GitVersion][gitversion] is a tool that provides semantic versioning based on your Git repository history. It helps standardize version numbers across different projects.
+[GitVersion][gitversion] is a tool that provides semantic versioning based on your Git repository history. It helps standardise version numbers across different projects.
 
 In this repository, GitVersion is used solely for generating a version number. Other versioning tools often attempt to include deployment tasks, which is unnecessary here.
 
@@ -389,13 +388,13 @@ This section covers the setup of TypeScript in the repository, including configu
 
 ### Shared tsconfig
 
-A shared `tsconfig.json` file is used to maintain consistent TypeScript settings across projects. These shared configurations will be located in the `packages/typescript-config` package. This standardization helps avoid discrepancies between different parts of the codebase.
+A shared `tsconfig.json` file is used to maintain consistent TypeScript settings across projects. These shared configurations will be located in the `packages/typescript-config` package. This standardisation helps avoid discrepancies between different parts of the codebase.
 
 For more details on sharing `tsconfig.json`, refer to the [Turbo documentation on TypeScript][tsconfig-sharing].
 
 ### Library Configuration
 
-**Tsup** is utilized in this repository for library configuration and TypeScript build setups. The configuration for `tsup` is defined in `tsup.config.ts`, allowing for fast and easy production of both ESM and CJS outputs, streamlining the build process for libraries.
+**Tsup** is utilised in this repository for library configuration and TypeScript build setups. The configuration for `tsup` is defined in `tsup.config.ts`, allowing for fast and easy production of both ESM and CJS outputs, streamlining the build process for libraries.
 
 For more information on configuring `tsup`, check out the official [tsup documentation][tsup].
 
@@ -448,19 +447,19 @@ Effective logging and monitoring are crucial for maintaining the health and perf
 
 ### Application Insights & Winston
 
-In this setup, I'm using the **@opentelemetry/*** package suite along with **Application Insights 3.x** and **Winston**. Currently, I am migrating from Application Insights 2.x and experimenting with the best configuration for centralized logging and monitoring.
+In this setup, I'm using the **@opentelemetry/*** package suite along with **Application Insights 3.x** and **Winston**. Currently, I am migrating from Application Insights 2.x and experimenting with the best configuration for centralised logging and monitoring.
 
 #### Logging Configuration
 
-- **Winston** is used as the logging library, providing a robust and customizable logging solution.
+- **Winston** is used as the logging library, providing a robust and customisable logging solution.
 - The following transports are integrated:
-  - **ApplicationInsightsExceptionTransport**: A custom transport that logs error-like objects at error level or higher as exceptions in Application Insights. This helps capture and categorize errors effectively.
+  - **ApplicationInsightsExceptionTransport**: A custom transport that logs error-like objects at error level or higher as exceptions in Application Insights. This helps capture and categorise errors effectively.
   - **OpenTelemetryTransportV3**: This transport facilitates sending telemetry data to Application Insights via OpenTelemetry, ensuring comprehensive monitoring across various application layers.
   - **Console Transport**: This transport outputs logs to the console for local development and debugging.
 
 ### Use of OpenTelemetry
 
-The `useAzureMonitor` function from the Azure OpenTelemetry library is utilized for tracking other performance metrics and telemetry data. This integration enables enhanced observability of the application.
+The `useAzureMonitor` function from the Azure OpenTelemetry library is utilised for tracking other performance metrics and telemetry data. This integration enables enhanced observability of the application.
 
 For more details on integrating Application Insights and Winston, refer to the official [Application Insights documentation][app-insights-overview] and [Winston documentation][winston].
 
@@ -510,7 +509,7 @@ Overview of using GraphQL code generation to create TypeScript types and hooks f
 
 Acceptance testing ensures that software behaves as expected from a business perspective by validating workflows and enforcing rules. Unlike unit tests, which focus on individual components, acceptance tests ensure that business processes and rules are correctly implemented and followed.
 
-Cucumber is used for writing acceptance tests, utilizing the `Given-When-Then` format defined by Gherkin. This structure provides a clear, human-readable way to describe features, ensuring that both technical and non-technical stakeholders can collaborate effectively.
+Cucumber is used for writing acceptance tests, utilising the `Given-When-Then` format defined by Gherkin. This structure provides a clear, human-readable way to describe features, ensuring that both technical and non-technical stakeholders can collaborate effectively.
 
 For more details, visit the [Gherkin Reference][gherkin].
 
@@ -542,40 +541,192 @@ See the infrastructure as code [README.md](./infrastructure/README.md)
 
 ## Azure DevOps Pipelines
 
-### Multi-stage pipelines
+This repository includes demonstration examples of Azure DevOps Pipelines, showing patterns and templates that can be used as starting points for CI/CD workflows.
 
-> TODO: Considerations of Pipelines vs Releases (Classic release pipelines)
+### Multi-stage Pipelines
 
-- [https://learn.microsoft.com/en-us/azure/devops/pipelines/release/?view=azure-devops][devops-pipelines-release]
+The repository demonstrates multi-stage YAML pipeline patterns as an alternative to classic release pipelines:
 
-### Build Templates
+- **Source-controlled pipeline definitions**: Pipeline configurations stored alongside code
+- **Template-based approach**: Reusable components for different types of deployments
+- **Environment standardisation**: Common environment progression (dev/tst/uat/prd) defined once and reused
 
-#### NodeJS
+### Pipeline Structure Examples
 
-A template that builds any NodeJS application, including webapps and function apps
+The example pipeline structure follows these patterns:
 
-> TODO: Template
+1. **Main Pipeline Entry Point**: `azure-pipelines.yml` demonstrates:
+   - Build agent configuration
+   - Trigger conditions
+   - Template references with parameterisation
 
-### Deployment Templates
+2. **Template Structure**: `templates/pipeline.yml` shows:
+   - Multi-stage pipeline organisation with standardised environments
+   - Build and deployment stage separation
+   - Environment progression flow (dev → tst → uat → prd)
+   - Pull Request validation with automatic deployment to development environment
 
-#### NodeJS Azure Functions
+3. **Job Templates**:
+   - `build.yml`: Example build job with Bicep validation
+   - `deploy.yml`: Example deployment job with Azure CLI
 
-A template that deploys to Azure Function Apps
+4. **Variable Management**:
+   - Variable templates for different environments
+   - Parameter passing between templates
+   - Integration with Azure DevOps variable groups
 
-> TODO: Template for dedicated Function Apps - [Kudu VFS][kudu-vfs]
+### Environment standardisation
 
-> TODO: Template for Flex Apps and Consumption apps
+A key feature of the pipeline template approach is environment standardisation:
 
-#### Docker Azure App Service
+- Environment stages (dev, tst, uat, prd) are defined once in `templates/pipeline.yml`
+- All projects in the same workload inherit the same environment progression
+- Environment-specific configuration is stored in separate variable files (e.g., `dev.yml`, `prd.yml`)
+- This ensures consistent deployment patterns across all projects
 
-Using docker to optimise nodejs apps (including temporal)
+#### Configuration Management Strategy
 
-> TODO: Template for docker build & deploy
+The decision regarding placement of configuration variables presents two primary options:
 
-> TODO: TemporalIO NodeJS worker
+1. **YAML Configuration Files (`{environment}.yml`)**
+   - Suitable for configuration-as-code adherents
+   - Provides version-controlled configuration history
+   - Maintains configuration alongside deployment definitions
+   - Note: Sensitive values should never be stored in these files
 
-- [https://temporal.io/][temporal]
-- [https://docs.temporal.io/develop/typescript/][temporal-typescript]
+2. **Azure DevOps Library (Variable Groups)**
+   - Recommended for dynamic or sensitive configuration
+   - Provides centralised management of environment-specific values
+   - Facilitates operational changes without code modification
+   - Integrates with Azure Key Vault for secret management
+
+The recommended approach is a balanced strategy:
+
+- Use Bicep files for static infrastructure-specific values
+- Leverage Azure DevOps Variable Groups for environment-specific configuration
+- Minimise YAML-stored configuration to reduce complexity and maintain clarity
+- Always store secrets in Azure Key Vault with appropriate access controls
+
+### PR Validation and Integration Testing
+
+The template includes automatic deployment for Pull Request validation:
+
+- When a PR is submitted, the build stage runs automatically
+- For specified branches, the first environment (typically dev) is deployed to validate changes
+- This enables full integration testing of infrastructure changes in a real environment
+- Stakeholders can verify both deployment success and functional behavior before merging
+- Issues with configuration, resource dependencies, or unexpected side effects are caught early
+- Changes can be tested in isolation without affecting the main branch deployments
+
+### Bicep Build Examples
+
+The infrastructure build examples show:
+
+- Installing and validating Bicep CLI
+- Running validation on Bicep templates
+- Publishing artifacts for deployment stages
+
+### Deployment Examples
+
+The deployment examples demonstrate:
+
+- Environment-specific configuration
+- Variable group integration
+- Resource group targeting with dynamic naming
+- Parameter passing from variables to deployment commands
+
+### Getting Started with These Templates
+
+To use these pipeline examples in your own projects:
+
+1. Copy the relevant template files to your repository
+2. Update the service connection IDs and other environment-specific values
+3. Configure variable groups in your Azure DevOps project
+4. Create an initial pipeline pointing to your main YAML file
+
+For more details on Azure DevOps Pipelines, see the [official documentation][devops-pipelines-release].
+
+### Agent Pool Configuration
+
+When setting up CI/CD pipelines, you'll need to configure the agent pools that run your builds and deployments. I recommend configuring agent pools in the Azure DevOps UI rather than hardcoding them in YAML files.
+
+#### Benefits of UI-Based Agent Pool Configuration
+
+- **Flexibility**: When agent pools need to change (e.g., when a self-hosted agent is unavailable or you need to switch to Microsoft-hosted agents), you can make changes without code modifications
+- **Consistency**: Pool configurations can be updated across multiple pipelines from a central location
+- **Quick response to issues**: If an agent is causing problems, you can immediately redirect the pipeline to use a different pool without waiting for code changes and approval
+
+In my experience, the flexibility of changing this independently of the code is more valuable than having "everything-as-code". While "everything-as-code" is a valuable approach for some configurations, agent pool settings benefit from the operational flexibility that UI-based configuration provides, without providing any real value when stored in the code itself.
+
+This same principle also applies to other configuration elements like service endpoints, connection strings, and keys. By using Azure DevOps library variables instead of hardcoding these values in YAML files, you gain significant operational advantages:
+
+- When a vendor requires endpoint or key updates, you can simply update the values in the Azure DevOps library and redeploy the pipeline
+- You avoid going through the entire development process (code changes, PR reviews, merges) for what are essentially operational changes
+- Security is improved as sensitive values remain in the protected variable groups rather than in code
+
+### Configuration with Bicep Parameters
+
+The deployment process uses Bicep parameter files (`.bicepparam`) which automatically pick up environment variables during deployment. This provides a clean way to pass configuration without hardcoding values:
+
+- Most parameters are automatically set from environment variables that come from variable groups
+- Secrets are handled differently for security reasons, being explicitly passed through the `env:` object in the deployment task
+- This approach maintains separation between infrastructure definition and configuration values
+
+For more information on configuring agent pools, see the [Azure Pipelines agent pools documentation][devops-agent-pools].
+
+### Pipeline Templates
+
+This repository includes templates for building and deploying different types of projects. The following table shows how project types map to their corresponding build and deployment templates:
+
+#### Project Type to Template Mapping
+
+| Project Type     | Build Template                                                   | Deployment Template Options                                      |
+|------------------|------------------------------------------------------------------|------------------------------------------------------------------|
+| Bicep IaC        | [`build-bicep.yml`](./templates/build/build-bicep.yml)           | [`deploy-bicep.yml`](./templates/deploy/deploy-bicep.yml)        |
+| Web Applications | `build-nodejs.yml` *(TODO)*                                      | `deploy-static-webapp.yml` *(TODO)* or `deploy-function.yml` *(TODO)* |
+| Azure Functions  | `build-nodejs.yml` *(TODO)*                                      | `deploy-function.yml` *(TODO)*                                   |
+| Docker Apps      | `build-nodejs.yml` *(TODO)*                                      | `deploy-docker.yml` *(TODO)*                                     |
+
+#### Bicep Templates
+
+**Build**: [`templates/build/build-bicep.yml`](./templates/build/build-bicep.yml)
+
+- Validates Bicep templates using the Azure CLI
+- Runs `az bicep lint` to check for issues
+- Publishes Bicep files and related assets as build artifacts
+- Integrates with GitVersion for automated version numbering
+- Copies all necessary files for deployment (bicep, bicepparam, swagger, etc.)
+
+**Deploy**: [`templates/deploy/deploy-bicep.yml`](./templates/deploy/deploy-bicep.yml)
+
+- Configures deployment environments with variable templates
+- Handles parameter passing to Bicep deployments
+- Supports secret injection via environment variables
+- Creates timestamped deployment names for tracking in Azure
+- Uses Azure CLI to execute resource group deployments
+
+#### NodeJS Templates
+
+**Build**: `templates/build/build-nodejs.yml` *(TODO)*
+
+- Template for building NodeJS applications
+- Supports both web applications and Azure Functions
+- Single template used for multiple project types
+
+**Deploy Options**:
+
+1. **Azure Functions**: `templates/deploy/deploy-function.yml` *(TODO)*
+   - Deploys NodeJS applications to Azure Functions
+   - Supports dedicated Function Apps using [Kudu VFS][kudu-vfs]
+   - Supports Flex Apps and Consumption hosting plans
+
+2. **Static Websites**: `templates/deploy/deploy-static-webapp.yml` *(TODO)*
+   - Deploys static websites to Azure Storage - Static website
+
+3. **Docker Apps**: `templates/deploy/deploy-docker.yml` *(TODO)*
+   - Deploys containerised NodeJS applications to Azure App Services
+   - Optimises Docker container settings for NodeJS
+   - Includes support for TemporalIO workers ([Temporal][temporal]/[TypeScript SDK][temporal-typescript])
 
 ---
 
@@ -635,5 +786,6 @@ Using docker to optimise nodejs apps (including temporal)
 
 [temporal]: https://temporal.io/
 [temporal-typescript]: https://docs.temporal.io/develop/typescript/
+[devops-agent-pools]: https://learn.microsoft.com/en-us/azure/devops/pipelines/agents/agents?view=azure-devops&tabs=yaml%2Cbrowser
 
 *This README was created with the assistance of [ChatGPT][chatgpt] by OpenAI.*

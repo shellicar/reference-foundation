@@ -1,0 +1,27 @@
+# See: https://learn.microsoft.com/en-us/azure/devops/pipelines/yaml-schema/pool?view=azure-pipelines
+#
+# If you are using a self-hosted agent, you can specify the name of the agent here,
+# or in the pipeline settings in Azure DevOps.
+#
+# If you are using a Microsoft-hosted agent, you can specify the image here.
+#
+# My recommendation is to configure this in Azure DevOps, so you can easily change the configuration and/or pool independently of the code.
+# Otherwise, if you need to change the pool in the future, for example the agent is broken, then existing pipelines will continue to be broken.
+# If you need to use Microsoft-hosted agents, then you can pass in a variable to the pipeline to use here.
+pool:
+  vmImage: 'ubuntu-latest'
+
+trigger:
+  branches:
+    include:
+    - main
+  paths:
+    include:
+    - infrastructure
+    - templates
+
+stages:
+- template: ../templates/pipeline.yml
+  parameters:
+    project: infrastructure
+    workload: core-foundation

@@ -20,7 +20,7 @@ let { children } = $props();
 		<p>
       {JSON.stringify(version)}
 		</p>
-	</footer>  
+	</footer>
 </div>
 
 <style>

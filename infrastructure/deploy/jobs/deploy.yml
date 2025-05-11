@@ -1,0 +1,16 @@
+parameters:
+- name: environment
+  type: string
+- name: project
+  type: string
+- name: workload
+  type: string
+
+jobs:
+- template: ../../../templates/deploy/deploy-bicep.yml
+  parameters:
+    environment: ${{ parameters.environment }}
+    project: ${{ parameters.project }}
+    workload: ${{ parameters.workload }}
+    secretNames: 
+      MYSECRET: $(MYSECRET)

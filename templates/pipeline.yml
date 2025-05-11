@@ -1,0 +1,31 @@
+parameters:
+- name: project
+  type: string
+- name: workload
+  type: string
+
+stages:
+- stage: Build
+  jobs:
+  - template: ../${{ parameters.project }}/deploy/jobs/build.yml
+
+- stage: DevRelease
+  displayName: Release to Dev
+  dependsOn: Build
+  jobs:
+  - template: ../${{ parameters.project }}/deploy/jobs/deploy.yml
+    parameters:
+      environment: dev
+      project: ${{ parameters.project }}
+      workload: ${{ parameters.workload }}
+
+# - ${{  if ne(variables['Build.Reason'], 'PullRequest') }}:
+#   - stage: PrdRelease
+#     displayName: Release to Prd
+#     dependsOn: DevRelease
+#     jobs:
+#     - template: ../${{ parameters.project }}/deploy/jobs/deploy.yml
+#       parameters:
+#         environment: prd
+#         project: ${{ parameters.project }}
+#         workload: ${{ parameters.workload }}

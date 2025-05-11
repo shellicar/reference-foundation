@@ -1,18 +1,25 @@
 param workspaceId string
 
-@maxLength(32)
-@minLength(32)
+@maxLength(36)
+@minLength(36)
 param sandboxId string
 param location string
 
+@secure()
+param mySecret string
+
 @maxLength(32)
-param funcName string = substring('func${sandboxId}', 0, 32)
+@minLength(32)
+param resourceSuffix string = replace(sandboxId, '-', '')
+
 @maxLength(32)
-param planName string = substring('plan${sandboxId}', 0, 32)
+param funcName string = substring('func${resourceSuffix}', 0, 32)
+@maxLength(32)
+param planName string = substring('plan${resourceSuffix}', 0, 32)
 @maxLength(24)
-param storageName string = substring('st${sandboxId}', 0, 24)
+param storageName string = substring('st${resourceSuffix}', 0, 24)
 @maxLength(32)
-param insightsName string = substring('appi${sandboxId}', 0, 32)
+param insightsName string = substring('appi${resourceSuffix}', 0, 32)
 
 var functionId = resourceId('Microsoft.Web/sites', funcName)
 var containerName = 'app-package-${funcName}-${substring(uniqueString(functionId, storageName), 0, 7)}'
@@ -162,3 +169,6 @@ resource flexAppSettings 'Microsoft.Web/sites/config@2023-12-01' = {
     AzureWebJobsStorage__credential: 'managedidentity'
   }
 }
+
+#disable-next-line outputs-should-not-contain-secrets demonstrative purposes only
+output mySecret string = mySecret
