@@ -1,4 +1,4 @@
 export default {
   schema: 'apps/function-app/**/*.graphql',
-  documents: 'packages/*.{svelte,vue}',
+  documents: ['apps/**/requests.ts', '{apps,packages}/**/*.{svelte,vue}'],
 };
