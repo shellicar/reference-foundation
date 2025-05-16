@@ -25,29 +25,6 @@ jobs:
     runOnce:
       deploy:
         steps:
-        # AzCli and bicep is currently broken
-        # See: https://github.com/Azure/azure-cli/issues/31189#issuecomment-2790370116
-        - script: |
-            set -e
-
-            VERSION=$(az version --query '"azure-cli"' -o tsv)
-            if [ "$VERSION" != "2.71.0" ]; then
-              exit 0
-            fi
-
-            az bicep uninstall
-            az config set bicep.use_binary_from_path=false
-            az bicep install
-
-            BICEP_PATH=$(which bicep)
-            echo "Bicep installed at: $BICEP_PATH"
-            mkdir -p /home/vsts/work/_temp/.azclitask/bin/
-
-            cp $BICEP_PATH /home/vsts/work/_temp/.azclitask/bin/
-            chmod +x /home/vsts/work/_temp/.azclitask/bin/bicep
-            echo "Copied bicep to /home/vsts/work/_temp/.azclitask/bin/"
-          displayName: Fix bicep setup
-
         - task: AzureCLI@2
           displayName: 'Deploy main.bicep'
           ${{ if ne(length(parameters.secretNames), 0) }}:
