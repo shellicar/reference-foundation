@@ -1,3 +1,4 @@
+import type { Instant } from '@js-joda/core';
 import type { UUID } from 'node:crypto';
 import type { GraphQLResolveInfo, GraphQLScalarType, GraphQLScalarTypeConfig } from 'graphql';
 import type { AppContext } from '../core/graphql/types';
@@ -18,11 +19,13 @@ export type Scalars = {
   Int: { input: number; output: number; }
   Float: { input: number; output: number; }
   EmailAddress: { input: string; output: string; }
+  Instant: { input: Instant; output: Instant; }
   UUID: { input: UUID; output: UUID; }
 };
 
 export type Entity1 = {
   __typename: 'Entity1';
+  created: Scalars['Instant']['output'];
   entities2: Entity2Connection;
   id: Scalars['ID']['output'];
   name: Scalars['String']['output'];
@@ -36,6 +39,7 @@ export type Entity1Edge = {
 
 export type Entity2 = {
   __typename: 'Entity2';
+  created: Scalars['Instant']['output'];
   description: Maybe<Scalars['String']['output']>;
   entity1: Entity1Edge;
   id: Scalars['ID']['output'];
@@ -177,6 +181,7 @@ export type ResolversTypes = {
   Entity2Connection: ResolverTypeWrapper<Entity2Connection>;
   Entity2Edge: ResolverTypeWrapper<Entity2Edge>;
   ID: ResolverTypeWrapper<Scalars['ID']['output']>;
+  Instant: ResolverTypeWrapper<Scalars['Instant']['output']>;
   Int: ResolverTypeWrapper<Scalars['Int']['output']>;
   Query: ResolverTypeWrapper<{}>;
   String: ResolverTypeWrapper<Scalars['String']['output']>;
@@ -196,6 +201,7 @@ export type ResolversParentTypes = {
   Entity2Connection: Entity2Connection;
   Entity2Edge: Entity2Edge;
   ID: Scalars['ID']['output'];
+  Instant: Scalars['Instant']['output'];
   Int: Scalars['Int']['output'];
   Query: {};
   String: Scalars['String']['output'];
@@ -210,6 +216,7 @@ export interface EmailAddressScalarConfig extends GraphQLScalarTypeConfig<Resolv
 }
 
 export type Entity1Resolvers<ContextType = AppContext, ParentType extends ResolversParentTypes['Entity1'] = ResolversParentTypes['Entity1']> = {
+  created?: Resolver<ResolversTypes['Instant'], ParentType, ContextType>;
   entities2?: Resolver<ResolversTypes['Entity2Connection'], ParentType, ContextType>;
   id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
   name?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -223,6 +230,7 @@ export type Entity1EdgeResolvers<ContextType = AppContext, ParentType extends Re
 };
 
 export type Entity2Resolvers<ContextType = AppContext, ParentType extends ResolversParentTypes['Entity2'] = ResolversParentTypes['Entity2']> = {
+  created?: Resolver<ResolversTypes['Instant'], ParentType, ContextType>;
   description?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   entity1?: Resolver<ResolversTypes['Entity1Edge'], ParentType, ContextType>;
   id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
@@ -241,6 +249,10 @@ export type Entity2EdgeResolvers<ContextType = AppContext, ParentType extends Re
   node?: Resolver<ResolversTypes['Entity2'], ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
+
+export interface InstantScalarConfig extends GraphQLScalarTypeConfig<ResolversTypes['Instant'], any> {
+  name: 'Instant';
+}
 
 export type QueryResolvers<ContextType = AppContext, ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']> = {
   entity1?: Resolver<Maybe<ResolversTypes['Entity1']>, ParentType, ContextType, RequireFields<QueryEntity1Args, 'id'>>;
@@ -276,6 +288,7 @@ export type Resolvers<ContextType = AppContext> = {
   Entity2?: Entity2Resolvers<ContextType>;
   Entity2Connection?: Entity2ConnectionResolvers<ContextType>;
   Entity2Edge?: Entity2EdgeResolvers<ContextType>;
+  Instant?: GraphQLScalarType;
   Query?: QueryResolvers<ContextType>;
   UUID?: GraphQLScalarType;
   Validate?: ValidateResolvers<ContextType>;

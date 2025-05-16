@@ -10,13 +10,11 @@ let { children } = $props();
 </script>
 
 <div class="app">
-	<Header />
-
 	<main>
 		{@render children()}
 	</main>
 
-	<footer>
+	<footer class="bg-slate-400">
 		<p>
       {JSON.stringify(version)}
 		</p>
@@ -47,10 +45,6 @@ let { children } = $props();
 		justify-content: center;
 		align-items: center;
 		padding: 12px;
-	}
-
-	footer a {
-		font-weight: bold;
 	}
 
 	@media (min-width: 480px) {
