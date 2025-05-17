@@ -19,6 +19,7 @@ type Entity2Edge {
 # The Node type for Entity2
 type Entity2 {
   id: ID!
+  created: Instant!
   description: String
   entity1: Entity1Edge!
 }
@@ -32,6 +33,7 @@ type Entity1Edge {
 # The Node type for Entity1
 type Entity1 {
   id: ID!
+  created: Instant!
   name: String!
   entities2: Entity2Connection! # Using the connection type for related Entity2 instances
 }

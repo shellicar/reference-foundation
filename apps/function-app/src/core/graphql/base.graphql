@@ -1,3 +1,4 @@
 type Query
 scalar EmailAddress
 scalar UUID
+scalar Instant

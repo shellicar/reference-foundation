@@ -2,6 +2,7 @@ import { GraphQLEmailAddress } from 'graphql-scalars';
 import { testEntityResolvers } from '../../features/test-relations/resolvers';
 import { versionResolvers } from '../../features/version/resolvers';
 import type { Resolvers } from '../../generated/graphql-types';
+import { InstantGraphQLType } from './scalars/Instant';
 import { GraphQLUUID } from './scalars/UUID';
 import type { AppContext } from './types';
 
@@ -12,5 +13,6 @@ export const resolvers: Resolvers<AppContext>[] = [
   {
     EmailAddress: GraphQLEmailAddress,
     UUID: GraphQLUUID,
+    Instant: InstantGraphQLType,
   },
 ];

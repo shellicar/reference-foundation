@@ -17,6 +17,7 @@ const config: CodegenConfig = {
         allowEnumStringTypes: false,
         scalars: {
           UUID: 'node:crypto#UUID',
+          Instant: '@js-joda/core#Instant',
           EmailAddress: 'string',
         },
         mappers: {
