@@ -7,7 +7,18 @@
   },
   "files": {
     "ignoreUnknown": false,
-    "ignore": ["apps/function-app/src/generated/graphql-types.ts", "vite.config.ts.timestamp-*", "apps/svelte-webapp/src/lib/graphql/gql.ts", "apps/svelte-webapp/src/lib/graphql/index.ts", "apps/svelte-webapp/src/lib/graphql/fragment-masking.ts", "apps/svelte-webapp/src/lib/graphql/graphql.ts"]
+    "ignore": [
+      "apps/function-app/src/generated/graphql-types.ts",
+      "vite.config.ts.timestamp-*",
+      "apps/svelte-webapp/src/lib/graphql/gql.ts",
+      "apps/svelte-webapp/src/lib/graphql/index.ts",
+      "apps/svelte-webapp/src/lib/graphql/fragment-masking.ts",
+      "apps/svelte-webapp/src/lib/graphql/graphql.ts",
+      "apps/nuxt-webapp/src/lib/graphql/gql.ts",
+      "apps/nuxt-webapp/src/lib/graphql/index.ts",
+      "apps/nuxt-webapp/src/lib/graphql/fragment-masking.ts",
+      "apps/nuxt-webapp/src/lib/graphql/graphql.ts"
+    ]
   },
   "formatter": {
     "enabled": true,

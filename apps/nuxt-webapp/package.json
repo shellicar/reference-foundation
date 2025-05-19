@@ -5,6 +5,7 @@
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
+    "codegen": "graphql-codegen --config codegen.ts",
     "check": "nuxi typecheck",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
@@ -12,11 +13,17 @@
     "type-check": "vue-tsc -p tsconfig.check.json"
   },
   "dependencies": {
+    "@apollo/client": "^3.13.8",
+    "@js-joda/core": "^5.6.5",
+    "@vue/apollo-composable": "^4.2.2",
     "vue": "^3.5.13",
     "vue-router": "latest"
   },
   "devDependencies": {
+    "@graphql-codegen/cli": "^5.0.6",
+    "@graphql-typed-document-node/core": "^3.2.0",
     "@shellicar/build-version": "^1.1.0",
+    "graphql": "^16.11.0",
     "nuxt": "3.17.2",
     "vue-tsc": "^2.2.10"
   }
