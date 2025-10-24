@@ -30,7 +30,7 @@
     "overrides": {
       "tailwindcss": "==3.4.17",
       "cookie": "^1",
-      "esbuild": ">=0.25.0"
+      "esbuild": "^0.25.11"
     }
   },
   "devDependencies": {
