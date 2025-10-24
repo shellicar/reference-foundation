@@ -2,7 +2,7 @@
   "name": "@shellicar-core-foundation/root",
   "version": "0.1.0",
   "description": "@shellicar/core-foundation is a comprehensive starter repository for building modern applications, including monorepo setups, infrastructure, web frameworks, Docker, TypeScript, testing, and more.",
-  "packageManager": "pnpm@10.10.0+sha512.d615db246fe70f25dcfea6d8d73dee782ce23e2245e3c4f6f888249fb568149318637dca73c2c5c8ef2a4ca0d5657fb9567188bfab47f566d1ee6ce987815c39",
+  "packageManager": "pnpm@10.19.0",
   "main": "index.js",
   "scripts": {
     "lint": "biome lint",
@@ -18,27 +18,26 @@
     "dev": "turbo run dev --concurrency 15",
     "list-mismatches": "syncpack list-mismatches",
     "fix-mismatches": "syncpack fix-mismatches",
-    "updates": "npm-check-updates --workspaces",
-    "postinstall": "lefthook install"
+    "updates": "npm-check-updates --workspaces"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "turbo": "^2.5.3"
+    "turbo": "^2.5.8"
   },
   "pnpm": {
     "overrides": {
       "tailwindcss": "==3.4.17",
       "cookie": "^1",
-      "esbuild": ">=0.25.0"
+      "esbuild": "^0.25.11"
     }
   },
   "devDependencies": {
-    "@biomejs/biome": "^1.9.4",
-    "lefthook": "^1.11.12",
-    "npm-check-updates": "^18.0.1",
+    "@biomejs/biome": "^2.3.0",
+    "lefthook": "^2.0.0",
+    "npm-check-updates": "^19.1.1",
     "syncpack": "^13.0.4",
-    "typescript": "^5.8.3"
+    "typescript": "^5.9.3"
   }
 }

@@ -1,4 +1,4 @@
-mode: MainLine
+mode: Mainline
 branches: {}
 ignore:
   sha: []
