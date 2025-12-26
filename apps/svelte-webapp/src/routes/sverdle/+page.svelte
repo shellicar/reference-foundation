@@ -1,6 +1,6 @@
 <script lang="ts">
-import { enhance } from '$app/forms';
 import { confetti } from '@neoconfetti/svelte';
+import { enhance } from '$app/forms';
 import type { ActionData, PageData } from './$types';
 import { reducedMotion } from './reduced-motion';
 

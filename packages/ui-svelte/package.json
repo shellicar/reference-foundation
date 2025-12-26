@@ -11,8 +11,14 @@
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch"
   },
-  "files": ["dist", "!dist/**/*.test.*", "!dist/**/*.spec.*"],
-  "sideEffects": ["**/*.css"],
+  "files": [
+    "dist",
+    "!dist/**/*.test.*",
+    "!dist/**/*.spec.*"
+  ],
+  "sideEffects": [
+    "**/*.css"
+  ],
   "svelte": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "type": "module",
@@ -27,16 +33,16 @@
   },
   "devDependencies": {
     "@shellicar-core-foundation/ui-config": "workspace:^",
-    "@sveltejs/adapter-auto": "^6.0.0",
-    "@sveltejs/kit": "^2.20.8",
-    "@sveltejs/package": "^2.3.11",
-    "@sveltejs/vite-plugin-svelte": "^5.0.3",
-    "autoprefixer": "^10.4.21",
-    "publint": "^0.3.12",
-    "svelte": "^5.28.2",
-    "svelte-check": "^4.1.7",
-    "tailwindcss": "^3.4.17",
-    "typescript": "^5.8.3",
-    "vite": "^6.4.1"
+    "@sveltejs/adapter-auto": "^7.0.0",
+    "@sveltejs/kit": "^2.49.2",
+    "@sveltejs/package": "^2.5.7",
+    "@sveltejs/vite-plugin-svelte": "^6.2.1",
+    "autoprefixer": "^10.4.23",
+    "publint": "^0.3.16",
+    "svelte": "^5.46.1",
+    "svelte-check": "^4.3.5",
+    "tailwindcss": "^4.1.18",
+    "typescript": "^5.9.3",
+    "vite": "^7.3.0"
   }
 }

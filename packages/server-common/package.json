@@ -30,29 +30,29 @@
   "license": "ISC",
   "devDependencies": {
     "@shellicar-core-foundation/typescript-config": "workspace:^",
-    "terser": "^5.39.0",
-    "tsup": "^8.4.0",
-    "typescript": "^5.8.3"
+    "terser": "^5.44.1",
+    "tsup": "^8.5.1",
+    "typescript": "^5.9.3"
   },
   "dependencies": {
-    "@azure/identity": "^4.9.1",
-    "@azure/monitor-opentelemetry": "^1.11.0",
+    "@azure/identity": "^4.13.0",
+    "@azure/monitor-opentelemetry": "^1.14.2",
     "@opentelemetry/api": "^1.9.0",
-    "@opentelemetry/api-logs": "^0.200.0",
-    "@opentelemetry/instrumentation": "^0.200.0",
-    "@opentelemetry/instrumentation-http": "^0.200.0",
-    "@opentelemetry/instrumentation-winston": "^0.45.0",
-    "@opentelemetry/resources": "^2.0.0",
-    "@opentelemetry/sdk-logs": "^0.200.0",
-    "@opentelemetry/sdk-trace-node": "^2.0.0",
-    "@opentelemetry/semantic-conventions": "^1.33.0",
-    "@opentelemetry/winston-transport": "^0.11.0",
+    "@opentelemetry/api-logs": "^0.208.0",
+    "@opentelemetry/instrumentation": "^0.208.0",
+    "@opentelemetry/instrumentation-http": "^0.208.0",
+    "@opentelemetry/instrumentation-winston": "^0.53.0",
+    "@opentelemetry/resources": "^2.2.0",
+    "@opentelemetry/sdk-logs": "^0.208.0",
+    "@opentelemetry/sdk-trace-node": "^2.2.0",
+    "@opentelemetry/semantic-conventions": "^1.38.0",
+    "@opentelemetry/winston-transport": "^0.19.0",
     "@shellicar-core-foundation/common": "workspace:^",
     "@shellicar-core-foundation/monitor": "workspace:^",
-    "@shellicar/core-di": "^2.3.0",
-    "applicationinsights": "^3.7.0",
-    "winston": "^3.17.0",
+    "@shellicar/core-di": "^3.1.2",
+    "applicationinsights": "^3.12.1",
+    "winston": "^3.19.0",
     "winston-transport": "^4.9.0",
-    "zod": "^3.24.4"
+    "zod": "^4.2.1"
   }
 }
