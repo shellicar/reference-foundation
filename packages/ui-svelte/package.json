@@ -34,15 +34,15 @@
   "devDependencies": {
     "@shellicar-core-foundation/ui-config": "workspace:^",
     "@sveltejs/adapter-auto": "^7.0.0",
-    "@sveltejs/kit": "^2.47.3",
-    "@sveltejs/package": "^2.5.4",
+    "@sveltejs/kit": "^2.49.2",
+    "@sveltejs/package": "^2.5.7",
     "@sveltejs/vite-plugin-svelte": "^6.2.1",
-    "autoprefixer": "^10.4.21",
-    "publint": "^0.3.15",
-    "svelte": "^5.41.3",
-    "svelte-check": "^4.3.3",
-    "tailwindcss": "==3.4.17",
+    "autoprefixer": "^10.4.23",
+    "publint": "^0.3.16",
+    "svelte": "^5.46.1",
+    "svelte-check": "^4.3.5",
+    "tailwindcss": "^3.4.19",
     "typescript": "^5.9.3",
-    "vite": "^7.1.12"
+    "vite": "^7.3.0"
   }
 }

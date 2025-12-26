@@ -1,7 +1,7 @@
 import { type ASTNode, GraphQLError, GraphQLScalarType, type GraphQLScalarTypeConfig, Kind } from 'graphql';
 import z from 'zod';
 
-const emailSchema = z.string().email().toLowerCase();
+const emailSchema = z.email().toLowerCase();
 
 const validate = (value: any, ast?: ASTNode): string => {
   if (typeof value !== 'string') {
