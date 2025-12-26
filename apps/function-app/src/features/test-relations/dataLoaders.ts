@@ -4,7 +4,7 @@ import { Entity1Loader, Entity2Loader } from './types';
 export const createLoaders = () => {
   const entity1Loader = new Entity1Loader(async (ids) => {
     console.log(`Loading Entity1 for IDs: ${ids}`);
-    if (Math.random() >= 0.75) {
+    if (Math.random() >= 0.25) {
       console.error('Error getting data from DB');
       throw new Error('Error getting data from DB');
     }

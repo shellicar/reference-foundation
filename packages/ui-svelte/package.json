@@ -41,7 +41,7 @@
     "publint": "^0.3.16",
     "svelte": "^5.46.1",
     "svelte-check": "^4.3.5",
-    "tailwindcss": "^4.1.18",
+    "tailwindcss": "^3.4.19",
     "typescript": "^5.9.3",
     "vite": "^7.3.0"
   }
