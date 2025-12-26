@@ -18,8 +18,7 @@
     "dev": "turbo run dev --concurrency 15",
     "list-mismatches": "syncpack list-mismatches",
     "fix-mismatches": "syncpack fix-mismatches",
-    "updates": "npm-check-updates --workspaces",
-    "postinstall": "lefthook install"
+    "updates": "npm-check-updates --workspaces"
   },
   "keywords": [],
   "author": "",
