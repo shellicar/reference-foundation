@@ -50,6 +50,7 @@
     "@opentelemetry/sdk-trace-node": "^2.2.0",
     "@opentelemetry/semantic-conventions": "^1.38.0",
     "@opentelemetry/winston-transport": "^0.19.0",
+    "@shellicar/winston-azure-application-insights": "^6.0.3",
     "applicationinsights": "^3.12.1",
     "winston": "^3.19.0",
     "winston-transport": "^4.9.0",
