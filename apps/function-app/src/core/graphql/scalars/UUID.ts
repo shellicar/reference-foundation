@@ -2,10 +2,7 @@ import type { UUID } from 'node:crypto';
 import { type ASTNode, GraphQLError, GraphQLScalarType, type GraphQLScalarTypeConfig, Kind } from 'graphql';
 import z from 'zod';
 
-const uuidSchema = z
-  .string()
-  .uuid()
-  .transform((x) => x as UUID);
+const uuidSchema = z.uuid().transform((x) => x as UUID);
 
 const validate = (value: any, ast?: ASTNode) => {
   if (typeof value !== 'string') {
