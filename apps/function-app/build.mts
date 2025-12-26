@@ -1,5 +1,5 @@
-import { createBuildContext, defineConfig } from '@shellicar-core-foundation/build/esbuild';
 import GraphQLPlugin from '@shellicar/build-graphql/esbuild';
+import { createBuildContext, defineConfig } from '@shellicar-core-foundation/build/esbuild';
 
 const watch = process.argv.includes('--watch');
 const graphqlPlugins = GraphQLPlugin({

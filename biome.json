@@ -1,5 +1,5 @@
 {
-  "$schema": "https://biomejs.dev/schemas/1.9.2/schema.json",
+  "$schema": "https://biomejs.dev/schemas/2.3.0/schema.json",
   "vcs": {
     "enabled": true,
     "clientKind": "git",
@@ -7,17 +7,18 @@
   },
   "files": {
     "ignoreUnknown": false,
-    "ignore": [
-      "apps/function-app/src/generated/graphql-types.ts",
-      "vite.config.ts.timestamp-*",
-      "apps/svelte-webapp/src/lib/graphql/gql.ts",
-      "apps/svelte-webapp/src/lib/graphql/index.ts",
-      "apps/svelte-webapp/src/lib/graphql/fragment-masking.ts",
-      "apps/svelte-webapp/src/lib/graphql/graphql.ts",
-      "apps/nuxt-webapp/src/lib/graphql/gql.ts",
-      "apps/nuxt-webapp/src/lib/graphql/index.ts",
-      "apps/nuxt-webapp/src/lib/graphql/fragment-masking.ts",
-      "apps/nuxt-webapp/src/lib/graphql/graphql.ts"
+    "includes": [
+      "**",
+      "!**/apps/function-app/src/generated/graphql-types.ts",
+      "!**/vite.config.ts.timestamp-*",
+      "!**/apps/svelte-webapp/src/lib/graphql/gql.ts",
+      "!**/apps/svelte-webapp/src/lib/graphql/index.ts",
+      "!**/apps/svelte-webapp/src/lib/graphql/fragment-masking.ts",
+      "!**/apps/svelte-webapp/src/lib/graphql/graphql.ts",
+      "!**/apps/nuxt-webapp/src/lib/graphql/gql.ts",
+      "!**/apps/nuxt-webapp/src/lib/graphql/index.ts",
+      "!**/apps/nuxt-webapp/src/lib/graphql/fragment-masking.ts",
+      "!**/apps/nuxt-webapp/src/lib/graphql/graphql.ts"
     ]
   },
   "formatter": {
@@ -28,9 +29,7 @@
     "lineEnding": "lf",
     "attributePosition": "auto"
   },
-  "organizeImports": {
-    "enabled": true
-  },
+  "assist": { "actions": { "source": { "organizeImports": "on" } } },
   "linter": {
     "enabled": true,
     "rules": {
@@ -83,7 +82,7 @@
   },
   "overrides": [
     {
-      "include": ["*.svelte", "*.vue"],
+      "includes": ["**/*.svelte", "**/*.vue"],
       "linter": {
         "rules": {
           "correctness": {

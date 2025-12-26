@@ -1,5 +1,5 @@
-import { browser } from '$app/environment';
 import { readable } from 'svelte/store';
+import { browser } from '$app/environment';
 
 const reducedMotionQuery = '(prefers-reduced-motion: reduce)';
 

@@ -11,6 +11,12 @@
       "dependencyTypes": ["!dev"],
       "isBanned": true,
       "label": "@types packages should only be under devDependencies"
+    },
+     {
+      "label": "Allow peer dependencies to be different",
+      "dependencies": ["**"],
+      "dependencyTypes": ["peer"],
+      "policy": "ignore"
     }
   ]
 }

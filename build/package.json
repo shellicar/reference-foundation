@@ -30,20 +30,22 @@
       }
     }
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@shellicar-core-foundation/typescript-config": "workspace:^",
-    "@shellicar/build-version": "^1.1.0",
-    "@tsconfig/node20": "^20.1.5",
-    "@types/node": "^22.15.16",
-    "esbuild": "^0.25.4",
-    "glob": "^11.0.2",
-    "tsup": "^8.4.0",
-    "typescript": "^5.8.3",
-    "unplugin": "^2.3.2",
-    "vite": "^6.4.1"
+    "@shellicar/build-version": "^1.3.1",
+    "@tsconfig/node20": "^20.1.6",
+    "@types/node": "^24.9.1",
+    "esbuild": "^0.25.11",
+    "glob": "^11.0.3",
+    "tsup": "^8.5.0",
+    "typescript": "^5.9.3",
+    "unplugin": "^2.3.10",
+    "vite": "^7.1.12"
   }
 }

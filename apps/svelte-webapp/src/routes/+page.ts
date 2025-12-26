@@ -1,8 +1,8 @@
 // // since there's no dynamic data here, we can prerender
 
-import { browser } from '$app/environment';
 import { ApolloError } from '@apollo/client/errors';
 import { error } from '@sveltejs/kit';
+import { browser } from '$app/environment';
 import { Validate } from './requests';
 
 // // it so that it gets served as a static asset in production

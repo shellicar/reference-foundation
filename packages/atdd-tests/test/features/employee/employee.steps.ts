@@ -1,4 +1,4 @@
-import { Given, Then, When, setWorldConstructor } from '@cucumber/cucumber';
+import { Given, setWorldConstructor, Then, When } from '@cucumber/cucumber';
 import { expect } from 'chai';
 import { EmployeeWorld } from './EmployeeWorld.js';
 
