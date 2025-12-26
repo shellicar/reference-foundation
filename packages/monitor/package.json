@@ -52,6 +52,7 @@
     "@opentelemetry/winston-transport": "^0.18.0",
     "applicationinsights": "^3.12.0",
     "winston": "^3.18.3",
+    "@shellicar/winston-azure-application-insights": "^6.0.1",
     "winston-transport": "^4.9.0",
     "zod": "^3.25.76"
   }
