@@ -13,7 +13,7 @@
     "type-check": "tsc -p tsconfig.check.json"
   },
   "dependencies": {
-    "@apollo/server": "^5.2.0",
+    "@apollo/server": "^5.4.0",
     "@as-integrations/azure-functions": "^0.2.3",
     "@azure/functions": "^4.10.0",
     "@graphql-tools/schema": "^10.0.30",
