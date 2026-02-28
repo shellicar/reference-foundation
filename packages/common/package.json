@@ -19,7 +19,7 @@
   "license": "ISC",
   "devDependencies": {
     "@shellicar-core-foundation/typescript-config": "workspace:^",
-    "terser": "^5.44.1",
+    "terser": "^5.46.0",
     "tsup": "^8.5.1",
     "typescript": "^5.9.3"
   },
